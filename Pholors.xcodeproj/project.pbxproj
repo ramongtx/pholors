@@ -13,14 +13,16 @@
 		F6E663471816F8740094EC26 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6E663451816F8740094EC26 /* InfoPlist.strings */; };
 		F6E663491816F8740094EC26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663481816F8740094EC26 /* main.m */; };
 		F6E6634D1816F8740094EC26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6634C1816F8740094EC26 /* AppDelegate.m */; };
-		F6E663501816F8740094EC26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6E6634E1816F8740094EC26 /* Main.storyboard */; };
-		F6E663531816F8740094EC26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663521816F8740094EC26 /* ViewController.m */; };
 		F6E663551816F8740094EC26 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6E663541816F8740094EC26 /* Images.xcassets */; };
 		F6E6635C1816F8740094EC26 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6635B1816F8740094EC26 /* XCTest.framework */; };
 		F6E6635D1816F8740094EC26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633C1816F8740094EC26 /* Foundation.framework */; };
 		F6E6635E1816F8740094EC26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E663401816F8740094EC26 /* UIKit.framework */; };
 		F6E663661816F8740094EC26 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6E663641816F8740094EC26 /* InfoPlist.strings */; };
 		F6E663681816F8740094EC26 /* PholorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663671816F8740094EC26 /* PholorsTests.m */; };
+		F6E663831816F8880094EC26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6E663741816F8880094EC26 /* Main.storyboard */; };
+		F6E6638D1816F9860094EC26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638C1816F9860094EC26 /* ViewController.m */; };
+		F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */; };
+		F6E663931816F9AF0094EC26 /* GameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663911816F9AF0094EC26 /* GameLogic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,15 +46,19 @@
 		F6E6634A1816F8740094EC26 /* Pholors-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pholors-Prefix.pch"; sourceTree = "<group>"; };
 		F6E6634B1816F8740094EC26 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F6E6634C1816F8740094EC26 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F6E6634F1816F8740094EC26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F6E663511816F8740094EC26 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F6E663521816F8740094EC26 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F6E663541816F8740094EC26 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F6E6635A1816F8740094EC26 /* PholorsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PholorsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E6635B1816F8740094EC26 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F6E663631816F8740094EC26 /* PholorsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PholorsTests-Info.plist"; sourceTree = "<group>"; };
 		F6E663651816F8740094EC26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F6E663671816F8740094EC26 /* PholorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PholorsTests.m; sourceTree = "<group>"; };
+		F6E663751816F8880094EC26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F6E6638B1816F9860094EC26 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F6E6638C1816F9860094EC26 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		F6E663901816F9AF0094EC26 /* GameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogic.h; sourceTree = "<group>"; };
+		F6E663911816F9AF0094EC26 /* GameLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +118,15 @@
 		F6E663421816F8740094EC26 /* Pholors */ = {
 			isa = PBXGroup;
 			children = (
+				F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */,
+				F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */,
+				F6E663901816F9AF0094EC26 /* GameLogic.h */,
+				F6E663911816F9AF0094EC26 /* GameLogic.m */,
 				F6E6634B1816F8740094EC26 /* AppDelegate.h */,
 				F6E6634C1816F8740094EC26 /* AppDelegate.m */,
-				F6E6634E1816F8740094EC26 /* Main.storyboard */,
-				F6E663511816F8740094EC26 /* ViewController.h */,
-				F6E663521816F8740094EC26 /* ViewController.m */,
+				F6E663741816F8880094EC26 /* Main.storyboard */,
+				F6E6638B1816F9860094EC26 /* ViewController.h */,
+				F6E6638C1816F9860094EC26 /* ViewController.m */,
 				F6E663541816F8740094EC26 /* Images.xcassets */,
 				F6E663431816F8740094EC26 /* Supporting Files */,
 			);
@@ -230,7 +240,7 @@
 			files = (
 				F6E663551816F8740094EC26 /* Images.xcassets in Resources */,
 				F6E663471816F8740094EC26 /* InfoPlist.strings in Resources */,
-				F6E663501816F8740094EC26 /* Main.storyboard in Resources */,
+				F6E663831816F8880094EC26 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6E663531816F8740094EC26 /* ViewController.m in Sources */,
+				F6E6638D1816F9860094EC26 /* ViewController.m in Sources */,
+				F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */,
+				F6E663931816F9AF0094EC26 /* GameLogic.m in Sources */,
 				F6E6634D1816F8740094EC26 /* AppDelegate.m in Sources */,
 				F6E663491816F8740094EC26 /* main.m in Sources */,
 			);
@@ -282,20 +294,21 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		F6E6634E1816F8740094EC26 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6E6634F1816F8740094EC26 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F6E663641816F8740094EC26 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F6E663651816F8740094EC26 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F6E663741816F8880094EC26 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6E663751816F8880094EC26 /* Base */,
+			);
+			name = Main.storyboard;
+			path = "../Load Gallery";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
