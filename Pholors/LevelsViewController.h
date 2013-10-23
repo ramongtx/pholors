@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RBGame.h"
+#import "LevelTableCell.h"
 
 @interface LevelsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 

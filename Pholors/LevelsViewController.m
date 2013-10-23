@@ -42,7 +42,7 @@
     [game loadLevels];
     [game createLevel];
     
-    tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+    tableData = game.levels;
 
     
 }
@@ -57,9 +57,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;//[tableData count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -70,17 +69,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    static NSString *simpleTableIdentifier = @"LevelCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    LevelTableCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[LevelTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
-    return cell;
+    RBLevel* level = [tableData objectAtIndex:indexPath.row];
     
+    //cell.text = level.description;
+    
+    cell.cellLabel.text = @"My Level";
+    cell.starImage.image = [UIImage imageNamed:@"3star.png"];
+    
+    cell.colorImage.backgroundColor = level.color;
+    cell.colorImage.layer.borderWidth = 2.0;
+    cell.colorImage.layer.cornerRadius = 25;
+    cell.colorImage.image = nil;
+    
+    //cell.colorImage.layer.borderColor = [[UIColor blackColor] CGColor];
+
+    //cell.textColor = level.color;
+    
+
     return cell;
 }
 
