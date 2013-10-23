@@ -10,8 +10,9 @@
 #import "GalleryViewController.h"
 #import "RBImage.h"
 #import "RBGame.h"
+#import "RBTimer.h"
 
-@interface ViewController : GalleryViewController <GalleryViewProtocol>
+@interface ViewController : GalleryViewController <GalleryViewProtocol,RBTimerProtocol>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
 @property (weak, nonatomic) IBOutlet UIImageView *color;
 @property (weak, nonatomic) IBOutlet UIImageView *targetColor;
@@ -19,4 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 - (IBAction)resetTimer:(id)sender;
+
+@property int time;
+@property (strong, nonatomic) RBTimer* timer;
 @end

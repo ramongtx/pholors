@@ -30,13 +30,19 @@
     self.imagePreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.imagePreview.layer.borderWidth = 1.5;
     
-    
     RBGame* game = [[RBGame alloc] init];
     [game createLevel];
     
     //NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
     //[prefs setObject:game.levels forKey:@"gameLevels"];
 
+    self.timerLabel.text = @"";
+    
+    self.time = 30;
+    self.timer = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
+    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -61,7 +67,19 @@
 
 }
 
+- (void)onTick: (NSTimer*)timer{
+    self.time--;
+    if (self.time == 0) {
+        [timer invalidate];
+        [self.timerLabel setTextColor:[UIColor redColor]];
+    }
+    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+}
 
 - (IBAction)resetTimer:(id)sender {
+    self.time = 30;
+    [self.timerLabel setTextColor:[UIColor blackColor]];
+    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+    self.timer = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
 }
 @end
