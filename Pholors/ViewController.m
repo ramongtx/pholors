@@ -38,7 +38,7 @@
     self.imagePreview.image = image;
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
-    self.color.backgroundColor = [GameLogic getDominantColor:image];
+    self.color.backgroundColor = [RBImage getDominantColor:image];
 }
 
 

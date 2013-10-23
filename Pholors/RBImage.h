@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GameLogic : NSObject
+@interface RBImage : NSObject
 
 + (UIColor *)averageColor:(UIImage*)image;
 + (UIColor*) getDominantColor:(UIImage*)image;

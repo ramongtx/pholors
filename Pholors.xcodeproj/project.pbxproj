@@ -21,7 +21,7 @@
 		F6E663681816F8740094EC26 /* PholorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663671816F8740094EC26 /* PholorsTests.m */; };
 		F6E6638D1816F9860094EC26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638C1816F9860094EC26 /* ViewController.m */; };
 		F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */; };
-		F6E663931816F9AF0094EC26 /* GameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663911816F9AF0094EC26 /* GameLogic.m */; };
+		F6E663931816F9AF0094EC26 /* RBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663911816F9AF0094EC26 /* RBImage.m */; };
 		F6F299091817DBA300E97D0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F299081817DBA300E97D0F /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +56,8 @@
 		F6E6638C1816F9860094EC26 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
-		F6E663901816F9AF0094EC26 /* GameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogic.h; sourceTree = "<group>"; };
-		F6E663911816F9AF0094EC26 /* GameLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogic.m; sourceTree = "<group>"; };
+		F6E663901816F9AF0094EC26 /* RBImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBImage.h; sourceTree = "<group>"; };
+		F6E663911816F9AF0094EC26 /* RBImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBImage.m; sourceTree = "<group>"; };
 		F6F299081817DBA300E97D0F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,8 +121,8 @@
 				F6F299081817DBA300E97D0F /* Main.storyboard */,
 				F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */,
 				F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */,
-				F6E663901816F9AF0094EC26 /* GameLogic.h */,
-				F6E663911816F9AF0094EC26 /* GameLogic.m */,
+				F6E663901816F9AF0094EC26 /* RBImage.h */,
+				F6E663911816F9AF0094EC26 /* RBImage.m */,
 				F6E6634B1816F8740094EC26 /* AppDelegate.h */,
 				F6E6634C1816F8740094EC26 /* AppDelegate.m */,
 				F6E6638B1816F9860094EC26 /* ViewController.h */,
@@ -262,7 +262,7 @@
 			files = (
 				F6E6638D1816F9860094EC26 /* ViewController.m in Sources */,
 				F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */,
-				F6E663931816F9AF0094EC26 /* GameLogic.m in Sources */,
+				F6E663931816F9AF0094EC26 /* RBImage.m in Sources */,
 				F6E6634D1816F8740094EC26 /* AppDelegate.m in Sources */,
 				F6E663491816F8740094EC26 /* main.m in Sources */,
 			);
