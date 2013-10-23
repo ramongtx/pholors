@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GameLogic : NSObject
+@interface RBImage : NSObject
 
 + (UIColor *)averageColor:(UIImage*)image;
 + (UIColor*) getDominantColor:(UIImage*)image;
 + (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2;
++ (UIColor*) randomColor;
 
 @end
 
