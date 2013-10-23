@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEAF1817EAAF00F3881E /* RBLevel.m */; };
+		D597BEB31817F72800F3881E /* RBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEB21817F72800F3881E /* RBGame.m */; };
 		F6E6633D1816F8740094EC26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633C1816F8740094EC26 /* Foundation.framework */; };
 		F6E6633F1816F8740094EC26 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633E1816F8740094EC26 /* CoreGraphics.framework */; };
 		F6E663411816F8740094EC26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E663401816F8740094EC26 /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		D597BEAE1817EAAF00F3881E /* RBLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBLevel.h; sourceTree = "<group>"; };
 		D597BEAF1817EAAF00F3881E /* RBLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBLevel.m; sourceTree = "<group>"; };
+		D597BEB11817F72800F3881E /* RBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGame.h; sourceTree = "<group>"; };
+		D597BEB21817F72800F3881E /* RBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGame.m; sourceTree = "<group>"; };
 		F6E663391816F8740094EC26 /* Pholors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pholors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E6633C1816F8740094EC26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6E6633E1816F8740094EC26 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,6 +137,8 @@
 				F6E663431816F8740094EC26 /* Supporting Files */,
 				D597BEAE1817EAAF00F3881E /* RBLevel.h */,
 				D597BEAF1817EAAF00F3881E /* RBLevel.m */,
+				D597BEB11817F72800F3881E /* RBGame.h */,
+				D597BEB21817F72800F3881E /* RBGame.m */,
 			);
 			path = Pholors;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */,
 				F6E663931816F9AF0094EC26 /* RBImage.m in Sources */,
 				F6E6634D1816F8740094EC26 /* AppDelegate.m in Sources */,
+				D597BEB31817F72800F3881E /* RBGame.m in Sources */,
 				F6E663491816F8740094EC26 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,6 +16,7 @@
 @property(nonatomic) int pointsScored;
 @property(strong, nonatomic) UIColor * color;
 @property(strong, nonatomic) UIColor * colorPlayed;
+@property(nonatomic)BOOL completed;
 
 -(id) initWithColor:(UIColor*)color;
 

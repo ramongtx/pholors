@@ -16,6 +16,7 @@
         self.pointsScored = 0;
         self.color = [RBImage randomColor];
         self.colorPlayed = nil;
+        self.completed = NO;
     }
     return self;
 }
@@ -26,6 +27,7 @@
         self.pointsScored = 0;
         self.color = color;
         self.colorPlayed = nil;
+        self.completed = NO;
     }
     return self;
 }
@@ -38,6 +40,8 @@
     
     return self.pointsScored;
     
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];    
+
 }
 
 

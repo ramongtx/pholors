@@ -29,6 +29,14 @@
     self.result.text = @"";
     self.imagePreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.imagePreview.layer.borderWidth = 1.5;
+    
+    
+    RBGame* game = [[RBGame alloc] init];
+    [game createLevel];
+    
+    //NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
+    //[prefs setObject:game.levels forKey:@"gameLevels"];
+
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
