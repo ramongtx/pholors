@@ -36,9 +36,10 @@
     [self launchBrowser];
 }
 
--(void) didFinishLoadingImage:(UIImage *)image
+-(void) didFinishLoadingImage:(UIImage *)image original:(UIImage*)originalImage
 {
     self.imagePreview.image = image;
+    NSLog(@"loadImage: %@ original:%@" , image.description, originalImage.description);
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
     self.color.backgroundColor = [RBImage getDominantColor:image];

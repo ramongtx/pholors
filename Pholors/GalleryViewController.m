@@ -48,12 +48,12 @@
 #pragma mark - Image Picker Controller delegate methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
-    [self.galleryDelegate didFinishLoadingImage:chosenImage];
+    [self.galleryDelegate didFinishLoadingImage:chosenImage original:originalImage];
     
 }
 
