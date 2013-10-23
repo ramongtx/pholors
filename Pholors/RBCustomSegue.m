@@ -7,12 +7,14 @@
 //
 
 #import "RBCustomSegue.h"
+#import "ViewController.h"
+#import "GameOverViewController.h"
 
 @implementation RBCustomSegue
 
 - (void) perform {
-    UIViewController *src = (UIViewController *) self.sourceViewController;
-    UIViewController *dst = (UIViewController *) self.destinationViewController;
+    ViewController *src = (ViewController *) self.sourceViewController;
+    GameOverViewController *dst = (GameOverViewController *) self.destinationViewController;
     [UIView transitionWithView:src.navigationController.view duration:0.2
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
