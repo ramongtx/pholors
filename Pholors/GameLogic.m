@@ -105,8 +105,9 @@ struct pixel {
     float dist = 0;
     
     for(int i=0; i<4; i++){
-        dist += (componentsColor1[i] - componentsColor2[i]) * (componentsColor1[i] - componentsColor2[i]);
+        dist += pow((componentsColor1[i] - componentsColor2[i]),2);
     }
+    NSLog(@"%f",sqrt(dist));
     return sqrt(dist);
 }
 
