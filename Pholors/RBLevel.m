@@ -15,6 +15,7 @@
         self.imageUsed = nil;
         self.pointsScored = 0;
         self.color = [RBImage randomColor];
+        self.colorPlayed = nil;
     }
     return self;
 }
@@ -24,9 +25,21 @@
         self.imageUsed = nil;
         self.pointsScored = 0;
         self.color = color;
+        self.colorPlayed = nil;
     }
     return self;
 }
+
+
+-(int) playImageOnLevel:(UIImage*)img{
+    self.imageUsed = img;
+    self.colorPlayed = [RBImage getDominantColor:img];
+    self.pointsScored = 1 - [RBImage euclideanDistanceFrom:self.color to:self.colorPlayed];
+    
+    return self.pointsScored;
+    
+}
+
 
 
 @end
