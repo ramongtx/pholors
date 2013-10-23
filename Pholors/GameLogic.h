@@ -12,6 +12,7 @@
 
 + (UIColor *)averageColor:(UIImage*)image;
 + (UIColor*) getDominantColor:(UIImage*)image;
++ (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2;
 
 @end
 

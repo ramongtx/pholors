@@ -97,4 +97,18 @@ struct pixel {
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1.0f];
 }
 
++ (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2{
+    
+    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
+    
+    float dist = 0;
+    
+    for(int i=0; i<4; i++){
+        dist += (componentsColor1[i] - componentsColor2[i]) * (componentsColor1[i] - componentsColor2[i]);
+    }
+    return sqrt(dist);
+}
+
+
 @end
