@@ -11,7 +11,7 @@
 @implementation RBTimer
 - (RBTimer*)initWithTimer:(int)time andDelegate:(id<RBTimerProtocol>)delegate{
     self.timerDelegate = delegate;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:time target:self.timerDelegate selector:@selector(onTick:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:time target:self.timerDelegate selector:@selector(onTick) userInfo:nil repeats:YES];
     return self;
 }
 
