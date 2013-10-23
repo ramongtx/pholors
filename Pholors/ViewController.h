@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *color;
 @property (weak, nonatomic) IBOutlet UIImageView *targetColor;
 @property (weak, nonatomic) IBOutlet UILabel *result;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
+- (IBAction)resetTimer:(id)sender;
 @end

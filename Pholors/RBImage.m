@@ -107,7 +107,7 @@ struct pixel {
     for(int i=0; i<4; i++){
         dist += pow((componentsColor1[i] - componentsColor2[i]),2);
     }
-    NSLog(@"%f",sqrt(dist));
+    NSLog(@"EuclidDist: %f",sqrt(dist));
     return sqrt(dist);
 }
 
