@@ -15,6 +15,8 @@
 @property (nonatomic) int totalPoints;
 @property (strong, nonatomic)NSUserDefaults* prefs;
 -(void) createLevel;
+-(void) saveLevels;
+-(void) loadLevels;
 
 
 @end

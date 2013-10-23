@@ -31,11 +31,11 @@
     self.imagePreview.layer.borderWidth = 1.5;
     
     RBGame* game = [[RBGame alloc] init];
-    [game createLevel];
+    [game loadLevels];
     
     //NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
-    //[prefs setObject:game.levels forKey:@"gameLevels"];
-
+    //[prefs setObject:[NSArray arrayWithArray:game.levels] forKey:@"gameLevels"];
+    
     self.timerLabel.text = @"";
     
     self.time = 30;
