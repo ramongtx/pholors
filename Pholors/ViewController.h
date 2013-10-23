@@ -13,5 +13,7 @@
 @interface ViewController : GalleryViewController <GalleryViewProtocol>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
 @property (weak, nonatomic) IBOutlet UIImageView *color;
+@property (weak, nonatomic) IBOutlet UIImageView *targetColor;
+@property (weak, nonatomic) IBOutlet UILabel *result;
 
 @end
