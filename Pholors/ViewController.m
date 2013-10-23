@@ -39,7 +39,7 @@
     self.timerLabel.text = @"";
     
     self.time = 30;
-    self.timer = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
+    self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
 
     
@@ -67,10 +67,10 @@
 
 }
 
-- (void)onTick: (NSTimer*)timer{
+- (void)onTick{
     self.time--;
-    if (self.time == 0) {
-        [timer invalidate];
+    if (self.time == -1) {
+        [self.timerController.timer invalidate];
         [self.timerLabel setTextColor:[UIColor redColor]];
     }
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
@@ -80,6 +80,6 @@
     self.time = 30;
     [self.timerLabel setTextColor:[UIColor blackColor]];
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
-    self.timer = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
+    self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
 }
 @end

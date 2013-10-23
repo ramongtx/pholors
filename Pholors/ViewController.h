@@ -22,5 +22,5 @@
 - (IBAction)resetTimer:(id)sender;
 
 @property int time;
-@property (strong, nonatomic) RBTimer* timer;
+@property (strong, nonatomic) RBTimer* timerController;
 @end
