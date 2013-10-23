@@ -10,7 +10,7 @@
 
 @protocol GalleryViewProtocol <NSObject>
 @required
--(void) didFinishLoadingImage:(UIImage*)image;
+-(void) didFinishLoadingImage:(UIImage *)image original:(UIImage*)originalImage;
 
 @end
 
