@@ -53,4 +53,6 @@
 }
 
 
+- (IBAction)resetTimer:(id)sender {
+}
 @end
