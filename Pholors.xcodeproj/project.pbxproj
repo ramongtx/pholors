@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E9A7D1817FC0D0038E72D /* RBTimer.m */; };
 		3DC3D33F1818355B00096DA2 /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D33E1818355B00096DA2 /* GameOverViewController.m */; };
+		3DC3D34218183E2300096DA2 /* RBCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D34118183E2300096DA2 /* RBCustomSegue.m */; };
 		D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEAF1817EAAF00F3881E /* RBLevel.m */; };
 		D597BEB31817F72800F3881E /* RBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEB21817F72800F3881E /* RBGame.m */; };
 		F6E6633D1816F8740094EC26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633C1816F8740094EC26 /* Foundation.framework */; };
@@ -44,6 +45,8 @@
 		3D8E9A7D1817FC0D0038E72D /* RBTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTimer.m; sourceTree = "<group>"; };
 		3DC3D33D1818355B00096DA2 /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
 		3DC3D33E1818355B00096DA2 /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
+		3DC3D34018183E2300096DA2 /* RBCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCustomSegue.h; sourceTree = "<group>"; };
+		3DC3D34118183E2300096DA2 /* RBCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCustomSegue.m; sourceTree = "<group>"; };
 		D597BEAE1817EAAF00F3881E /* RBLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBLevel.h; sourceTree = "<group>"; };
 		D597BEAF1817EAAF00F3881E /* RBLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBLevel.m; sourceTree = "<group>"; };
 		D597BEB11817F72800F3881E /* RBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGame.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				F6E6638C1816F9860094EC26 /* ViewController.m */,
 				F6E663541816F8740094EC26 /* Images.xcassets */,
 				F6E663431816F8740094EC26 /* Supporting Files */,
+				3DC3D34018183E2300096DA2 /* RBCustomSegue.h */,
+				3DC3D34118183E2300096DA2 /* RBCustomSegue.m */,
 			);
 			path = Pholors;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */,
 				D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */,
 				F6E6638D1816F9860094EC26 /* ViewController.m in Sources */,
+				3DC3D34218183E2300096DA2 /* RBCustomSegue.m in Sources */,
 				F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */,
 				F6E663931816F9AF0094EC26 /* RBImage.m in Sources */,
 				F6E6634D1816F8740094EC26 /* AppDelegate.m in Sources */,
