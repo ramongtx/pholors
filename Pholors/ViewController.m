@@ -22,6 +22,7 @@
     self.targetColor.layer.borderColor = [[UIColor blackColor] CGColor];
     self.targetColor.layer.borderWidth = 2.0;
     self.targetColor.backgroundColor = [RBImage randomColor];
+    self.result.text = @"";
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
