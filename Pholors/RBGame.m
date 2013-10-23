@@ -25,7 +25,26 @@
 {
     RBLevel * newLevel = [[RBLevel alloc] init];
     [self.levels addObject:newLevel];
+    
+    // maybe remove this
+    [self saveLevels];
         
+}
+
+-(void) saveLevels
+{
+    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:self.levels];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"mylevels"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
+
+-(void) loadLevels
+{
+    NSData * data = [[NSUserDefaults standardUserDefaults] objectForKey:@"mylevels"];
+    NSArray *levels = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    self.levels = [NSMutableArray arrayWithArray:levels];
 }
 
 

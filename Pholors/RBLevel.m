@@ -39,11 +39,28 @@
     self.pointsScored = 1 - [RBImage euclideanDistanceFrom:self.color to:self.colorPlayed];
     
     return self.pointsScored;
-    
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];    
-
 }
 
 
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.imageUsed forKey:@"imageUsed"];
+    [encoder encodeInteger:self.pointsScored forKey:@"pointsScored"];
+    [encoder encodeObject:self.color forKey:@"color"];
+    [encoder encodeObject:self.colorPlayed forKey:@"colorPlayed"];
+    [encoder encodeBool:[self completed] forKey:@"completed"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if(self = [super init]){
+        self.imageUsed = [decoder decodeObjectForKey:@"imageUsed"];
+        self.pointsScored = [decoder decodeIntegerForKey:@"pointsScored"];
+        self.color = [decoder decodeObjectForKey:@"color"];
+        self.colorPlayed = [decoder decodeObjectForKey:@"colorPlayed"];
+        self.completed = [decoder decodeObjectForKey:@"completed"];
+    }
+    
+    return self;
+
+}
 
 @end

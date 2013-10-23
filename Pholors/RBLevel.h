@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RBImage.h"
 
-@interface RBLevel : NSObject
+@interface RBLevel : NSObject <NSCoding>
 
 
 @property(strong, nonatomic) UIImage* imageUsed;
