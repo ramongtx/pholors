@@ -11,6 +11,7 @@
 @interface GameLogic : NSObject
 
 + (UIColor *)averageColor:(UIImage*)image;
++ (UIColor*) getDominantColor:(UIImage*)image;
 
 @end
 
