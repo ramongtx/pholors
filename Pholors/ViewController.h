@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GalleryViewController.h"
-#import "GameLogic.h"
+#import "RBImage.h"
 
 @interface ViewController : GalleryViewController <GalleryViewProtocol>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;

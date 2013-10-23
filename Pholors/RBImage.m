@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-#import "GameLogic.h"
+#import "RBImage.h"
 
-@implementation GameLogic
+@implementation RBImage
 
 
 + (UIColor *)averageColor:(UIImage*)image {

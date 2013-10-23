@@ -21,7 +21,7 @@
     self.color.layer.borderWidth = 2.0;
     self.targetColor.layer.borderColor = [[UIColor blackColor] CGColor];
     self.targetColor.layer.borderWidth = 2.0;
-    self.targetColor.backgroundColor = [GameLogic randomColor];
+    self.targetColor.backgroundColor = [RBImage randomColor];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -40,8 +40,9 @@
     self.imagePreview.image = image;
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
-    self.color.backgroundColor = [GameLogic getDominantColor:image];
-    self.result.text = [NSString stringWithFormat:@"%f",[GameLogic euclideanDistanceFrom:self.color.backgroundColor to:self.targetColor.backgroundColor]];
+    self.color.backgroundColor = [RBImage getDominantColor:image];
+    self.result.text = [NSString stringWithFormat:@"%f",[RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetColor.backgroundColor]];
+
 }
 
 
