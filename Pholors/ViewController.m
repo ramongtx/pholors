@@ -48,7 +48,7 @@
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
     self.color.backgroundColor = [RBImage getDominantColor:image];
-    self.result.text = [NSString stringWithFormat:@"Pontuation: %f",[RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetColor.backgroundColor]];
+    self.result.text = [NSString stringWithFormat:@"Pontuation: %.0f",[RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetColor.backgroundColor]*100];
 
 }
 
