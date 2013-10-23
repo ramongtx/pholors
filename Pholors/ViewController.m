@@ -33,9 +33,6 @@
     RBGame* game = [[RBGame alloc] init];
     [game loadLevels];
     
-    //NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
-    //[prefs setObject:[NSArray arrayWithArray:game.levels] forKey:@"gameLevels"];
-    
     self.timerLabel.text = @"";
     
     self.time = 30;
