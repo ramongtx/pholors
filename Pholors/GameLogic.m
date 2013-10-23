@@ -78,9 +78,9 @@ struct pixel {
             
             NSUInteger numberOfPixels = image.size.width * image.size.height;
             for (int i=0; i<numberOfPixels; i++) {
-                red += pixels[i].r;
-                green += pixels[i].g;
-                blue += pixels[i].b;
+                red += pixels[i].r * pixels[i].a;
+                green += pixels[i].g * pixels[i].a;
+                blue += pixels[i].b * pixels[i].a;
             }
             
             
