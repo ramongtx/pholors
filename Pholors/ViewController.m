@@ -35,7 +35,7 @@
     
     self.timerLabel.text = @"";
     
-    self.time = 30;
+    self.time = 10;
     self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
 
@@ -66,9 +66,10 @@
 
 - (void)onTick{
     self.time--;
-    if (self.time == -1) {
+    if (self.time == 0) {
         [self.timerController.timer invalidate];
         [self.timerLabel setTextColor:[UIColor redColor]];
+        //[self performSegueWithIdentifier:@"gameOverSegue" sender:self];
     }
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
 }
