@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3Zu-dx-Vl9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3Zu-dx-Vl9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -48,6 +48,9 @@
                             <outlet property="delegate" destination="3Zu-dx-Vl9" id="81v-QC-dpH"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="custom" identifier="loadLevel" customClass="RBCustomSegue" id="x71-6w-LsV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cyq-5O-eeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -136,6 +139,7 @@
                         <outlet property="result" destination="b9m-TN-0WL" id="5KL-25-zs4"/>
                         <outlet property="targetColor" destination="ony-R4-dKn" id="XLK-5G-Qvs"/>
                         <outlet property="timerLabel" destination="Fjr-y1-eJA" id="N1c-Wa-Ejc"/>
+                        <segue destination="uFT-aw-eDe" kind="custom" identifier="gameOver" customClass="RBCustomSegue" id="wvJ-x1-wKa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -153,12 +157,34 @@
                     <view key="view" contentMode="scaleToFill" id="ve9-lk-Z1i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Act-EE-K6C">
+                                <rect key="frame" x="102" y="273" width="116" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dpd-8D-wf0">
+                                <rect key="frame" x="134" y="302" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Restart">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restart:" destination="uFT-aw-eDe" eventType="touchUpInside" id="90M-cL-Wyf"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="3Zu-dx-Vl9" kind="custom" identifier="backToMenu" customClass="RBCustomSegue" id="H7B-jy-bds"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3I-pb-X5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="755" y="145"/>
+            <point key="canvasLocation" x="-131" y="789"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

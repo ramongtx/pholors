@@ -11,15 +11,19 @@
 #import "RBImage.h"
 #import "RBGame.h"
 #import "RBTimer.h"
+#import "RBCustomSegue.h"
+#import "GameOverViewController.h"
 
 @interface ViewController : GalleryViewController <GalleryViewProtocol,RBTimerProtocol>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
 @property (weak, nonatomic) IBOutlet UIImageView *color;
+@property (strong,nonatomic) UIColor* target;
 @property (weak, nonatomic) IBOutlet UIImageView *targetColor;
 @property (weak, nonatomic) IBOutlet UILabel *result;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 - (IBAction)resetTimer:(id)sender;
+- (void) setTargetColorWithColor:(UIColor *)targetColor;
 
 @property int time;
 @property (strong, nonatomic) RBTimer* timerController;

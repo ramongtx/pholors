@@ -27,7 +27,7 @@
                                                     cancelButtonTitle:@"OK"
                                                     otherButtonTitles: nil];
         
-        [myAlertView show];
+//        [myAlertView show];
         
     }
 	// Do any additional setup after loading the view.

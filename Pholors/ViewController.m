@@ -25,7 +25,7 @@
     self.targetColor.layer.borderWidth = 2.0;
     self.targetColor.layer.cornerRadius = 25;
     self.targetColor.layer.masksToBounds = YES;
-    self.targetColor.backgroundColor = [RBImage randomColor];
+    self.targetColor.backgroundColor = self.target;
     self.result.text = @"";
     self.imagePreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.imagePreview.layer.borderWidth = 1.5;
@@ -53,6 +53,11 @@
     [self launchBrowser];
 }
 
+- (void) setTargetColorWithColor:(UIColor *)targetColor
+{
+    self.target = targetColor;
+}
+
 -(void) didFinishLoadingImage:(UIImage *)image original:(UIImage*)originalImage
 {
     self.imagePreview.image = image;
@@ -67,11 +72,15 @@
 - (void)onTick{
     self.time--;
     if (self.time == 0) {
-        [self.timerController.timer invalidate];
         [self.timerLabel setTextColor:[UIColor redColor]];
-        //[self performSegueWithIdentifier:@"gameOverSegue" sender:self];
+        [self timerOver];
     }
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+}
+
+- (void) timerOver
+{
+    [self performSegueWithIdentifier:@"gameOver" sender:self];
 }
 
 - (IBAction)resetTimer:(id)sender {
@@ -79,6 +88,10 @@
     [self.timerLabel setTextColor:[UIColor blackColor]];
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
     self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
+}
+
+- (IBAction)back:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

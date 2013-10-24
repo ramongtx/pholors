@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-#import "ViewController.h"
-
-@interface GameOverViewController : ViewController
+@interface GameOverViewController : UIViewController
 
 @end

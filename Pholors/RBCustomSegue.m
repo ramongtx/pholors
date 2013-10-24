@@ -13,14 +13,8 @@
 @implementation RBCustomSegue
 
 - (void) perform {
-    ViewController *src = (ViewController *) self.sourceViewController;
-    GameOverViewController *dst = (GameOverViewController *) self.destinationViewController;
-    [UIView transitionWithView:src.navigationController.view duration:0.2
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{
-                        [src.navigationController pushViewController:dst animated:NO];
-                    }
-                    completion:NULL];
+    UIViewController *src = (UIViewController *) self.sourceViewController;
+    [src presentViewController:[self destinationViewController] animated:YES completion:nil];
 }
 
 @end

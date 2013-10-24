@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RBLevel.h"
 
 @interface LevelTableCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *cellLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *colorImage;
+@property (strong, nonatomic) IBOutlet UIImageView *colorImage;
 @property (weak, nonatomic) IBOutlet UIImageView *starImage;
+@property (strong,nonatomic) RBLevel* level;
 
 @end

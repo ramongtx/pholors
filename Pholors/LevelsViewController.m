@@ -88,6 +88,7 @@
     cell.colorImage.layer.borderWidth = 2.0;
     cell.colorImage.layer.cornerRadius = 25;
     cell.colorImage.image = nil;
+    cell.level = level;
     
     //cell.colorImage.layer.borderColor = [[UIColor blackColor] CGColor];
 
@@ -95,6 +96,26 @@
     
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LevelTableCell* cell = (LevelTableCell*) [tableView cellForRowAtIndexPath:indexPath];
+    self.level = cell.level;
+    [self performSegueWithIdentifier:@"loadLevel" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"loadLevel"])
+    {
+        // Get reference to the destination view controller
+        ViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        vc.target = self.level.color;
+    }
 }
 
 /*
@@ -136,16 +157,10 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
 
- */
 
 @end

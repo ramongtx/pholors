@@ -10,4 +10,8 @@
 
 @interface RBCustomSegue : UIStoryboardSegue
 
+@property (strong,nonatomic) UIViewController* dstView;
+@property (strong,nonatomic) UIViewController* returnView;
+@property (strong,nonatomic) CATransition* transition;
+
 @end

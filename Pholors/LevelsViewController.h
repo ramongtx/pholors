@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "RBGame.h"
 #import "LevelTableCell.h"
+#import "RBCustomSegue.h"
+#import "ViewController.h"
 
 @interface LevelsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@property (strong,nonatomic) RBLevel* level;
 
 @end
