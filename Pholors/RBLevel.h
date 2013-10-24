@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "RBImage.h"
 
-@interface RBLevel : NSObject
+@interface RBLevel : NSObject <NSCoding>
 
 
 @property(strong, nonatomic) UIImage* imageUsed;
 @property(nonatomic) int pointsScored;
 @property(strong, nonatomic) UIColor * color;
 @property(strong, nonatomic) UIColor * colorPlayed;
+@property(nonatomic)BOOL completed;
 
 -(id) initWithColor:(UIColor*)color;
 

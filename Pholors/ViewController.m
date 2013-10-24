@@ -29,6 +29,17 @@
     self.result.text = @"";
     self.imagePreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.imagePreview.layer.borderWidth = 1.5;
+    
+    RBGame* game = [[RBGame alloc] init];
+    [game loadLevels];
+    
+    self.timerLabel.text = @"";
+    
+    self.time = 10;
+    self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
+    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -51,6 +62,23 @@
     self.color.backgroundColor = [RBImage getDominantColor:image];
     self.result.text = [NSString stringWithFormat:@"Pontuation: %.0f",[RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetColor.backgroundColor]*100];
 
+}
+
+- (void)onTick{
+    self.time--;
+    if (self.time == 0) {
+        [self.timerController.timer invalidate];
+        [self.timerLabel setTextColor:[UIColor redColor]];
+        //[self performSegueWithIdentifier:@"gameOverSegue" sender:self];
+    }
+    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+}
+
+- (IBAction)resetTimer:(id)sender {
+    self.time = 30;
+    [self.timerLabel setTextColor:[UIColor blackColor]];
+    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+    self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
 }
 
 @end

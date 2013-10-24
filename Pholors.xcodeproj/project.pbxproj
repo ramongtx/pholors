@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E9A7D1817FC0D0038E72D /* RBTimer.m */; };
+		3DC3D33F1818355B00096DA2 /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D33E1818355B00096DA2 /* GameOverViewController.m */; };
+		3DC3D34218183E2300096DA2 /* RBCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D34118183E2300096DA2 /* RBCustomSegue.m */; };
+		D592052218183B11004F58BD /* LevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D592052118183B11004F58BD /* LevelsViewController.m */; };
+		D592052918184539004F58BD /* 0star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052518184539004F58BD /* 0star.png */; };
+		D592052A18184539004F58BD /* 1star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052618184539004F58BD /* 1star.png */; };
+		D592052B18184539004F58BD /* 2star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052718184539004F58BD /* 2star.png */; };
+		D592052C18184539004F58BD /* 3star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052818184539004F58BD /* 3star.png */; };
+		D592053118184C61004F58BD /* LevelTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D592053018184C61004F58BD /* LevelTableCell.m */; };
 		D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEAF1817EAAF00F3881E /* RBLevel.m */; };
+		D597BEB31817F72800F3881E /* RBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEB21817F72800F3881E /* RBGame.m */; };
 		F6E6633D1816F8740094EC26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633C1816F8740094EC26 /* Foundation.framework */; };
 		F6E6633F1816F8740094EC26 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633E1816F8740094EC26 /* CoreGraphics.framework */; };
 		F6E663411816F8740094EC26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E663401816F8740094EC26 /* UIKit.framework */; };
@@ -37,8 +47,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D8E9A7C1817FC0D0038E72D /* RBTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTimer.h; sourceTree = "<group>"; };
+		3D8E9A7D1817FC0D0038E72D /* RBTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTimer.m; sourceTree = "<group>"; };
+		3DC3D33D1818355B00096DA2 /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
+		3DC3D33E1818355B00096DA2 /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
+		3DC3D34018183E2300096DA2 /* RBCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCustomSegue.h; sourceTree = "<group>"; };
+		3DC3D34118183E2300096DA2 /* RBCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCustomSegue.m; sourceTree = "<group>"; };
+		D592052018183B11004F58BD /* LevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsViewController.h; sourceTree = "<group>"; };
+		D592052118183B11004F58BD /* LevelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelsViewController.m; sourceTree = "<group>"; };
+		D592052518184539004F58BD /* 0star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0star.png; sourceTree = "<group>"; };
+		D592052618184539004F58BD /* 1star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1star.png; sourceTree = "<group>"; };
+		D592052718184539004F58BD /* 2star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2star.png; sourceTree = "<group>"; };
+		D592052818184539004F58BD /* 3star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3star.png; sourceTree = "<group>"; };
+		D592052F18184C61004F58BD /* LevelTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTableCell.h; sourceTree = "<group>"; };
+		D592053018184C61004F58BD /* LevelTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTableCell.m; sourceTree = "<group>"; };
 		D597BEAE1817EAAF00F3881E /* RBLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBLevel.h; sourceTree = "<group>"; };
 		D597BEAF1817EAAF00F3881E /* RBLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBLevel.m; sourceTree = "<group>"; };
+		D597BEB11817F72800F3881E /* RBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGame.h; sourceTree = "<group>"; };
+		D597BEB21817F72800F3881E /* RBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGame.m; sourceTree = "<group>"; };
 		F6E663391816F8740094EC26 /* Pholors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pholors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E6633C1816F8740094EC26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6E6633E1816F8740094EC26 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +114,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D592052418184539004F58BD /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D592052518184539004F58BD /* 0star.png */,
+				D592052618184539004F58BD /* 1star.png */,
+				D592052718184539004F58BD /* 2star.png */,
+				D592052818184539004F58BD /* 3star.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		F6E663301816F8740094EC26 = {
 			isa = PBXGroup;
 			children = (
@@ -121,19 +158,32 @@
 		F6E663421816F8740094EC26 /* Pholors */ = {
 			isa = PBXGroup;
 			children = (
+				D592052418184539004F58BD /* images */,
 				F6F299081817DBA300E97D0F /* Main.storyboard */,
 				F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */,
 				F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */,
+				3DC3D33D1818355B00096DA2 /* GameOverViewController.h */,
+				3DC3D33E1818355B00096DA2 /* GameOverViewController.m */,
 				F6E663901816F9AF0094EC26 /* RBImage.h */,
 				F6E663911816F9AF0094EC26 /* RBImage.m */,
+				D597BEAE1817EAAF00F3881E /* RBLevel.h */,
+				D597BEAF1817EAAF00F3881E /* RBLevel.m */,
+				D597BEB11817F72800F3881E /* RBGame.h */,
+				D597BEB21817F72800F3881E /* RBGame.m */,
+				3D8E9A7C1817FC0D0038E72D /* RBTimer.h */,
+				3D8E9A7D1817FC0D0038E72D /* RBTimer.m */,
 				F6E6634B1816F8740094EC26 /* AppDelegate.h */,
 				F6E6634C1816F8740094EC26 /* AppDelegate.m */,
 				F6E6638B1816F9860094EC26 /* ViewController.h */,
 				F6E6638C1816F9860094EC26 /* ViewController.m */,
 				F6E663541816F8740094EC26 /* Images.xcassets */,
 				F6E663431816F8740094EC26 /* Supporting Files */,
-				D597BEAE1817EAAF00F3881E /* RBLevel.h */,
-				D597BEAF1817EAAF00F3881E /* RBLevel.m */,
+				3DC3D34018183E2300096DA2 /* RBCustomSegue.h */,
+				3DC3D34118183E2300096DA2 /* RBCustomSegue.m */,
+				D592052018183B11004F58BD /* LevelsViewController.h */,
+				D592052118183B11004F58BD /* LevelsViewController.m */,
+				D592052F18184C61004F58BD /* LevelTableCell.h */,
+				D592053018184C61004F58BD /* LevelTableCell.m */,
 			);
 			path = Pholors;
 			sourceTree = "<group>";
@@ -245,7 +295,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6E663551816F8740094EC26 /* Images.xcassets in Resources */,
+				D592052C18184539004F58BD /* 3star.png in Resources */,
+				D592052A18184539004F58BD /* 1star.png in Resources */,
+				D592052B18184539004F58BD /* 2star.png in Resources */,
 				F6E663471816F8740094EC26 /* InfoPlist.strings in Resources */,
+				D592052918184539004F58BD /* 0star.png in Resources */,
 				F6F299091817DBA300E97D0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,11 +319,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC3D33F1818355B00096DA2 /* GameOverViewController.m in Sources */,
+				D592052218183B11004F58BD /* LevelsViewController.m in Sources */,
+				3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */,
 				D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */,
 				F6E6638D1816F9860094EC26 /* ViewController.m in Sources */,
+				3DC3D34218183E2300096DA2 /* RBCustomSegue.m in Sources */,
 				F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */,
+				D592053118184C61004F58BD /* LevelTableCell.m in Sources */,
 				F6E663931816F9AF0094EC26 /* RBImage.m in Sources */,
 				F6E6634D1816F8740094EC26 /* AppDelegate.m in Sources */,
+				D597BEB31817F72800F3881E /* RBGame.m in Sources */,
 				F6E663491816F8740094EC26 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
