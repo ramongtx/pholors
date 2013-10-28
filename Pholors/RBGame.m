@@ -95,9 +95,57 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"levelset"];
 }
 
-
 +(NSArray*) getDefaultLevels
 {
     return defaultLevels;
+}
+
++(long) allStars
+{
+    long i = 0;
+    for (RBLevel *l in defaultLevels)
+    {
+        i+= [l stars];
+    }
+    return i;
+}
+
++(long) maxStars
+{
+    return 3*[defaultLevels count];
+}
+
++(BOOL)updateRecord:(int)newRecord
+{
+    if (newRecord >= timeRecord) {
+        [[NSUserDefaults standardUserDefaults] setInteger:newRecord forKey:@"timeRecord"];
+        timeRecord = newRecord;
+        return YES;
+    }
+    return NO;
+}
+
++(void) loadRecords
+{
+    timeRecord = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeRecord"];
+}
+
++(long int) getRecord
+{
+    return timeRecord;
+}
+
++(void)clearRecord
+{
+    timeRecord = 0;
+    [RBGame updateRecord:0];
+}
+
++(void) clearAll
+{
+    [RBGame clearRecord];
+    [RBGame createDefaultSet];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"levelset"];
+
 }
 @end

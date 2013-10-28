@@ -51,6 +51,10 @@
     return self.pointsScored;
 }
 
+-(int) stars
+{
+    return [RBImage convertPointstoStars:self.pointsScored];
+}
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.imageUsed forKey:@"imageUsed"];
@@ -70,7 +74,6 @@
     }
     
     return self;
-
 }
 
 @end

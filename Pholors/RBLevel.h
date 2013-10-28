@@ -22,6 +22,7 @@
 
 -(id) init;
 -(id) initWithColor:(NSString*)colorHex name:(NSString*)name;
+-(int) stars;
 
 -(void) changeColor;
 
