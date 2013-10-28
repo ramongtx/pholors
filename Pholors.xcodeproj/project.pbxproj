@@ -34,6 +34,7 @@
 		F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */; };
 		F6E663931816F9AF0094EC26 /* RBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663911816F9AF0094EC26 /* RBImage.m */; };
 		F6F299091817DBA300E97D0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F299081817DBA300E97D0F /* Main.storyboard */; };
+		F6F5C6D6181E9F89004A58D6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F5C6D5181E9F89004A58D6 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		F6E663901816F9AF0094EC26 /* RBImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBImage.h; sourceTree = "<group>"; };
 		F6E663911816F9AF0094EC26 /* RBImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBImage.m; sourceTree = "<group>"; };
 		F6F299081817DBA300E97D0F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F6F5C6D4181E9F89004A58D6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		F6F5C6D5181E9F89004A58D6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				D592052118183B11004F58BD /* LevelsViewController.m */,
 				D592052F18184C61004F58BD /* LevelTableCell.h */,
 				D592053018184C61004F58BD /* LevelTableCell.m */,
+				F6F5C6D4181E9F89004A58D6 /* MainViewController.h */,
+				F6F5C6D5181E9F89004A58D6 /* MainViewController.m */,
 			);
 			path = Pholors;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				D592052218183B11004F58BD /* LevelsViewController.m in Sources */,
 				3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */,
 				D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */,
+				F6F5C6D6181E9F89004A58D6 /* MainViewController.m in Sources */,
 				F6E6638D1816F9860094EC26 /* ViewController.m in Sources */,
 				3DC3D34218183E2300096DA2 /* RBCustomSegue.m in Sources */,
 				F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */,
