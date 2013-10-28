@@ -125,7 +125,15 @@ struct pixel {
 }
 
 + (int) convertDistanceToPoints:(float)dist{
-    return ceil(100 * (sqrt(3.0) - dist) / sqrt(3.0));
+    int temp = ceil( 100 * (sqrt(3.0) - dist) / sqrt(3.0));
+    if (temp < 25) temp = temp*temp/25;
+    else if (temp >75)
+    {
+        temp = temp-75;
+        temp = (50*temp-temp*temp)/25;
+        temp = temp+75;
+    }
+    return temp;
 }
 
 + (int) convertPointstoStars:(int)points{
