@@ -115,6 +115,32 @@ struct pixel {
     return sqrt(dist);
 }
 
++ (float) YUVeuclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2{
+    
+    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
+    
+    float y1, y2,u1,u2,v1,v2;
+    y1 = 0.299 * componentsColor1[0] + 0.587 * componentsColor1[1] + 0.114 * componentsColor1[2];
+    y2 = 0.299 * componentsColor2[0] + 0.587 * componentsColor2[1] + 0.114 * componentsColor2[2];
+    
+    u1 = -0.14713 * componentsColor1[0] + (-0.28886) * componentsColor1[1] + 0.436 * componentsColor1[2];
+    u2 = -0.14713 * componentsColor2[0] + (-0.28886) * componentsColor2[1] + 0.436 * componentsColor2[2];
+    
+    v1 = 0.615 * componentsColor1[0] + (-0.51499) * componentsColor1[1] + (-0.10001) * componentsColor1[2];
+    v2 = 0.615 * componentsColor2[0] + (-0.51499) * componentsColor2[1] + (-0.10001) * componentsColor2[2];
+    
+    float dist = 0;
+    
+    dist += pow((y1-y2),2) + pow((u1-u2),2) + pow((v1-v2),2);
+    
+    NSLog(@"EuclidDist: %f",sqrt(dist));
+    
+    NSLog(@"%d",[RBImage convertDistanceToPoints:sqrt(dist)]);
+    
+    return sqrt(dist);
+}
+
 + (UIColor*) randomColor
 {
     CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
