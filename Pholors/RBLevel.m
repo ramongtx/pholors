@@ -15,6 +15,7 @@
         self.imageUsed = nil;
         self.pointsScored = 0;
         self.color = [RBImage randomColor];
+        self.colorName = self.color.description;
         self.colorPlayed = nil;
         self.completed = NO;
         self.isTimeAttack = NO;
@@ -22,11 +23,13 @@
     return self;
 }
 
--(id) initWithColor:(UIColor*)color{
+
+-(id) initWithColor:(NSString*)colorHex name:(NSString*)name{
     if(self = [super init]){
         self.imageUsed = nil;
         self.pointsScored = 0;
-        self.color = color;
+        self.color = [RBImage colorFromHexString:colorHex];
+        self.colorName = name;
         self.colorPlayed = nil;
         self.completed = NO;
         self.isTimeAttack = NO;

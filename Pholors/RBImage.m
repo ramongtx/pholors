@@ -207,5 +207,16 @@ struct pixel {
     return round(points * maxStars / 100);
 }
 
++ (UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner scanHexInt:&rgbValue];
+    float red = ((rgbValue & 0xFF0000) >> 16)/255.0;
+    float green = ((rgbValue & 0xFF00) >> 8)/255.0;
+    float blue = (rgbValue & 0xFF)/255.0;
+    return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+}
+
 
 @end

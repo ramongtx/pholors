@@ -66,7 +66,7 @@
     
     //cell.text = level.description;
     
-    cell.cellLabel.text = [NSString stringWithFormat:@"Level %ld", (long)indexPath.row];
+    cell.cellLabel.text = [NSString stringWithFormat:@"%@!", level.colorName];
     cell.level = level;
     
     if (level.pointsScored < 25) cell.starImage.image = [UIImage imageNamed:@"0star.png"];

@@ -18,6 +18,8 @@
 + (UIColor*) randomColor;
 + (int) convertDistanceToPoints:(float)dist;
 + (int) convertPointstoStars:(int)points;
++ (UIColor *)colorFromHexString:(NSString *)hexString;
+
 
 @end
 

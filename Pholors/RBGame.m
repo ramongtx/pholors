@@ -67,14 +67,34 @@
 
 +(void) createDefaultSet
 {
+    NSDictionary* colors = @{@"Air Force Blue": @"#5d8aa8",
+                             @"Apple green": @"#8db600",
+                             @"AuroMetalSaurus": @"#6e7f80",
+                             @"Banana yellow": @"#ffe135",
+                             @"Bittersweet": @"#fe6f5e",
+                             @"Bubble gum": @"#ffc1cc",
+                             @"Bubbles": @"#e7feff",
+                             @"Capri": @"#00bfff",
+                             @"Cinnamon": @"#d2691e",
+                             @"Cofee": @"#65432",
+                             @"Ferrari Red": @"#ff2800",
+                             @"Electric Purple": @"#bf00ff",
+                             @"Grullo": @"#a99a86",
+                             @"Inchworm": @"#b2ec5d",
+                             @"Navy Blue": @"#000080",
+                             @"Pastel Yellow": @"#fdfd96",
+                             @"Pumpkin": @"#ff7518"
+                             };
+    
     defaultLevels = [[NSMutableArray alloc] init];
-    for (int i = 0; i<10; i++) {
-        RBLevel * newLevel = [[RBLevel alloc] init];
+    for(id key in colors){
+        RBLevel * newLevel = [[RBLevel alloc] initWithColor:colors[key] name:key];
         [defaultLevels addObject:newLevel];
     }
     [self saveDefaultLevels];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"levelset"];
 }
+
 
 +(NSArray*) getDefaultLevels
 {
