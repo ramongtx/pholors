@@ -33,7 +33,8 @@
 +(long int) getRecord;
 +(void)clearRecord;
 
++(void) clearAll;
+
 @end
 
 static NSMutableArray* defaultLevels;
-static long int timeRecord;
