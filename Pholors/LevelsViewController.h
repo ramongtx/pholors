@@ -13,6 +13,6 @@
 #import "ViewController.h"
 
 @interface LevelsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
-@property (strong,nonatomic) RBLevel* level;
+@property (strong,nonatomic) RBLevel* selectedLevel;
 
 @end

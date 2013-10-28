@@ -15,8 +15,10 @@
 @property (nonatomic) int totalPoints;
 @property (strong, nonatomic)NSUserDefaults* prefs;
 -(void) createLevel;
+-(void) createLevelSet;
 -(void) saveLevels;
 -(void) loadLevels;
-
-
++(NSMutableArray*) defaultLevels;
 @end
+
+static NSMutableArray* defaultLevels;

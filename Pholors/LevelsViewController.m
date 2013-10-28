@@ -17,40 +17,23 @@
     NSArray *tableData;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSLog(@"whatassssp");
+    NSLog(@"LevelsViewController.viewDidLoad");
     
     //remove creating from here, pass through segway instead
     RBGame* game = [[RBGame alloc] init];
-    [game loadLevels];
-    [game createLevel];
+    [game createLevelSet];
     
     tableData = game.levels;
 
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -81,19 +64,20 @@
     
     //cell.text = level.description;
     
-    cell.cellLabel.text = @"My Level";
-    cell.starImage.image = [UIImage imageNamed:@"3star.png"];
+    cell.cellLabel.text = [NSString stringWithFormat:@"Level %ld", (long)indexPath.row];
+    cell.level = level;
     
-    cell.colorImage.backgroundColor = level.color;
+    if (level.pointsScored < 25) cell.starImage.image = [UIImage imageNamed:@"0star.png"];
+    else if (level.pointsScored < 50) cell.starImage.image = [UIImage imageNamed:@"1star.png"];
+    else if (level.pointsScored < 75) cell.starImage.image = [UIImage imageNamed:@"2star.png"];
+    else cell.starImage.image = [UIImage imageNamed:@"3star.png"];
+    
+    
     cell.colorImage.layer.borderWidth = 2.0;
     cell.colorImage.layer.cornerRadius = 25;
     cell.colorImage.image = nil;
-    cell.level = level;
     
-    //cell.colorImage.layer.borderColor = [[UIColor blackColor] CGColor];
-
-    //cell.textColor = level.color;
-    
+    cell.colorImage.backgroundColor = level.color;
 
     return cell;
 }
@@ -101,7 +85,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LevelTableCell* cell = (LevelTableCell*) [tableView cellForRowAtIndexPath:indexPath];
-    self.level = cell.level;
+    self.selectedLevel = cell.level;
     [self performSegueWithIdentifier:@"loadLevel" sender:self];
 }
 
@@ -114,7 +98,7 @@
         ViewController *vc = [segue destinationViewController];
         
         // Pass any objects to the view controller here, like...
-        vc.target = self.level.color;
+        vc.level = self.selectedLevel;
     }
 }
 

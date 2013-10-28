@@ -21,41 +21,28 @@
     self.color.layer.borderWidth = 2.0;
     self.color.layer.cornerRadius = 25;
     self.color.layer.masksToBounds = YES;
-    self.targetColor.layer.borderColor = [[UIColor blackColor] CGColor];
-    self.targetColor.layer.borderWidth = 2.0;
-    self.targetColor.layer.cornerRadius = 25;
-    self.targetColor.layer.masksToBounds = YES;
-    self.targetColor.backgroundColor = self.target;
-    self.result.text = @"";
+    
+    self.targetPreview.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.targetPreview.layer.borderWidth = 2.0;
+    self.targetPreview.layer.cornerRadius = 25;
+    self.targetPreview.layer.masksToBounds = YES;
+    
     self.imagePreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.imagePreview.layer.borderWidth = 1.5;
     
-    RBGame* game = [[RBGame alloc] init];
-    [game loadLevels];
-    
+    self.result.text = @"";
     self.timerLabel.text = @"";
     
-    self.time = 10;
+    self.targetPreview.backgroundColor = self.level.color;
+    
+    self.time = 30;
     self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
-
-    
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)button:(id)sender {
     [self setGalleryDelegate:self];
     [self launchBrowser];
-}
-
-- (void) setTargetColorWithColor:(UIColor *)targetColor
-{
-    self.target = targetColor;
 }
 
 -(void) didFinishLoadingImage:(UIImage *)image original:(UIImage*)originalImage
@@ -64,8 +51,10 @@
     NSLog(@"loadImage: %@ original:%@" , image.description, originalImage.description);
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
-    self.color.backgroundColor = [RBImage getDominantColor:image];
-    self.result.text = [NSString stringWithFormat:@"Pontuation: %.0f",[RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetColor.backgroundColor]*100];
+    self.level.colorPlayed = [RBImage getDominantColor:image];
+    self.color.backgroundColor = self.level.colorPlayed;
+    self.level.pointsScored = [RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetPreview.backgroundColor]*100;
+    self.result.text = [NSString stringWithFormat:@"Pontuation: %d",self.level.pointsScored];
 
 }
 
@@ -83,11 +72,14 @@
     [self performSegueWithIdentifier:@"gameOver" sender:self];
 }
 
+- (IBAction)playButton:(id)sender {
+    [self timerOver];
+}
+
 - (IBAction)resetTimer:(id)sender {
     self.time = 30;
     [self.timerLabel setTextColor:[UIColor blackColor]];
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
-    self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
 }
 
 - (IBAction)back:(id)sender {

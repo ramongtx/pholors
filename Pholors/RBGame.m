@@ -16,7 +16,6 @@
     if(self = [super init]){
         self.levels = [[NSMutableArray alloc] init];
         self.totalPoints = 0 ;
-        
     }
     return self;
 }
@@ -31,14 +30,17 @@
         
 }
 
+- (void) createLevelSet
+{
+    for (int i=0; i<10; i++) [self createLevel];
+}
+
 -(void) saveLevels
 {
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:self.levels];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"mylevels"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
-
 
 -(void) loadLevels
 {
@@ -47,6 +49,8 @@
     self.levels = [NSMutableArray arrayWithArray:levels];
 }
 
-
-
+-(void) loadDefaultLevels:(NSMutableArray*)levels
+{
+    defaultLevels = levels;
+}
 @end

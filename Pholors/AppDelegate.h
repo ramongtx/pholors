@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RBGame.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

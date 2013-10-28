@@ -54,7 +54,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cyq-5O-eeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-456" y="85"/>
+            <point key="canvasLocation" x="-358" y="232"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -98,7 +98,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="QNm-dH-OJ9"/>
-                                    <barButtonItem systemItem="play" id="jgr-sy-4il"/>
+                                    <barButtonItem systemItem="play" id="jgr-sy-4il">
+                                        <connections>
+                                            <action selector="playButton:" destination="vXZ-lx-hvc" id="As3-md-5Hu"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average Color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsj-BR-Nhm">
@@ -137,7 +141,7 @@
                         <outlet property="color" destination="HzL-7W-FES" id="l6n-K6-GZc"/>
                         <outlet property="imagePreview" destination="PMv-2E-Rqz" id="ylb-dv-8SI"/>
                         <outlet property="result" destination="b9m-TN-0WL" id="5KL-25-zs4"/>
-                        <outlet property="targetColor" destination="ony-R4-dKn" id="XLK-5G-Qvs"/>
+                        <outlet property="targetPreview" destination="ony-R4-dKn" id="IE1-4Q-Yha"/>
                         <outlet property="timerLabel" destination="Fjr-y1-eJA" id="N1c-Wa-Ejc"/>
                         <segue destination="uFT-aw-eDe" kind="custom" identifier="gameOver" customClass="RBCustomSegue" id="wvJ-x1-wKa"/>
                     </connections>
