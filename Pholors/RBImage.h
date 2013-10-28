@@ -14,6 +14,8 @@
 + (UIColor*) getDominantColor:(UIImage*)image;
 + (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2;
 + (UIColor*) randomColor;
++ (int) convertDistanceToPoints:(float)dist;
++ (int) convertPointstoStars:(int)points;
 
 @end
 
