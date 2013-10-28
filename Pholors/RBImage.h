@@ -13,8 +13,8 @@
 + (UIColor *)averageColor:(UIImage*)image;
 + (UIColor*) getDominantColor:(UIImage*)image;
 + (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2;
-+ (float) YUVeuclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2;
-+ (float) XYZeuclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2;
++ (float) LABeuclideanDistance:(UIColor*)color1 to:(UIColor*)color2;
++ (NSMutableArray*) RGBtoLAB:(UIColor*)color;
 + (UIColor*) randomColor;
 + (int) convertDistanceToPoints:(float)dist;
 + (int) convertPointstoStars:(int)points;

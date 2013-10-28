@@ -10,5 +10,7 @@
 #import "ViewController.h"
 
 @interface MainViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *starsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end

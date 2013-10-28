@@ -97,79 +97,65 @@ struct pixel {
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1.0f];
 }
 
++ (NSMutableArray*) RGBtoLAB:(UIColor*)color{
+    const CGFloat* componentsColor = CGColorGetComponents([color CGColor]);
+    
+    float x, y, z;
+    float xW, yW, zW;
+    float auxFloat = 1/0.17697;
+    
+    xW = auxFloat *( 0.49 + 0.31 + 0.2);
+    yW = auxFloat *( 0.17697  + 0.8124 + 0.01063);
+    zW = auxFloat * (0 + 0.01 + 0.99);
+    
+    x = auxFloat *( 0.49 * componentsColor[0] + 0.31 * componentsColor[1] + 0.2 * componentsColor[2]);
+    y = auxFloat *( 0.17697 * componentsColor[0] + 0.8124 * componentsColor[1] + 0.01063 * componentsColor[2]);
+    z = auxFloat *( 0 * componentsColor[0] + 0.01 * componentsColor[1] + 0.99 * componentsColor[2]);
+    
+    float l, a, b;
+    float Xrel = x/xW, Yrel = y/yW, Zrel = z/zW;
+    float Fx, Fy, Fz;
+    
+    
+    if(Xrel > 0.008856) Fx = pow(Xrel,1/3);
+    else Fx = 7.787 * Xrel + 16/116;
+    
+    if(Yrel > 0.008856) Fy = pow(Yrel,1/3);
+    else Fy = 7.787 * Yrel + 16/116;
+    
+    if(Zrel > 0.008856) Fz = pow(Zrel,1/3);
+    else Fz = 7.787 * Zrel + 16/116;
+
+    
+    
+    if(Yrel > 0.008856) l = 116 * pow(Yrel,1/3) - 16;
+    else l = 903.3 * Yrel;
+    
+    a = 500 * (Fx - Fy);
+    b = 200 * (Fy - Fz);
+
+    NSMutableArray* labArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithFloat:l],[NSNumber numberWithFloat:a], [NSNumber numberWithFloat:b],nil];
+    return labArray;
+}
+
 + (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2{
     
-    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
-    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
     
-    float dist = 0;
-    
-    for(int i=0; i<3; i++){
-        dist += pow((componentsColor1[i] - componentsColor2[i]),2);
-        NSLog(@"%f %f",componentsColor1[i],componentsColor2[i]);
-    }
-    NSLog(@"EuclidDist: %f",sqrt(dist));
-    
-    NSLog(@"%d",[RBImage convertDistanceToPoints:sqrt(dist)]);
-    
-    return sqrt(dist);
 }
 
-+ (float) YUVeuclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2{
+
++ (float) LABeuclideanDistance:(UIColor*)color1 to:(UIColor*)color2{
     
-    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
-    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
+    NSMutableArray* LABcolor1, *LABcolor2;
     
-    float y1, y2,u1,u2,v1,v2;
-    y1 = 0.299 * componentsColor1[0] + 0.587 * componentsColor1[1] + 0.114 * componentsColor1[2];
-    y2 = 0.299 * componentsColor2[0] + 0.587 * componentsColor2[1] + 0.114 * componentsColor2[2];
+    LABcolor1 = [RBImage RGBtoLAB:color1];
+    LABcolor2 = [RBImage RGBtoLAB:color2];
     
-    u1 = -0.14713 * componentsColor1[0] + (-0.28886) * componentsColor1[1] + 0.436 * componentsColor1[2];
-    u2 = -0.14713 * componentsColor2[0] + (-0.28886) * componentsColor2[1] + 0.436 * componentsColor2[2];
-    
-    v1 = 0.615 * componentsColor1[0] + (-0.51499) * componentsColor1[1] + (-0.10001) * componentsColor1[2];
-    v2 = 0.615 * componentsColor2[0] + (-0.51499) * componentsColor2[1] + (-0.10001) * componentsColor2[2];
-    
+    NSLog(@"l1: %f, a1: %f, b1: %f", [LABcolor1[0] floatValue],[LABcolor1[1] floatValue],[LABcolor1[2] floatValue]);
+    NSLog(@"l1: %f, a1: %f, b1: %f", [LABcolor1[0] floatValue],[LABcolor2[1] floatValue],[LABcolor2[2] floatValue]);
     float dist = 0;
     
-    dist += pow((y1-y2),2) + pow((u1-u2),2) + pow((v1-v2),2);
-    
-    NSLog(@"EuclidDist: %f",sqrt(dist));
-    
-    NSLog(@"%d",[RBImage convertDistanceToPoints:sqrt(dist)]);
-    
-    return sqrt(dist);
-}
-
-+ (float) XYZeuclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2{
-    
-    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
-    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
-    
-    
-    float x1, x2,y1,y2,z1,z2;
-    float auxFloat = 1/0.17697;
-//    x1 = auxFloat *( 0.49 * componentsColor1[0] + 0.31 * componentsColor1[1] + 0.2 * componentsColor1[2]);
-    x1 = auxFloat *( 0.49 + 0.31 + 0.2);
-    y1 = auxFloat *( 0.17697  + 0.8124 + 0.01063);
-
-    z1 = auxFloat;
-
-    
-    x2 = auxFloat *( 0.49 * componentsColor2[0] + 0.31 * componentsColor2[1] + 0.2 * componentsColor2[2]);
-    
-//    y1 = auxFloat *( 0.17697 * componentsColor1[0] + 0.8124 * componentsColor1[1] + 0.01063 * componentsColor1[2]);
-    y2 = auxFloat *( 0.17697 * componentsColor2[0] + 0.8124 * componentsColor2[1] + 0.01063 * componentsColor2[2]);
-//    z1 = auxFloat *( 0 * componentsColor1[0] + 0.01 * componentsColor1[1] + 0.99 * componentsColor1[2]);
-    z2 = auxFloat *( 0 * componentsColor2[0] + 0.01 * componentsColor2[1] + 0.99 * componentsColor2[2]);
-    
-    float dist = 0;
-    
-    dist += pow((y1-y2),2) + pow((x1-x2),2) + pow((z1-z2),2);
-    
-    NSLog(@"%f %f",x1,x2);
-    NSLog(@"%f %f",y1,y2);
-    NSLog(@"%f %f",z1,z2);
+    dist += pow(([LABcolor1[0] floatValue]-[LABcolor2[0] floatValue]),2) + pow(([LABcolor1[1] floatValue]-[LABcolor2[1] floatValue]),2) + pow(([LABcolor1[2] floatValue]-[LABcolor2[2] floatValue]),2);
     
     NSLog(@"EuclidDist: %f",sqrt(dist));
     
@@ -188,10 +174,7 @@ struct pixel {
 }
 
 + (int) convertDistanceToPoints:(float)dist{
-    //euclideanDist sqrt(3.0)
-    //XYZeuclid 5.650675
-    
-    int temp = ceil( 100 * (5.650675 - dist) / 5.650675);
+    int temp = ceil( 100 * (sqrt(3.0) - dist) / sqrt(3.0));
     if (temp < 25) temp = temp*temp/25;
     else if (temp >75)
     {
