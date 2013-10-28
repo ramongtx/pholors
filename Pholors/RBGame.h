@@ -18,7 +18,12 @@
 -(void) createLevelSet;
 -(void) saveLevels;
 -(void) loadLevels;
-+(NSMutableArray*) defaultLevels;
+
+
++(void) loadDefaultLevels;
++(void) saveDefaultLevels;
++(void) createDefaultSet;
+
 @end
 
 static NSMutableArray* defaultLevels;

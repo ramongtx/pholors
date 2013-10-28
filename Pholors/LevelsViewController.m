@@ -35,7 +35,6 @@
     
     //remove creating from here, pass through segway instead
     RBGame* game = [[RBGame alloc] init];
-    [game createLevelSet];
     
     tableData = game.levels;
 

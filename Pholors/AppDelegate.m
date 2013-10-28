@@ -13,6 +13,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    BOOL firstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"levelset"];
+    if (firstTime) [RBGame loadDefaultLevels];
+    else {
+        [RBGame createDefaultSet];
+        [RBGame saveDefaultLevels];
+    }
     return YES;
 }
 							
@@ -40,6 +46,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [RBGame saveDefaultLevels];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
