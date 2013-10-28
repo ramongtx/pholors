@@ -51,10 +51,12 @@
     NSLog(@"loadImage: %@ original:%@" , image.description, originalImage.description);
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
+    
     self.level.colorPlayed = [RBImage getDominantColor:image];
     self.color.backgroundColor = self.level.colorPlayed;
     self.level.pointsScored = [RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetPreview.backgroundColor]*100;
     self.result.text = [NSString stringWithFormat:@"Pontuation: %d",self.level.pointsScored];
+
 
 }
 

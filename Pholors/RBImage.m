@@ -104,10 +104,14 @@ struct pixel {
     
     float dist = 0;
     
-    for(int i=0; i<4; i++){
+    for(int i=0; i<3; i++){
         dist += pow((componentsColor1[i] - componentsColor2[i]),2);
+        NSLog(@"%f %f",componentsColor1[i],componentsColor2[i]);
     }
     NSLog(@"EuclidDist: %f",sqrt(dist));
+    
+    NSLog(@"%d",[RBImage convertDistanceToPoints:sqrt(dist)]);
+    
     return sqrt(dist);
 }
 
@@ -119,5 +123,15 @@ struct pixel {
     UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
     return color;
 }
+
++ (int) convertDistanceToPoints:(float)dist{
+    return ceil(100 * (sqrt(3.0) - dist) / sqrt(3.0));
+}
+
++ (int) convertPointstoStars:(int)points{
+    int maxStars = 3;
+    return round(points * maxStars / 100);
+}
+
 
 @end
