@@ -61,6 +61,7 @@
     [encoder encodeInteger:self.pointsScored forKey:@"pointsScored"];
     [encoder encodeObject:self.color forKey:@"color"];
     [encoder encodeObject:self.colorPlayed forKey:@"colorPlayed"];
+    [encoder encodeObject:self.colorName forKey:@"colorName"];
     [encoder encodeBool:[self completed] forKey:@"completed"];
 }
 
@@ -70,6 +71,7 @@
         self.pointsScored = [decoder decodeIntegerForKey:@"pointsScored"];
         self.color = [decoder decodeObjectForKey:@"color"];
         self.colorPlayed = [decoder decodeObjectForKey:@"colorPlayed"];
+        self.colorName = [decoder decodeObjectForKey:@"colorName"];
         self.completed = [decoder decodeObjectForKey:@"completed"];
     }
     
