@@ -128,6 +128,42 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		D596F1FD181EB66800CF092D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6E663901816F9AF0094EC26 /* RBImage.h */,
+				F6E663911816F9AF0094EC26 /* RBImage.m */,
+				D597BEAE1817EAAF00F3881E /* RBLevel.h */,
+				D597BEAF1817EAAF00F3881E /* RBLevel.m */,
+				D597BEB11817F72800F3881E /* RBGame.h */,
+				D597BEB21817F72800F3881E /* RBGame.m */,
+				3D8E9A7C1817FC0D0038E72D /* RBTimer.h */,
+				3D8E9A7D1817FC0D0038E72D /* RBTimer.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D596F1FE181EB68500CF092D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F6E6638B1816F9860094EC26 /* ViewController.h */,
+				D592052018183B11004F58BD /* LevelsViewController.h */,
+				D592052118183B11004F58BD /* LevelsViewController.m */,
+				D592052F18184C61004F58BD /* LevelTableCell.h */,
+				D592053018184C61004F58BD /* LevelTableCell.m */,
+				F6F5C6D4181E9F89004A58D6 /* MainViewController.h */,
+				F6F5C6D5181E9F89004A58D6 /* MainViewController.m */,
+				F6E6638C1816F9860094EC26 /* ViewController.m */,
+				3DC3D34018183E2300096DA2 /* RBCustomSegue.h */,
+				3DC3D34118183E2300096DA2 /* RBCustomSegue.m */,
+				F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */,
+				F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */,
+				3DC3D33D1818355B00096DA2 /* GameOverViewController.h */,
+				3DC3D33E1818355B00096DA2 /* GameOverViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		F6E663301816F8740094EC26 = {
 			isa = PBXGroup;
 			children = (
@@ -161,34 +197,14 @@
 		F6E663421816F8740094EC26 /* Pholors */ = {
 			isa = PBXGroup;
 			children = (
+				D596F1FE181EB68500CF092D /* ViewController */,
+				D596F1FD181EB66800CF092D /* Model */,
 				D592052418184539004F58BD /* images */,
 				F6F299081817DBA300E97D0F /* Main.storyboard */,
-				F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */,
-				F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */,
-				3DC3D33D1818355B00096DA2 /* GameOverViewController.h */,
-				3DC3D33E1818355B00096DA2 /* GameOverViewController.m */,
-				F6E663901816F9AF0094EC26 /* RBImage.h */,
-				F6E663911816F9AF0094EC26 /* RBImage.m */,
-				D597BEAE1817EAAF00F3881E /* RBLevel.h */,
-				D597BEAF1817EAAF00F3881E /* RBLevel.m */,
-				D597BEB11817F72800F3881E /* RBGame.h */,
-				D597BEB21817F72800F3881E /* RBGame.m */,
-				3D8E9A7C1817FC0D0038E72D /* RBTimer.h */,
-				3D8E9A7D1817FC0D0038E72D /* RBTimer.m */,
 				F6E6634B1816F8740094EC26 /* AppDelegate.h */,
 				F6E6634C1816F8740094EC26 /* AppDelegate.m */,
-				F6E6638B1816F9860094EC26 /* ViewController.h */,
-				F6E6638C1816F9860094EC26 /* ViewController.m */,
 				F6E663541816F8740094EC26 /* Images.xcassets */,
 				F6E663431816F8740094EC26 /* Supporting Files */,
-				3DC3D34018183E2300096DA2 /* RBCustomSegue.h */,
-				3DC3D34118183E2300096DA2 /* RBCustomSegue.m */,
-				D592052018183B11004F58BD /* LevelsViewController.h */,
-				D592052118183B11004F58BD /* LevelsViewController.m */,
-				D592052F18184C61004F58BD /* LevelTableCell.h */,
-				D592053018184C61004F58BD /* LevelTableCell.m */,
-				F6F5C6D4181E9F89004A58D6 /* MainViewController.h */,
-				F6F5C6D5181E9F89004A58D6 /* MainViewController.m */,
 			);
 			path = Pholors;
 			sourceTree = "<group>";
