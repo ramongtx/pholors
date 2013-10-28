@@ -73,6 +73,7 @@
 - (void) timerOver
 {
     [self performSegueWithIdentifier:@"gameOver" sender:self];
+    [RBGame saveDefaultLevels];
 }
 
 - (IBAction)playButton:(id)sender {
