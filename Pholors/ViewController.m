@@ -54,7 +54,7 @@
     
     self.level.colorPlayed = [RBImage getDominantColor:image];
     self.color.backgroundColor = self.level.colorPlayed;
-    float distance = [RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetPreview.backgroundColor];
+    float distance = [RBImage LABeuclideanDistance:self.color.backgroundColor to:self.targetPreview.backgroundColor];
     self.level.pointsScored = [RBImage convertDistanceToPoints:distance];
     self.result.text = [NSString stringWithFormat:@"Pontuation: %d",self.level.pointsScored];
 
