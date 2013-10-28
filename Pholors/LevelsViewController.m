@@ -17,6 +17,12 @@
     NSArray *tableData;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView setFrame:CGRectMake(0, 20, 320, 600)];
+    [[[UIApplication sharedApplication] keyWindow] setBackgroundColor:[UIColor whiteColor]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
