@@ -31,13 +31,17 @@
     self.imagePreview.layer.borderWidth = 1.5;
     
     self.result.text = @"";
-    self.timerLabel.text = @"";
+    self.timerLabel.hidden = YES;
     
     self.targetPreview.backgroundColor = self.level.color;
     
-    self.time = 30;
-    self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
-    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+    if (self.level.isTimeAttack) {
+        self.time = 60;
+        self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
+        self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+        self.timerLabel.hidden = NO;
+    }
+    else self.time = -1;
 }
 
 - (IBAction)button:(id)sender {
@@ -54,11 +58,23 @@
     
     self.level.colorPlayed = [RBImage getDominantColor:image];
     self.color.backgroundColor = self.level.colorPlayed;
-    float distance = [RBImage LABeuclideanDistance:self.color.backgroundColor to:self.targetPreview.backgroundColor];
-    self.level.pointsScored = [RBImage convertDistanceToPoints:distance];
-    self.result.text = [NSString stringWithFormat:@"Pontuation: %d",self.level.pointsScored];
+    int p = [self calculatePoints];
+    self.result.text = [NSString stringWithFormat:@"Pontuation: %d",p];
+    if (!self.level.isTimeAttack) [self savePoints:p];
 
+}
 
+-(int) calculatePoints
+{
+    if (self.imagePreview.image == nil) return 0;
+    float distance = [RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetPreview.backgroundColor];
+    return [RBImage convertDistanceToPoints:distance];
+}
+
+-(void) savePoints:(int)p
+{
+    if (self.level.isTimeAttack) self.level.pointsScored += p;
+    else self.level.pointsScored = p;
 }
 
 - (void)onTick{
@@ -72,12 +88,26 @@
 
 - (void) timerOver
 {
+    [RBGame updateRecord:self.level.pointsScored];
     [self performSegueWithIdentifier:@"gameOver" sender:self];
-    [RBGame saveDefaultLevels];
 }
 
 - (IBAction)playButton:(id)sender {
-    [self timerOver];
+    if (!self.level.isTimeAttack) {
+        [RBGame saveDefaultLevels];
+        [self performSegueWithIdentifier:@"gameOver" sender:self];
+    }
+    else
+    {
+        int p = [self calculatePoints];
+        [self savePoints:p];
+        p = self.level.pointsScored;
+        [self.level changeColor];
+        self.result.text = [NSString stringWithFormat:@"Total Pontuation: %d",p];
+        self.color.backgroundColor = nil;
+        self.targetPreview.backgroundColor = self.level.color;
+        self.imagePreview.image = nil;
+    }
 }
 
 - (IBAction)resetTimer:(id)sender {

@@ -15,21 +15,31 @@
         self.imageUsed = nil;
         self.pointsScored = 0;
         self.color = [RBImage randomColor];
+        self.colorName = self.color.description;
         self.colorPlayed = nil;
         self.completed = NO;
+        self.isTimeAttack = NO;
     }
     return self;
 }
 
--(id) initWithColor:(UIColor*)color{
+
+-(id) initWithColor:(NSString*)colorHex name:(NSString*)name{
     if(self = [super init]){
         self.imageUsed = nil;
         self.pointsScored = 0;
-        self.color = color;
+        self.color = [RBImage colorFromHexString:colorHex];
+        self.colorName = name;
         self.colorPlayed = nil;
         self.completed = NO;
+        self.isTimeAttack = NO;
     }
     return self;
+}
+
+-(void) changeColor
+{
+    self.color = [RBImage randomColor];
 }
 
 
@@ -41,12 +51,17 @@
     return self.pointsScored;
 }
 
+-(int) stars
+{
+    return [RBImage convertPointstoStars:self.pointsScored];
+}
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.imageUsed forKey:@"imageUsed"];
     [encoder encodeInteger:self.pointsScored forKey:@"pointsScored"];
     [encoder encodeObject:self.color forKey:@"color"];
     [encoder encodeObject:self.colorPlayed forKey:@"colorPlayed"];
+    [encoder encodeObject:self.colorName forKey:@"colorName"];
     [encoder encodeBool:[self completed] forKey:@"completed"];
 }
 
@@ -56,11 +71,11 @@
         self.pointsScored = [decoder decodeIntegerForKey:@"pointsScored"];
         self.color = [decoder decodeObjectForKey:@"color"];
         self.colorPlayed = [decoder decodeObjectForKey:@"colorPlayed"];
+        self.colorName = [decoder decodeObjectForKey:@"colorName"];
         self.completed = [decoder decodeObjectForKey:@"completed"];
     }
     
     return self;
-
 }
 
 @end

@@ -14,8 +14,12 @@
 {
     // Override point for customization after application launch.
     BOOL firstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"levelset"];
-    if (firstTime) [RBGame loadDefaultLevels];
+    if (firstTime) {
+        [RBGame loadDefaultLevels];
+        [RBGame loadRecords];
+    }
     else {
+        [RBGame clearRecord];
         [RBGame createDefaultSet];
         [RBGame saveDefaultLevels];
     }

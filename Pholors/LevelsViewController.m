@@ -33,10 +33,7 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSLog(@"LevelsViewController.viewDidLoad");
     
-    //remove creating from here, pass through segway instead
-    RBGame* game = [[RBGame alloc] init];
-    
-    tableData = game.levels;
+    tableData = [RBGame getDefaultLevels]; //game.levels;
 
     
 }
@@ -69,12 +66,13 @@
     
     //cell.text = level.description;
     
-    cell.cellLabel.text = [NSString stringWithFormat:@"Level %ld", (long)indexPath.row];
+    cell.cellLabel.text = [NSString stringWithFormat:@"%@!", level.colorName];
     cell.level = level;
     
-    if (level.pointsScored < 25) cell.starImage.image = [UIImage imageNamed:@"0star.png"];
-    else if (level.pointsScored < 50) cell.starImage.image = [UIImage imageNamed:@"1star.png"];
-    else if (level.pointsScored < 75) cell.starImage.image = [UIImage imageNamed:@"2star.png"];
+    int stars = [level stars];
+    if (stars == 0) cell.starImage.image = [UIImage imageNamed:@"0star.png"];
+    else if (stars == 1) cell.starImage.image = [UIImage imageNamed:@"1star.png"];
+    else if (stars == 2) cell.starImage.image = [UIImage imageNamed:@"2star.png"];
     else cell.starImage.image = [UIImage imageNamed:@"3star.png"];
     
     

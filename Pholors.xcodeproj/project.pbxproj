@@ -66,6 +66,7 @@
 		D597BEAF1817EAAF00F3881E /* RBLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBLevel.m; sourceTree = "<group>"; };
 		D597BEB11817F72800F3881E /* RBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGame.h; sourceTree = "<group>"; };
 		D597BEB21817F72800F3881E /* RBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGame.m; sourceTree = "<group>"; };
+		F6850C64181EBBDD00870219 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F6E663391816F8740094EC26 /* Pholors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pholors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E6633C1816F8740094EC26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6E6633E1816F8740094EC26 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,7 +83,6 @@
 		F6E663631816F8740094EC26 /* PholorsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PholorsTests-Info.plist"; sourceTree = "<group>"; };
 		F6E663651816F8740094EC26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F6E663671816F8740094EC26 /* PholorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PholorsTests.m; sourceTree = "<group>"; };
-		F6E6638B1816F9860094EC26 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F6E6638C1816F9860094EC26 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
@@ -146,13 +146,13 @@
 		D596F1FE181EB68500CF092D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F6E6638B1816F9860094EC26 /* ViewController.h */,
 				D592052018183B11004F58BD /* LevelsViewController.h */,
 				D592052118183B11004F58BD /* LevelsViewController.m */,
 				D592052F18184C61004F58BD /* LevelTableCell.h */,
 				D592053018184C61004F58BD /* LevelTableCell.m */,
 				F6F5C6D4181E9F89004A58D6 /* MainViewController.h */,
 				F6F5C6D5181E9F89004A58D6 /* MainViewController.m */,
+				F6850C64181EBBDD00870219 /* ViewController.h */,
 				F6E6638C1816F9860094EC26 /* ViewController.m */,
 				3DC3D34018183E2300096DA2 /* RBCustomSegue.h */,
 				3DC3D34118183E2300096DA2 /* RBCustomSegue.m */,

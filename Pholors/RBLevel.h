@@ -16,9 +16,14 @@
 @property(nonatomic) int pointsScored;
 @property(strong, nonatomic) UIColor * color;
 @property(strong, nonatomic) UIColor * colorPlayed;
+@property(strong, nonatomic) NSString* colorName;
 @property(nonatomic)BOOL completed;
+@property(nonatomic) BOOL isTimeAttack;
 
--(id) initWithColor:(UIColor*)color;
+-(id) init;
+-(id) initWithColor:(NSString*)colorHex name:(NSString*)name;
+-(int) stars;
 
+-(void) changeColor;
 
 @end

@@ -67,12 +67,92 @@
 
 +(void) createDefaultSet
 {
+    NSDictionary* colors = @{@"Air Force Blue": @"#5d8aa8",
+                             @"Apple green": @"#8db600",
+                             @"AuroMetalSaurus": @"#6e7f80",
+                             @"Banana yellow": @"#ffe135",
+                             @"Bittersweet": @"#fe6f5e",
+                             @"Bubble gum": @"#ffc1cc",
+                             @"Bubbles": @"#e7feff",
+                             @"Capri": @"#00bfff",
+                             @"Cinnamon": @"#d2691e",
+                             @"Cofee": @"#6f4e37",
+                             @"Ferrari Red": @"#ff2800",
+                             @"Electric Purple": @"#bf00ff",
+                             @"Grullo": @"#a99a86",
+                             @"Inchworm": @"#b2ec5d",
+                             @"Navy Blue": @"#000080",
+                             @"Pastel Yellow": @"#fdfd96",
+                             @"Pumpkin": @"#ff7518",
+                             @"Purple pizzazz": @"#fe4eda",
+                             @"Wine" : @"#722f37",
+                             @"White Smoke": @"#f5f5f5",
+                             @"Smoky Black": @"#100c08",
+                             @"Sand": @"#c2b280",
+                             @"Ruby": @"#e0115f",
+                             @"Mango Tango": @"#ff8243"
+                             };
+    
     defaultLevels = [[NSMutableArray alloc] init];
-    for (int i = 0; i<10; i++) {
-        RBLevel * newLevel = [[RBLevel alloc] init];
+    for(id key in colors){
+        RBLevel * newLevel = [[RBLevel alloc] initWithColor:colors[key] name:key];
         [defaultLevels addObject:newLevel];
     }
     [self saveDefaultLevels];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"levelset"];
+}
+
++(NSArray*) getDefaultLevels
+{
+    return defaultLevels;
+}
+
++(long) allStars
+{
+    long i = 0;
+    for (RBLevel *l in defaultLevels)
+    {
+        i+= [l stars];
+    }
+    return i;
+}
+
++(long) maxStars
+{
+    return 3*[defaultLevels count];
+}
+
++(BOOL)updateRecord:(int)newRecord
+{
+    if (newRecord >= timeRecord) {
+        [[NSUserDefaults standardUserDefaults] setInteger:newRecord forKey:@"timeRecord"];
+        timeRecord = newRecord;
+        return YES;
+    }
+    return NO;
+}
+
++(void) loadRecords
+{
+    timeRecord = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeRecord"];
+}
+
++(long int) getRecord
+{
+    return timeRecord;
+}
+
++(void)clearRecord
+{
+    timeRecord = 0;
+    [RBGame updateRecord:0];
+}
+
++(void) clearAll
+{
+    [RBGame clearRecord];
+    [RBGame createDefaultSet];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"levelset"];
+
 }
 @end
