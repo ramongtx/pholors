@@ -76,14 +76,21 @@
                              @"Bubbles": @"#e7feff",
                              @"Capri": @"#00bfff",
                              @"Cinnamon": @"#d2691e",
-                             @"Cofee": @"#65432",
+                             @"Cofee": @"#6f4e37",
                              @"Ferrari Red": @"#ff2800",
                              @"Electric Purple": @"#bf00ff",
                              @"Grullo": @"#a99a86",
                              @"Inchworm": @"#b2ec5d",
                              @"Navy Blue": @"#000080",
                              @"Pastel Yellow": @"#fdfd96",
-                             @"Pumpkin": @"#ff7518"
+                             @"Pumpkin": @"#ff7518",
+                             @"Purple pizzazz": @"#fe4eda",
+                             @"Wine" : @"#722f37",
+                             @"White Smoke": @"#f5f5f5",
+                             @"Smoky Black": @"#100c08",
+                             @"Sand": @"#c2b280",
+                             @"Ruby": @"#e0115f",
+                             @"Mango Tango": @"#ff8243"
                              };
     
     defaultLevels = [[NSMutableArray alloc] init];
