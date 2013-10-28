@@ -33,10 +33,7 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSLog(@"LevelsViewController.viewDidLoad");
     
-    //remove creating from here, pass through segway instead
-    RBGame* game = [[RBGame alloc] init];
-    
-    tableData = game.levels;
+    tableData = [RBGame getDefaultLevels]; //game.levels;
 
     
 }

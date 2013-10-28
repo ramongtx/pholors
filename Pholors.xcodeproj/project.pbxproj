@@ -154,6 +154,7 @@
 				F6F5C6D5181E9F89004A58D6 /* MainViewController.m */,
 				F6E6638B1816F9860094EC26 /* ViewController.h */,
 				F6E6638C1816F9860094EC26 /* ViewController.m */,
+				F6E6638B1816F9860094EC26 /* ViewController.h */,
 				3DC3D34018183E2300096DA2 /* RBCustomSegue.h */,
 				3DC3D34118183E2300096DA2 /* RBCustomSegue.m */,
 				F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */,

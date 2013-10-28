@@ -75,4 +75,9 @@
     [self saveDefaultLevels];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"levelset"];
 }
+
++(NSArray*) getDefaultLevels
+{
+    return defaultLevels;
+}
 @end

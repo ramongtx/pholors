@@ -23,6 +23,8 @@
 +(void) loadDefaultLevels;
 +(void) saveDefaultLevels;
 +(void) createDefaultSet;
++(NSArray*) getDefaultLevels;
+
 
 @end
 
