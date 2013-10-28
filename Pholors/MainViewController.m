@@ -42,7 +42,7 @@
     [self performSegueWithIdentifier:@"timeAttack" sender:self];
 }
 - (IBAction)clear:(id)sender {
-    [RBGame clearRecord];
+    [RBGame clearAll];
     [self viewWillAppear:FALSE];
 }
 

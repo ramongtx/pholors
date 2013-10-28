@@ -10,6 +10,7 @@
 
 @implementation RBGame
 
+static long int timeRecord;
 
 -(id) init
 {
