@@ -139,8 +139,13 @@ struct pixel {
 }
 
 + (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2{
+    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
     
+    float dist = 0;
     
+    dist = pow(componentsColor1[0] - componentsColor2[0],2) + pow(componentsColor1[1] - componentsColor2[1],2) + pow(componentsColor1[2] - componentsColor2[2],2);
+    return sqrt(dist);
 }
 
 
