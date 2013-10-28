@@ -17,6 +17,7 @@
         self.color = [RBImage randomColor];
         self.colorPlayed = nil;
         self.completed = NO;
+        self.isTimeAttack = NO;
     }
     return self;
 }
@@ -28,8 +29,14 @@
         self.color = color;
         self.colorPlayed = nil;
         self.completed = NO;
+        self.isTimeAttack = NO;
     }
     return self;
+}
+
+-(void) changeColor
+{
+    self.color = [RBImage randomColor];
 }
 
 

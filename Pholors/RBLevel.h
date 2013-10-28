@@ -17,6 +17,7 @@
 @property(strong, nonatomic) UIColor * color;
 @property(strong, nonatomic) UIColor * colorPlayed;
 @property(nonatomic)BOOL completed;
+@property(nonatomic) BOOL isTimeAttack;
 
 -(id) initWithColor:(UIColor*)color;
 
