@@ -46,7 +46,7 @@
 -(int) playImageOnLevel:(UIImage*)img{
     self.imageUsed = img;
     self.colorPlayed = [RBImage getDominantColor:img];
-    self.pointsScored = 1 - [RBImage euclideanDistanceFrom:self.color to:self.colorPlayed];
+    self.pointsScored = 1 - [RBImage LABeuclideanDistance:self.color to:self.colorPlayed];
     
     return self.pointsScored;
 }
