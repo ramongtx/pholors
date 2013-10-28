@@ -35,7 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)restart:(id)sender {
-    [self performSegueWithIdentifier:@"backToMenu" sender:self];
+    [self performSegueWithIdentifier:@"restart" sender:self];
 }
 
 @end

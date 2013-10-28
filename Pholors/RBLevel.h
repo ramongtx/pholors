@@ -19,7 +19,8 @@
 @property(nonatomic)BOOL completed;
 @property(nonatomic) BOOL isTimeAttack;
 
+-(id) init;
 -(id) initWithColor:(UIColor*)color;
-
+-(void) changeColor;
 
 @end
