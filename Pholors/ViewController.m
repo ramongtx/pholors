@@ -52,15 +52,29 @@
 -(void) didFinishLoadingImage:(UIImage *)image original:(UIImage*)originalImage
 {
     self.imagePreview.image = image;
-    NSLog(@"loadImage: %@ original:%@" , image.description, originalImage.description);
+    //NSLog(@"loadImage: %@ original:%@" , image.description, originalImage.description);
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
     
-    self.level.colorPlayed = [RBImage getDominantColor:image];
+    int points = [self.level playImageOnLevel:image original:originalImage];
+
+    
+    if(points== -1){
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Duplicate Image"
+                                                              message:@"You have already used this image"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        return;
+    }
+    
+    //self.level.colorPlayed = [RBImage getDominantColor:image];
     self.color.backgroundColor = self.level.colorPlayed;
-    int p = [self calculatePoints];
-    self.result.text = [NSString stringWithFormat:@"Pontuation: %d",p];
-    if (!self.level.isTimeAttack) [self savePoints:p];
+    //int p = [self calculatePoints];
+    self.result.text = [NSString stringWithFormat:@"Pontuation: %d",points];
+    //if (!self.level.isTimeAttack) [self savePoints:p];
 
 }
 
@@ -74,7 +88,9 @@
 -(void) savePoints:(int)p
 {
     if (self.level.isTimeAttack) self.level.pointsScored += p;
-    else self.level.pointsScored = p;
+    else {
+        self.level.pointsScored = MAX(p, self.level.pointsScored);
+    }
 }
 
 - (void)onTick{

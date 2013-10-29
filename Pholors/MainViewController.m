@@ -50,6 +50,7 @@
 {
     self.starsLabel.text = [NSString stringWithFormat:@"%li/%li",[RBGame allStars], [RBGame maxStars]];
     self.timeLabel.text = [NSString stringWithFormat:@"%li",[RBGame getRecord]];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

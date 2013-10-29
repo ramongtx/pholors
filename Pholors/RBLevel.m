@@ -43,12 +43,15 @@
 }
 
 
--(int) playImageOnLevel:(UIImage*)img{
-    self.imageUsed = img;
-    self.colorPlayed = [RBImage getDominantColor:img];
-    self.pointsScored = 1 - [RBImage LABeuclideanDistance:self.color to:self.colorPlayed];
+-(int) playImageOnLevel:(UIImage*)img original:(UIImage*) originalImg{
+        self.imageUsed = originalImg;
+        self.colorPlayed = [RBImage getDominantColor:img];
+        float distance = [RBImage euclideanDistanceFrom:self.color to:self.colorPlayed];
+        int points = [RBImage convertDistanceToPoints:distance];
+        self.pointsScored = MAX(points,  self.pointsScored);
+
     
-    return self.pointsScored;
+    return points;
 }
 
 -(int) stars
