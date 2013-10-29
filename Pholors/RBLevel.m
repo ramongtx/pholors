@@ -49,6 +49,7 @@
         float distance = [RBImage euclideanDistanceFrom:self.color to:self.colorPlayed];
         int points = [RBImage convertDistanceToPoints:distance];
         self.pointsScored = MAX(points,  self.pointsScored);
+    self.completed = YES;
 
     
     return points;

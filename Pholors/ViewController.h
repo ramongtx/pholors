@@ -26,5 +26,6 @@
 
 - (IBAction)resetTimer:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *averageLabel;
 @property int time;
 @end

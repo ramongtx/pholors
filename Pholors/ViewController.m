@@ -22,6 +22,13 @@
     self.color.layer.cornerRadius = 25;
     self.color.layer.masksToBounds = YES;
     
+    if(self.level.colorPlayed){
+        self.color.backgroundColor = self.level.colorPlayed;
+        self.averageLabel.text = @"Last Played";
+    }
+    else
+        self.averageLabel.text = @"Average Color";
+    
     self.targetPreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.targetPreview.layer.borderWidth = 2.0;
     self.targetPreview.layer.cornerRadius = 25;
