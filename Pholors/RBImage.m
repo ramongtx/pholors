@@ -145,6 +145,7 @@ struct pixel {
     float dist = 0;
     
     dist = pow(componentsColor1[0] - componentsColor2[0],2) + pow(componentsColor1[1] - componentsColor2[1],2) + pow(componentsColor1[2] - componentsColor2[2],2);
+    NSLog(@"Euclidean Dist: %f",sqrt(dist));
     return sqrt(dist);
 }
 
@@ -180,12 +181,12 @@ struct pixel {
 
 + (int) convertDistanceToPoints:(float)dist{
     int temp = ceil( 100 * (sqrt(3.0) - dist) / sqrt(3.0));
-    if (temp < 25) temp = temp*temp/25;
-    else if (temp >75)
+    if (temp <= 50) temp = floor(exp(temp/14.0));
+    else if (temp > 60)
     {
-        temp = temp-75;
-        temp = (50*temp-temp*temp)/25;
-        temp = temp+75;
+        temp = temp-60;
+        temp = (60*temp-temp*temp)/25;
+        temp = temp+60;
     }
     return temp;
 }
