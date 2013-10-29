@@ -36,7 +36,7 @@
     self.targetPreview.backgroundColor = self.level.color;
     
     if (self.level.isTimeAttack) {
-        self.time = 60;
+        self.time = 10;
         self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
         self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
         self.timerLabel.hidden = NO;
@@ -79,26 +79,32 @@
 
 - (void)onTick{
     self.time--;
-    if (self.time == 0) {
+    if (self.time <= 0) {
         [self.timerLabel setTextColor:[UIColor redColor]];
         [self timerOver];
+        self.time=0;
     }
+    
     self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
 }
 
 - (void) timerOver
 {
+    //[self.timerController.timer invalidate];
+    NSLog(@"TIMER OVER");
     [RBGame updateRecord:self.level.pointsScored];
     [self performSegueWithIdentifier:@"gameOver" sender:self];
 }
 
 - (IBAction)playButton:(id)sender {
+    
     if (!self.level.isTimeAttack) {
         [RBGame saveDefaultLevels];
-        [self performSegueWithIdentifier:@"gameOver" sender:self];
+        [self performSegueWithIdentifier:@"levelsSegue" sender:self];
     }
     else
     {
+        
         int p = [self calculatePoints];
         [self savePoints:p];
         p = self.level.pointsScored;
