@@ -77,6 +77,10 @@
                                     <action selector="clear:" destination="hBq-oU-81a" eventType="touchUpInside" id="dKW-Ps-c9p"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pholors.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="whu-iw-8z8">
+                                <rect key="frame" x="60" y="148" width="200" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -281,6 +285,7 @@
     </scenes>
     <resources>
         <image name="6b2dd6f01f209f7fac5de216c820e516.jpg" width="646" height="655"/>
+        <image name="pholors.jpg" width="1268" height="299"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

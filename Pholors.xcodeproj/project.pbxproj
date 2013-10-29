@@ -17,6 +17,7 @@
 		D592052C18184539004F58BD /* 3star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052818184539004F58BD /* 3star.png */; };
 		D592053118184C61004F58BD /* LevelTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D592053018184C61004F58BD /* LevelTableCell.m */; };
 		D597664B18202974008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D597664A18202973008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg */; };
+		D597664D182030A8008AA843 /* pholors.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D597664C182030A8008AA843 /* pholors.jpg */; };
 		D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEAF1817EAAF00F3881E /* RBLevel.m */; };
 		D597BEB31817F72800F3881E /* RBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEB21817F72800F3881E /* RBGame.m */; };
 		F6E6633D1816F8740094EC26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633C1816F8740094EC26 /* Foundation.framework */; };
@@ -64,6 +65,7 @@
 		D592052F18184C61004F58BD /* LevelTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTableCell.h; sourceTree = "<group>"; };
 		D592053018184C61004F58BD /* LevelTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTableCell.m; sourceTree = "<group>"; };
 		D597664A18202973008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6b2dd6f01f209f7fac5de216c820e516.jpg; sourceTree = "<group>"; };
+		D597664C182030A8008AA843 /* pholors.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pholors.jpg; sourceTree = "<group>"; };
 		D597BEAE1817EAAF00F3881E /* RBLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBLevel.h; sourceTree = "<group>"; };
 		D597BEAF1817EAAF00F3881E /* RBLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBLevel.m; sourceTree = "<group>"; };
 		D597BEB11817F72800F3881E /* RBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGame.h; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		D592052418184539004F58BD /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D597664C182030A8008AA843 /* pholors.jpg */,
 				D597664A18202973008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg */,
 				D592052518184539004F58BD /* 0star.png */,
 				D592052618184539004F58BD /* 1star.png */,
@@ -325,6 +328,7 @@
 				F6E663471816F8740094EC26 /* InfoPlist.strings in Resources */,
 				D592052918184539004F58BD /* 0star.png in Resources */,
 				F6F299091817DBA300E97D0F /* Main.storyboard in Resources */,
+				D597664D182030A8008AA843 /* pholors.jpg in Resources */,
 				D597664B18202974008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
