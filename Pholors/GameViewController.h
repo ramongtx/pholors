@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GalleryViewController.h"
-#import "RBImage.h"
+#import "RBImageProcessor.h"
 #import "RBGame.h"
 #import "RBTimer.h"
 #import "RBCustomSegue.h"

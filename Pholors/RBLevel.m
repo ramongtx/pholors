@@ -13,7 +13,7 @@
 -(id) init{
     if(self = [super init]){
         self.pointsScored = 0;
-        self.color = [RBImage randomColor];
+        self.color = [RBImageProcessor randomColor];
         self.colorName = self.color.description;
         self.colorPlayed = nil;
         self.completed = NO;
@@ -26,7 +26,7 @@
 -(id) initWithColor:(NSString*)colorHex name:(NSString*)name{
     if(self = [super init]){
         self.pointsScored = 0;
-        self.color = [RBImage colorFromHexString:colorHex];
+        self.color = [RBImageProcessor colorFromHexString:colorHex];
         self.colorName = name;
         self.colorPlayed = nil;
         self.completed = NO;
@@ -37,15 +37,15 @@
 
 -(void) changeColor
 {
-    self.color = [RBImage randomColor];
+    self.color = [RBImageProcessor randomColor];
 }
 
 
 -(int) playImageOnLevel:(UIImage*)img original:(UIImage*) originalImg{
     
-    UIColor * color = [RBImage getDominantColor:img];
-    float distance = [RBImage cossineSimilarityFrom:self.color to:color];
-    int points = [RBImage convertDistanceToPoints:distance];
+    UIColor * color = [RBImageProcessor getDominantColor:img];
+    float distance = [RBImageProcessor cossineSimilarityFrom:self.color to:color];
+    int points = [RBImageProcessor convertDistanceToPoints:distance];
     
     if(points > MAX(0, self.pointsScored)){
         self.colorPlayed = color;
@@ -57,7 +57,7 @@
 
 -(int) stars
 {
-    return [RBImage convertPointstoStars:self.pointsScored];
+    return [RBImageProcessor convertPointstoStars:self.pointsScored];
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RBImage.h"
+#import "RBImageProcessor.h"
 
 @interface RBLevel : NSObject <NSCoding>
 

@@ -33,7 +33,7 @@
 		F6E663681816F8740094EC26 /* PholorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663671816F8740094EC26 /* PholorsTests.m */; };
 		F6E6638D1816F9860094EC26 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638C1816F9860094EC26 /* GameViewController.m */; };
 		F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */; };
-		F6E663931816F9AF0094EC26 /* RBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663911816F9AF0094EC26 /* RBImage.m */; };
+		F6E663931816F9AF0094EC26 /* RBImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663911816F9AF0094EC26 /* RBImageProcessor.m */; };
 		F6F299091817DBA300E97D0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F299081817DBA300E97D0F /* Main.storyboard */; };
 		F6F5C6D6181E9F89004A58D6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F5C6D5181E9F89004A58D6 /* MainViewController.m */; };
 /* End PBXBuildFile section */
@@ -87,8 +87,8 @@
 		F6E6638C1816F9860094EC26 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
-		F6E663901816F9AF0094EC26 /* RBImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBImage.h; sourceTree = "<group>"; };
-		F6E663911816F9AF0094EC26 /* RBImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBImage.m; sourceTree = "<group>"; };
+		F6E663901816F9AF0094EC26 /* RBImageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBImageProcessor.h; sourceTree = "<group>"; };
+		F6E663911816F9AF0094EC26 /* RBImageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBImageProcessor.m; sourceTree = "<group>"; };
 		F6F299081817DBA300E97D0F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F6F5C6D4181E9F89004A58D6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		F6F5C6D5181E9F89004A58D6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 		D596F1FD181EB66800CF092D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F6E663901816F9AF0094EC26 /* RBImage.h */,
-				F6E663911816F9AF0094EC26 /* RBImage.m */,
+				F6E663901816F9AF0094EC26 /* RBImageProcessor.h */,
+				F6E663911816F9AF0094EC26 /* RBImageProcessor.m */,
 				D597BEAE1817EAAF00F3881E /* RBLevel.h */,
 				D597BEAF1817EAAF00F3881E /* RBLevel.m */,
 				D597BEB11817F72800F3881E /* RBGame.h */,
@@ -351,7 +351,7 @@
 				F6E6638D1816F9860094EC26 /* GameViewController.m in Sources */,
 				F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */,
 				D592053118184C61004F58BD /* LevelTableCell.m in Sources */,
-				F6E663931816F9AF0094EC26 /* RBImage.m in Sources */,
+				F6E663931816F9AF0094EC26 /* RBImageProcessor.m in Sources */,
 				F6E6634D1816F8740094EC26 /* AppDelegate.m in Sources */,
 				D597BEB31817F72800F3881E /* RBGame.m in Sources */,
 				F6E663491816F8740094EC26 /* main.m in Sources */,

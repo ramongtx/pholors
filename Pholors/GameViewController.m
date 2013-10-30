@@ -93,8 +93,8 @@
     
     int points = [self.level playImageOnLevel:image original:originalImage];
     
-    self.color.backgroundColor = [RBImage getDominantColor:image];
-    [self updateStars:[RBImage convertPointstoStars:points]];
+    self.color.backgroundColor = [RBImageProcessor getDominantColor:image];
+    [self updateStars:[RBImageProcessor convertPointstoStars:points]];
     self.result.text = [NSString stringWithFormat:@"Pontuation: %d",points];
 
 }
@@ -102,8 +102,8 @@
 -(int) calculatePoints
 {
     if (self.imagePreview.image == nil) return 0;
-    float distance = [RBImage euclideanDistanceFrom:self.color.backgroundColor to:self.targetPreview.backgroundColor];
-    return [RBImage convertDistanceToPoints:distance];
+    float distance = [RBImageProcessor euclideanDistanceFrom:self.color.backgroundColor to:self.targetPreview.backgroundColor];
+    return [RBImageProcessor convertDistanceToPoints:distance];
 }
 
 -(void) savePoints:(int)p
