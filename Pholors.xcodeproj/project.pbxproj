@@ -16,7 +16,6 @@
 		D592052C18184539004F58BD /* 3star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052818184539004F58BD /* 3star.png */; };
 		D592053118184C61004F58BD /* LevelTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D592053018184C61004F58BD /* LevelTableCell.m */; };
 		D597664B18202974008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D597664A18202973008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg */; };
-		D597664D182030A8008AA843 /* pholors.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D597664C182030A8008AA843 /* pholors.jpg */; };
 		D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEAF1817EAAF00F3881E /* RBLevel.m */; };
 		D597BEB31817F72800F3881E /* RBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = D597BEB21817F72800F3881E /* RBGame.m */; };
 		D5BE0FFA1821728A0046AAF1 /* RBSharedFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BE0FF91821728A0046AAF1 /* RBSharedFunctions.m */; };
@@ -31,6 +30,7 @@
 		D5BE101F18217D7E0046AAF1 /* upupandaway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D5BE101418217D7E0046AAF1 /* upupandaway.mp3 */; };
 		D5BE102018217D7E0046AAF1 /* welcome.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D5BE101518217D7E0046AAF1 /* welcome.mp3 */; };
 		D5BE102118217D7E0046AAF1 /* whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D5BE101618217D7E0046AAF1 /* whistle.mp3 */; };
+		D5BE102318217F8E0046AAF1 /* pholors.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BE102218217F8E0046AAF1 /* pholors.png */; };
 		F6E6633D1816F8740094EC26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633C1816F8740094EC26 /* Foundation.framework */; };
 		F6E6633F1816F8740094EC26 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633E1816F8740094EC26 /* CoreGraphics.framework */; };
 		F6E663411816F8740094EC26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E663401816F8740094EC26 /* UIKit.framework */; };
@@ -74,7 +74,6 @@
 		D592052F18184C61004F58BD /* LevelTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTableCell.h; sourceTree = "<group>"; };
 		D592053018184C61004F58BD /* LevelTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTableCell.m; sourceTree = "<group>"; };
 		D597664A18202973008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6b2dd6f01f209f7fac5de216c820e516.jpg; sourceTree = "<group>"; };
-		D597664C182030A8008AA843 /* pholors.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pholors.jpg; sourceTree = "<group>"; };
 		D597BEAE1817EAAF00F3881E /* RBLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBLevel.h; sourceTree = "<group>"; };
 		D597BEAF1817EAAF00F3881E /* RBLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBLevel.m; sourceTree = "<group>"; };
 		D597BEB11817F72800F3881E /* RBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGame.h; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		D5BE101418217D7E0046AAF1 /* upupandaway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = upupandaway.mp3; sourceTree = "<group>"; };
 		D5BE101518217D7E0046AAF1 /* welcome.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = welcome.mp3; sourceTree = "<group>"; };
 		D5BE101618217D7E0046AAF1 /* whistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whistle.mp3; sourceTree = "<group>"; };
+		D5BE102218217F8E0046AAF1 /* pholors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pholors.png; sourceTree = "<group>"; };
 		F6850C64181EBBDD00870219 /* GameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameVC.h; sourceTree = "<group>"; };
 		F6E663391816F8740094EC26 /* Pholors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pholors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E6633C1816F8740094EC26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,9 +146,9 @@
 		D592052418184539004F58BD /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D597664C182030A8008AA843 /* pholors.jpg */,
 				D597664A18202973008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg */,
 				D592052518184539004F58BD /* 0star.png */,
+				D5BE102218217F8E0046AAF1 /* pholors.png */,
 				D592052618184539004F58BD /* 1star.png */,
 				D592052718184539004F58BD /* 2star.png */,
 				D592052818184539004F58BD /* 3star.png */,
@@ -363,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6E663551816F8740094EC26 /* Images.xcassets in Resources */,
+				D5BE102318217F8E0046AAF1 /* pholors.png in Resources */,
 				D5BE101A18217D7E0046AAF1 /* itsaspell.mp3 in Resources */,
 				D5BE101718217D7E0046AAF1 /* beam.mp3 in Resources */,
 				D592052C18184539004F58BD /* 3star.png in Resources */,
@@ -378,7 +379,6 @@
 				D5BE102018217D7E0046AAF1 /* welcome.mp3 in Resources */,
 				D5BE101F18217D7E0046AAF1 /* upupandaway.mp3 in Resources */,
 				D5BE101B18217D7E0046AAF1 /* onemusttry.mp3 in Resources */,
-				D597664D182030A8008AA843 /* pholors.jpg in Resources */,
 				D5BE101818217D7E0046AAF1 /* byebye.mp3 in Resources */,
 				D597664B18202974008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg in Resources */,
 				D5BE101C18217D7E0046AAF1 /* pullover.mp3 in Resources */,

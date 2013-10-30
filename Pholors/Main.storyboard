@@ -77,8 +77,8 @@
                                     <action selector="clear:" destination="hBq-oU-81a" eventType="touchUpInside" id="dKW-Ps-c9p"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pholors.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="whu-iw-8z8">
-                                <rect key="frame" x="60" y="148" width="200" height="97"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pholors.png" translatesAutoresizingMaskIntoConstraints="NO" id="whu-iw-8z8">
+                                <rect key="frame" x="60" y="143" width="200" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dtt-3z-Jyp">
@@ -310,7 +310,7 @@
     <resources>
         <image name="0star.png" width="429" height="139"/>
         <image name="6b2dd6f01f209f7fac5de216c820e516.jpg" width="646" height="655"/>
-        <image name="pholors.jpg" width="1268" height="299"/>
+        <image name="pholors.png" width="1265" height="261"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -318,6 +318,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="x71-6w-LsV"/>
+        <segue reference="cnj-x1-vI3"/>
     </inferredMetricsTieBreakers>
 </document>
