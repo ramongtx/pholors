@@ -100,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNh-iS-n7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="299" y="598"/>
+            <point key="canvasLocation" x="725" y="628"/>
         </scene>
         <!--Levels View Controller - Challenge-->
         <scene sceneID="XE2-mh-kPO">
@@ -153,7 +153,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cyq-5O-eeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944" y="206"/>
+            <point key="canvasLocation" x="1264" y="628"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="598"/>
+            <point key="canvasLocation" x="1264" y="1352"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="JEp-GR-lKq">
@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3I-pb-X5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="1012"/>
+            <point key="canvasLocation" x="-180" y="1296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J9P-ne-iah">
@@ -307,7 +307,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ds-DL-ER3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-227" y="598"/>
+            <point key="canvasLocation" x="255" y="628"/>
         </scene>
     </scenes>
     <resources>
@@ -321,6 +321,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cnj-x1-vI3"/>
+        <segue reference="x71-6w-LsV"/>
     </inferredMetricsTieBreakers>
 </document>
