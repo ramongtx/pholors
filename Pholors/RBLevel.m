@@ -46,15 +46,13 @@
 -(int) playImageOnLevel:(UIImage*)img original:(UIImage*) originalImg{
     
     UIColor * color = [RBImage getDominantColor:img];
-    float distance = [RBImage euclideanDistanceFrom:self.color to:self.colorPlayed];
+    float distance = [RBImage euclideanDistanceFrom:self.color to:color];
     int points = [RBImage convertDistanceToPoints:distance];
 
     if(points > MAX(0, self.pointsScored)){
         self.colorPlayed = color;
         self.imageUsed = originalImg;
         self.colorPlayed = [RBImage getDominantColor:img];
-        float distance = [RBImage euclideanDistanceFrom:self.color to:self.colorPlayed];
-        int points = [RBImage convertDistanceToPoints:distance];
         self.pointsScored = MAX(points,  self.pointsScored);
         self.completed = YES;
         
