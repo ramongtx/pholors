@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GameVC.h"
+#import "RBSharedFunctions.h"
 
 @interface MainVC : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *starsLabel;

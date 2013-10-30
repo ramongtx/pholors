@@ -11,9 +11,8 @@
 #import "RBImageProcessor.h"
 #import "RBGame.h"
 #import "RBTimer.h"
-#import "RBCustomSegue.h"
-#import <AudioToolbox/AudioToolbox.h>
 #import "EndGameVC.h"
+#import "RBSharedFunctions.h"
 #define STARS YES
 
 @interface GameVC : CameraVC <GalleryViewProtocol,RBTimerProtocol>
@@ -29,8 +28,11 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *stopButton;
 
+
 @property (strong, nonatomic) RBTimer* timerController;
 @property (strong,nonatomic) RBLevel* level;
 
 @property int time,timelock,totalPoints;
+
+
 @end

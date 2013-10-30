@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     
+
+    
     if (!STARS || self.level.isTimeAttack) self.stars.hidden = YES;
     else self.result.hidden = YES;
     
@@ -75,7 +77,10 @@
     if (stars == 0) self.stars.image = [UIImage imageNamed:@"0star.png"];
     else if (stars == 1) self.stars.image = [UIImage imageNamed:@"1star.png"];
     else if (stars == 2) self.stars.image = [UIImage imageNamed:@"2star.png"];
-    else self.stars.image = [UIImage imageNamed:@"3star.png"];
+    else {
+        self.stars.image = [UIImage imageNamed:@"3star.png"];
+    }
+    
 }
 
 - (IBAction)button:(id)sender {
@@ -94,8 +99,15 @@
     int points = [self.level playImageOnLevel:image original:originalImage];
     
     self.color.backgroundColor = [RBImageProcessor getDominantColor:image];
-    [self updateStars:[RBImageProcessor convertPointstoStars:points]];
+    int stars = [RBImageProcessor convertPointstoStars:points];
+    [self updateStars:stars];
+    if(stars==3)
+        [RBSharedFunctions playSound:@"itsaspell" withExtension:@"mp3"];
+    
     self.result.text = [NSString stringWithFormat:@"Pontuation: %d",points];
+    
+    if(self.level.isTimeAttack)
+        [RBSharedFunctions playSound:@"beam" withExtension:@"mp3"];
 
 }
 
@@ -117,15 +129,11 @@
 - (void)onTick{
     self.time--;
     self.timelock--;
-    if(self.time <=5){
-        SystemSoundID sound1;
-        NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"sample"
-                                                  withExtension:@"caf"];
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &sound1);
-        AudioServicesPlaySystemSound(sound1);
-
+    if(self.time ==7){
+        [RBSharedFunctions playSound:@"sample" withExtension:@"mp3"];
     }
-    else if (self.time <= 0) {
+    else if (self.time == 0) {
+        [RBSharedFunctions playSound:@"pullover" withExtension:@"mp3"];
         [self.timerLabel setTextColor:[UIColor redColor]];
         [self timerOver];
         self.time=0;
@@ -136,7 +144,7 @@
 
 - (void) timerOver
 {
-    //[self.timerController.timer invalidate];
+    [self.timerController.timer invalidate];
     NSLog(@"TIMER OVER");
     [RBGame updateRecord:self.totalPoints];
     [self performSegueWithIdentifier:@"gameOver" sender:self];
@@ -161,10 +169,12 @@
     }
 }
 - (IBAction)stopButton:(id)sender {
+    
     if (self.level.isTimeAttack)
         [self timerOver];
     else
         [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 @end

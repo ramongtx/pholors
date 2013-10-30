@@ -25,10 +25,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-
+    
+    [RBSharedFunctions playSound:@"comein" withExtension:@"mp3"];
+    
     NSLog(@"LevelsViewController.viewDidLoad");
     tableData = [RBGame getDefaultLevels]; //game.levels;
 }
@@ -81,7 +83,7 @@
     cell.colorImage.image = nil;
     
     cell.colorImage.backgroundColor = level.color;
-
+    
     return cell;
 }
 
@@ -97,6 +99,7 @@
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"loadLevel"])
     {
+        [RBSharedFunctions playSound:@"onemusttry" withExtension:@"mp3"];
         GameVC *vc = [segue destinationViewController];
         vc.level = self.selectedLevel;
     }
