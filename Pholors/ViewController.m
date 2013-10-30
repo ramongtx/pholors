@@ -18,8 +18,8 @@
 {
     [super viewDidLoad];
     
-    if (STARS) self.result.hidden = YES;
-    else self.stars.hidden = YES;
+    if (!STARS || self.level.isTimeAttack) self.stars.hidden = YES;
+    else self.result.hidden = YES;
     
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];
     self.color.layer.borderWidth = 2.0;
