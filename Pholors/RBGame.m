@@ -153,7 +153,7 @@ static long int timeRecord;
 {
     [RBGame clearRecord];
     [RBGame createDefaultSet];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"levelset"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"levelset"];
 
 }
 @end
