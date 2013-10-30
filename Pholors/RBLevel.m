@@ -12,7 +12,6 @@
 
 -(id) init{
     if(self = [super init]){
-        self.imageUsed = nil;
         self.pointsScored = 0;
         self.color = [RBImage randomColor];
         self.colorName = self.color.description;
@@ -26,7 +25,6 @@
 
 -(id) initWithColor:(NSString*)colorHex name:(NSString*)name{
     if(self = [super init]){
-        self.imageUsed = nil;
         self.pointsScored = 0;
         self.color = [RBImage colorFromHexString:colorHex];
         self.colorName = name;
@@ -51,7 +49,6 @@
     
     if(points > MAX(0, self.pointsScored)){
         self.colorPlayed = color;
-        self.imageUsed = originalImg;
         self.pointsScored = MAX(points,  self.pointsScored);
         self.completed = YES;        
     }
@@ -64,7 +61,6 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:self.imageUsed forKey:@"imageUsed"];
     [encoder encodeInteger:self.pointsScored forKey:@"pointsScored"];
     [encoder encodeObject:self.color forKey:@"color"];
     [encoder encodeObject:self.colorPlayed forKey:@"colorPlayed"];
@@ -74,7 +70,6 @@
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if(self = [super init]){
-        self.imageUsed = [decoder decodeObjectForKey:@"imageUsed"];
         self.pointsScored = [decoder decodeIntegerForKey:@"pointsScored"];
         self.color = [decoder decodeObjectForKey:@"color"];
         self.colorPlayed = [decoder decodeObjectForKey:@"colorPlayed"];
