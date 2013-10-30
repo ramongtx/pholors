@@ -74,7 +74,7 @@
         self.color = [decoder decodeObjectForKey:@"color"];
         self.colorPlayed = [decoder decodeObjectForKey:@"colorPlayed"];
         self.colorName = [decoder decodeObjectForKey:@"colorName"];
-        self.completed = [decoder decodeObjectForKey:@"completed"];
+        self.completed = (BOOL)[decoder decodeObjectForKey:@"completed"];
     }
     
     return self;

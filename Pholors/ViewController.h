@@ -16,18 +16,20 @@
 #define STARS YES
 
 @interface ViewController : GalleryViewController <GalleryViewProtocol,RBTimerProtocol>
+
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
 @property (weak, nonatomic) IBOutlet UIImageView *color;
 @property (weak, nonatomic) IBOutlet UIImageView *targetPreview;
+@property (weak, nonatomic) IBOutlet UIImageView *stars;
+
 @property (weak, nonatomic) IBOutlet UILabel *result;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *stars;
+@property (weak, nonatomic) IBOutlet UILabel *averageLabel;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *stopButton;
 
 @property (strong, nonatomic) RBTimer* timerController;
 @property (strong,nonatomic) RBLevel* level;
 
-- (IBAction)resetTimer:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UILabel *averageLabel;
-@property int time;
+@property int time,timelock,totalPoints;
 @end

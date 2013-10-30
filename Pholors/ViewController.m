@@ -18,8 +18,8 @@
 {
     [super viewDidLoad];
     
-    if (STARS) self.result.hidden = YES;
-    else self.stars.hidden = YES;
+    if (!STARS || self.level.isTimeAttack) self.stars.hidden = YES;
+    else self.result.hidden = YES;
     
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];
     self.color.layer.borderWidth = 2.0;
@@ -46,15 +46,32 @@
     
     self.timerLabel.hidden = YES;
     
+    self.totalPoints = 0;
+    
     self.targetPreview.backgroundColor = self.level.color;
     
     if (self.level.isTimeAttack) {
-        self.time = 10;
+        self.time = 80;
+        self.timelock = 3;
         self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
         self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
         self.timerLabel.hidden = NO;
     }
-    else self.time = -1;
+    else {
+        self.time = -1;
+        self.stopButton.enabled=NO;
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 -(void) updateStars:(int)stars
@@ -103,6 +120,7 @@
 
 - (void)onTick{
     self.time--;
+    self.timelock--;
     if (self.time <= 0) {
         [self.timerLabel setTextColor:[UIColor redColor]];
         [self timerOver];
@@ -116,7 +134,7 @@
 {
     //[self.timerController.timer invalidate];
     NSLog(@"TIMER OVER");
-    [RBGame updateRecord:self.level.pointsScored];
+    [RBGame updateRecord:self.totalPoints];
     [self performSegueWithIdentifier:@"gameOver" sender:self];
 }
 
@@ -124,30 +142,22 @@
     
     if (!self.level.isTimeAttack) {
         [RBGame saveDefaultLevels];
-        [self performSegueWithIdentifier:@"levelsSegue" sender:self];
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    else
+    else if ((self.timelock <= 0) || (self.imagePreview.image != nil))
     {
-        
-        int p = [self calculatePoints];
-        [self savePoints:p];
-        p = self.level.pointsScored;
-        [self.level changeColor];
-        self.result.text = [NSString stringWithFormat:@"Total Pontuation: %d",p];
+        self.timelock = 3;
+        self.totalPoints += [self calculatePoints];
+        self.level = [[RBLevel alloc] init];
+        self.level.isTimeAttack = YES;
+        self.result.text = [NSString stringWithFormat:@"Total Pontuation: %d",self.totalPoints];
         self.color.backgroundColor = nil;
         self.targetPreview.backgroundColor = self.level.color;
         self.imagePreview.image = nil;
     }
 }
-
-- (IBAction)resetTimer:(id)sender {
-    self.time = 30;
-    [self.timerLabel setTextColor:[UIColor blackColor]];
-    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
-}
-
-- (IBAction)back:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)stopButton:(id)sender {
+    [self timerOver];
 }
 
 @end

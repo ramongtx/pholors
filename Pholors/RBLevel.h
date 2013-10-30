@@ -11,7 +11,6 @@
 
 @interface RBLevel : NSObject <NSCoding>
 
-
 @property(nonatomic) int pointsScored;
 @property(strong, nonatomic) UIColor * color;
 @property(strong, nonatomic) UIColor * colorPlayed;
