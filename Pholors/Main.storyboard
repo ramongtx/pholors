@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="1108" y="-130"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HuK-yO-BL4"/>
                         <viewControllerLayoutGuide type="bottom" id="WoP-Dl-LVt"/>

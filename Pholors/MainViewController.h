@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
+#import "GameViewController.h"
 
 @interface MainViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *starsLabel;

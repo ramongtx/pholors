@@ -97,7 +97,7 @@
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"loadLevel"])
     {
-        ViewController *vc = [segue destinationViewController];
+        GameViewController *vc = [segue destinationViewController];
         vc.level = self.selectedLevel;
     }
 }

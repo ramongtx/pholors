@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GameViewController.h"
 
-@interface ViewController ()
+@interface GameViewController ()
 
 @end
 
-@implementation ViewController
+@implementation GameViewController
 
 - (void)viewDidLoad
 {
@@ -56,10 +56,6 @@
         self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
         self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
         self.timerLabel.hidden = NO;
-    }
-    else {
-        self.time = -1;
-        self.stopButton.enabled=NO;
     }
 }
 
@@ -157,7 +153,10 @@
     }
 }
 - (IBAction)stopButton:(id)sender {
-    [self timerOver];
+    if (self.level.isTimeAttack)
+        [self timerOver];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

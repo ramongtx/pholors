@@ -15,7 +15,7 @@
 #import "GameOverViewController.h"
 #define STARS YES
 
-@interface ViewController : GalleryViewController <GalleryViewProtocol,RBTimerProtocol>
+@interface GameViewController : GalleryViewController <GalleryViewProtocol,RBTimerProtocol>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
 @property (weak, nonatomic) IBOutlet UIImageView *color;

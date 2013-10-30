@@ -68,7 +68,7 @@
     if ([[segue identifier] isEqualToString:@"timeAttack"])
     {
         // Get reference to the destination view controller
-        ViewController *vc = [segue destinationViewController];
+        GameViewController *vc = [segue destinationViewController];
         
         // Pass any objects to the view controller here, like...
         vc.level = [[RBLevel alloc] init];
