@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--MainVC-->
         <scene sceneID="uo7-uv-4Ay">
             <objects>
-                <viewController id="hBq-oU-81a" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="hBq-oU-81a" customClass="MainVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5QX-fb-uBp"/>
                         <viewControllerLayoutGuide type="bottom" id="CFg-n7-gUq"/>
@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="725" y="628"/>
         </scene>
-        <!--Levels View Controller - Challenge-->
+        <!--LevelsVC - Challenge-->
         <scene sceneID="XE2-mh-kPO">
             <objects>
-                <tableViewController title="Challenge" id="3Zu-dx-Vl9" customClass="LevelsViewController" sceneMemberID="viewController">
+                <tableViewController title="Challenge" id="3Zu-dx-Vl9" customClass="LevelsVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" id="dzW-dg-qeH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="1108" y="-130"/>
         </scene>
-        <!--Game View Controller-->
+        <!--GameVC-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="GameVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HuK-yO-BL4"/>
                         <viewControllerLayoutGuide type="bottom" id="WoP-Dl-LVt"/>
@@ -251,10 +251,10 @@
             </objects>
             <point key="canvasLocation" x="1494" y="628"/>
         </scene>
-        <!--Game Over View Controller-->
+        <!--End GameVC-->
         <scene sceneID="JEp-GR-lKq">
             <objects>
-                <viewController id="uFT-aw-eDe" customClass="GameOverViewController" sceneMemberID="viewController">
+                <viewController id="uFT-aw-eDe" customClass="EndGameVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H5h-eL-kYc"/>
                         <viewControllerLayoutGuide type="bottom" id="DEh-ey-aeF"/>

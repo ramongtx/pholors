@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "MainVC.h"
 
-@interface MainViewController ()
+@interface MainVC ()
 
 @end
 
-@implementation MainViewController
+@implementation MainVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,7 +68,7 @@
     if ([[segue identifier] isEqualToString:@"timeAttack"])
     {
         // Get reference to the destination view controller
-        GameViewController *vc = [segue destinationViewController];
+        GameVC *vc = [segue destinationViewController];
         
         // Pass any objects to the view controller here, like...
         vc.level = [[RBLevel alloc] init];

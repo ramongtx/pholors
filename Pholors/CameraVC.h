@@ -14,7 +14,7 @@
 
 @end
 
-@interface GalleryViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CameraVC : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong,nonatomic) id <GalleryViewProtocol> galleryDelegate;
 

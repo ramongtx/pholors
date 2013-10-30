@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GameViewController.h"
+#import "GameVC.h"
 
-@interface MainViewController : UIViewController
+@interface MainVC : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *starsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
