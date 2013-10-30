@@ -97,47 +97,6 @@ struct pixel {
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1.0f];
 }
 
-+ (NSMutableArray*) RGBtoLAB:(UIColor*)color{
-    const CGFloat* componentsColor = CGColorGetComponents([color CGColor]);
-    
-    float x, y, z;
-    float xW, yW, zW;
-    float auxFloat = 1/0.17697;
-    
-    xW = auxFloat *( 0.49 + 0.31 + 0.2);
-    yW = auxFloat *( 0.17697  + 0.8124 + 0.01063);
-    zW = auxFloat * (0 + 0.01 + 0.99);
-    
-    x = auxFloat *( 0.49 * componentsColor[0] + 0.31 * componentsColor[1] + 0.2 * componentsColor[2]);
-    y = auxFloat *( 0.17697 * componentsColor[0] + 0.8124 * componentsColor[1] + 0.01063 * componentsColor[2]);
-    z = auxFloat *( 0 * componentsColor[0] + 0.01 * componentsColor[1] + 0.99 * componentsColor[2]);
-    
-    float l, a, b;
-    float Xrel = x/xW, Yrel = y/yW, Zrel = z/zW;
-    float Fx, Fy, Fz;
-    
-    
-    if(Xrel > 0.008856) Fx = pow(Xrel,1/3);
-    else Fx = 7.787 * Xrel + 16/116;
-    
-    if(Yrel > 0.008856) Fy = pow(Yrel,1/3);
-    else Fy = 7.787 * Yrel + 16/116;
-    
-    if(Zrel > 0.008856) Fz = pow(Zrel,1/3);
-    else Fz = 7.787 * Zrel + 16/116;
-
-    
-    
-    if(Yrel > 0.008856) l = 116 * pow(Yrel,1/3) - 16;
-    else l = 903.3 * Yrel;
-    
-    a = 500 * (Fx - Fy);
-    b = 200 * (Fy - Fz);
-
-    NSMutableArray* labArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithFloat:l],[NSNumber numberWithFloat:a], [NSNumber numberWithFloat:b],nil];
-    return labArray;
-}
-
 + (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2{
     const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
     const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
@@ -149,25 +108,19 @@ struct pixel {
     return sqrt(dist);
 }
 
-
-+ (float) LABeuclideanDistance:(UIColor*)color1 to:(UIColor*)color2{
++ (float) cossineSimilarityFrom:(UIColor*)color1 to:(UIColor*)color2{
+    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
     
-    NSMutableArray* LABcolor1, *LABcolor2;
+    float cossine, norm1, norm2;
     
-    LABcolor1 = [RBImage RGBtoLAB:color1];
-    LABcolor2 = [RBImage RGBtoLAB:color2];
+    cossine = (componentsColor1[0] * componentsColor2[0]) + (componentsColor1[1] * componentsColor2[1]) + (componentsColor1[2] * componentsColor2[2]);
+    norm1 = sqrt(pow(componentsColor1[0],2) + pow(componentsColor1[1], 2) + pow(componentsColor1[2],2));
+    norm2 = sqrt(pow(componentsColor2[0],2) + pow(componentsColor2[1], 2) + pow(componentsColor2[2],2));
     
-    NSLog(@"l1: %f, a1: %f, b1: %f", [LABcolor1[0] floatValue],[LABcolor1[1] floatValue],[LABcolor1[2] floatValue]);
-    NSLog(@"l1: %f, a1: %f, b1: %f", [LABcolor1[0] floatValue],[LABcolor2[1] floatValue],[LABcolor2[2] floatValue]);
-    float dist = 0;
-    
-    dist += pow(([LABcolor1[0] floatValue]-[LABcolor2[0] floatValue]),2) + pow(([LABcolor1[1] floatValue]-[LABcolor2[1] floatValue]),2) + pow(([LABcolor1[2] floatValue]-[LABcolor2[2] floatValue]),2);
-    
-    NSLog(@"EuclidDist: %f",sqrt(dist));
-    
-    NSLog(@"%d",[RBImage convertDistanceToPoints:sqrt(dist)]);
-    
-    return sqrt(dist);
+    cossine = cossine / (norm1 * norm2);
+    NSLog(@"CS: %f",cossine);
+    return cossine;
 }
 
 + (UIColor*) randomColor
@@ -180,20 +133,26 @@ struct pixel {
 }
 
 + (int) convertDistanceToPoints:(float)dist{
-    int temp = ceil( 100 * (sqrt(3.0) - dist) / sqrt(3.0));
-    if (temp <= 50) temp = floor(exp(temp/14.0));
-    else if (temp > 60)
-    {
-        temp = temp-60;
-        temp = (60*temp-temp*temp)/25;
-        temp = temp+60;
-    }
-    return temp;
+//    int temp = ceil( 100 * (sqrt(3.0) - dist) / sqrt(3.0));
+//    if (temp <= 50) temp = floor(exp(temp/14.0));
+//    else if (temp > 60)
+//    {
+//        temp = temp-60;
+//        temp = (60*temp-temp*temp)/25;
+//        temp = temp+60;
+//    }
+//    return temp;
+    return round(dist * 100);
 }
 
 + (int) convertPointstoStars:(int)points{
-    int maxStars = 3;
-    return round(points * maxStars / 100);
+//    int maxStars = 3;
+//    return round(points * maxStars / 100);
+    if(points < 60) return 0;
+    if(points < 75) return 1;
+    if(points < 95) return 2;
+    return 3;
+
 }
 
 + (UIColor *)colorFromHexString:(NSString *)hexString {
