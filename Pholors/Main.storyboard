@@ -153,7 +153,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cyq-5O-eeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032" y="1398"/>
+            <point key="canvasLocation" x="1108" y="-130"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="628"/>
+            <point key="canvasLocation" x="1494" y="628"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="JEp-GR-lKq">
@@ -283,13 +283,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="a1Y-2d-4bV" kind="custom" identifier="restart" customClass="RBCustomSegue" id="3Wc-Oj-B5Y"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3I-pb-X5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="725" y="-80"/>
+            <point key="canvasLocation" x="1929" y="628"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J9P-ne-iah">
