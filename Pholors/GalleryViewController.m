@@ -20,15 +20,15 @@
 {
     [super viewDidLoad];
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                              message:@"Device has no camera"
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles: nil];
-        
-        [myAlertView show];
-        
+//        
+//        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+//                                                              message:@"Device has no camera"
+//                                                             delegate:nil
+//                                                    cancelButtonTitle:@"OK"
+//                                                    otherButtonTitles: nil];
+//        
+//        [myAlertView show];
+        NSLog(@"No camera");
     }
 	// Do any additional setup after loading the view.
 }
@@ -36,14 +36,23 @@
 - (void) launchBrowser
 {
     if (!galleryDelegate) NSLog(@"galleryDelegate not yet set!");
-
+    
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    //[self removeFromParentViewController];
+    // no camera
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    
+    else
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    
     [self presentViewController:picker animated:YES completion:NULL];
+
+    
 }
 
 #pragma mark - Image Picker Controller delegate methods
