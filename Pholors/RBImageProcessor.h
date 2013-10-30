@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RBImage : NSObject
+@interface RBImageProcessor : NSObject
 
 + (UIColor *)averageColor:(UIImage*)image;
 + (UIColor*) getDominantColor:(UIImage*)image;

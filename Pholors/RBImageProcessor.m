@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-#import "RBImage.h"
+#import "RBImageProcessor.h"
 
-@implementation RBImage
+@implementation RBImageProcessor
 
 
 + (UIColor *)averageColor:(UIImage*)image {
