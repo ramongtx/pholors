@@ -13,6 +13,9 @@
 #import "RBTimer.h"
 #import "RBCustomSegue.h"
 #import "GameOverViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
+
+
 #define STARS YES
 
 @interface GameViewController : GalleryViewController <GalleryViewProtocol,RBTimerProtocol>

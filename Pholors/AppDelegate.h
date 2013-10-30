@@ -14,3 +14,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @end
+
+
+//sound from http://www.freesfx.co.uk/sfx/clock
+// image from ?

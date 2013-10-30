@@ -51,10 +51,10 @@
     self.targetPreview.backgroundColor = self.level.color;
     
     if (self.level.isTimeAttack) {
-        self.time = 80;
+        self.time = 10;
         self.timelock = 3;
         self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
-        self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+        self.timerLabel.text = [NSString stringWithFormat:@"Time Left: %ds",self.time];
         self.timerLabel.hidden = NO;
     }
 }
@@ -117,13 +117,21 @@
 - (void)onTick{
     self.time--;
     self.timelock--;
-    if (self.time <= 0) {
+    if(self.time <=5){
+        SystemSoundID sound1;
+        NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"sample"
+                                                  withExtension:@"caf"];
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &sound1);
+        AudioServicesPlaySystemSound(sound1);
+
+    }
+    else if (self.time <= 0) {
         [self.timerLabel setTextColor:[UIColor redColor]];
         [self timerOver];
         self.time=0;
     }
     
-    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
+    self.timerLabel.text = [NSString stringWithFormat:@"Time Left: %ds",self.time];
 }
 
 - (void) timerOver
