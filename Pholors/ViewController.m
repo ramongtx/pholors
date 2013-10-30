@@ -78,7 +78,7 @@
     }
     
     //self.level.colorPlayed = [RBImage getDominantColor:image];
-    self.color.backgroundColor = self.level.colorPlayed;
+    self.color.backgroundColor = [RBImage getDominantColor:image];
     //int p = [self calculatePoints];
     self.result.text = [NSString stringWithFormat:@"Pontuation: %d",points];
     //if (!self.level.isTimeAttack) [self savePoints:p];
