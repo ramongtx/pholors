@@ -17,14 +17,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (STARS) self.result.hidden = YES;
+    else self.stars.hidden = YES;
+    
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];
     self.color.layer.borderWidth = 2.0;
     self.color.layer.cornerRadius = 25;
     self.color.layer.masksToBounds = YES;
     
+    self.result.text = [NSString stringWithFormat:@"Pontuation: %d",self.level.pointsScored];
+    
     if(self.level.colorPlayed){
         self.color.backgroundColor = self.level.colorPlayed;
         self.averageLabel.text = @"Last Played";
+        [self updateStars:[self.level stars]];
     }
     else
         self.averageLabel.text = @"Average Color";
@@ -37,7 +44,6 @@
     self.imagePreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.imagePreview.layer.borderWidth = 1.5;
     
-    self.result.text = @"";
     self.timerLabel.hidden = YES;
     
     self.targetPreview.backgroundColor = self.level.color;
@@ -51,6 +57,14 @@
     else self.time = -1;
 }
 
+-(void) updateStars:(int)stars
+{
+    if (stars == 0) self.stars.image = [UIImage imageNamed:@"0star.png"];
+    else if (stars == 1) self.stars.image = [UIImage imageNamed:@"1star.png"];
+    else if (stars == 2) self.stars.image = [UIImage imageNamed:@"2star.png"];
+    else self.stars.image = [UIImage imageNamed:@"3star.png"];
+}
+
 - (IBAction)button:(id)sender {
     [self setGalleryDelegate:self];
     [self launchBrowser];
@@ -59,29 +73,16 @@
 -(void) didFinishLoadingImage:(UIImage *)image original:(UIImage*)originalImage
 {
     self.imagePreview.image = image;
-    //NSLog(@"loadImage: %@ original:%@" , image.description, originalImage.description);
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
-    
-    int points = [self.level playImageOnLevel:image original:originalImage];
+    self.averageLabel.text = @"Average Color";
 
     
-    if(points== -1){
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Duplicate Image"
-                                                              message:@"You have already used this image"
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles: nil];
-        
-        [myAlertView show];
-        return;
-    }
+    int points = [self.level playImageOnLevel:image original:originalImage];
     
-    //self.level.colorPlayed = [RBImage getDominantColor:image];
     self.color.backgroundColor = [RBImage getDominantColor:image];
-    //int p = [self calculatePoints];
+    [self updateStars:[RBImage convertPointstoStars:points]];
     self.result.text = [NSString stringWithFormat:@"Pontuation: %d",points];
-    //if (!self.level.isTimeAttack) [self savePoints:p];
 
 }
 

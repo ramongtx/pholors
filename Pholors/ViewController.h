@@ -13,6 +13,7 @@
 #import "RBTimer.h"
 #import "RBCustomSegue.h"
 #import "GameOverViewController.h"
+#define STARS YES
 
 @interface ViewController : GalleryViewController <GalleryViewProtocol,RBTimerProtocol>
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *targetPreview;
 @property (weak, nonatomic) IBOutlet UILabel *result;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *stars;
 
 @property (strong, nonatomic) RBTimer* timerController;
 @property (strong,nonatomic) RBLevel* level;
