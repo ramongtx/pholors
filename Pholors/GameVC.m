@@ -146,7 +146,7 @@
 {
     [self.timerController.timer invalidate];
     NSLog(@"TIMER OVER");
-    [RBGame updateRecord:self.totalPoints];
+     self.highscore = [RBGame updateRecord:self.totalPoints];
     [self performSegueWithIdentifier:@"gameOver" sender:self];
 }
 
@@ -159,7 +159,7 @@
     else if ((self.timelock <= 0) || (self.imagePreview.image != nil))
     {
         self.timelock = 3;
-        self.totalPoints += [self calculatePoints];
+        self.totalPoints += self.level.pointsScored;//[self calculatePoints];
         self.level = [[RBLevel alloc] init];
         self.level.isTimeAttack = YES;
         self.result.text = [NSString stringWithFormat:@"Total Pontuation: %d",self.totalPoints];
@@ -174,6 +174,20 @@
         [self timerOver];
     else
         [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"gameOver"])
+    {
+        // Get reference to the destination view controller
+        EndGameVC *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        vc.points = self.totalPoints;
+        vc.highscore = self.highscore;
+    }
 }
 
 

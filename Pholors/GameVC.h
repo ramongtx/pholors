@@ -31,6 +31,7 @@
 
 @property (strong, nonatomic) RBTimer* timerController;
 @property (strong,nonatomic) RBLevel* level;
+@property BOOL highscore;
 
 @property int time,timelock,totalPoints;
 

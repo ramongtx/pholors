@@ -8,4 +8,7 @@
 
 @interface EndGameVC : UIViewController
 
+@property int points;
+@property BOOL highscore;
+
 @end
