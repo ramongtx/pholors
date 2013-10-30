@@ -35,7 +35,17 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)restart:(id)sender {
-    [self performSegueWithIdentifier:@"restart" sender:self];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 @end

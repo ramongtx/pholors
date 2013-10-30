@@ -153,7 +153,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cyq-5O-eeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264" y="628"/>
+            <point key="canvasLocation" x="1032" y="1398"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -244,12 +244,12 @@
                         <outlet property="stopButton" destination="aIY-2h-nid" id="RWx-Ty-0Li"/>
                         <outlet property="targetPreview" destination="Q2H-Bz-gXM" id="FZh-oH-U4B"/>
                         <outlet property="timerLabel" destination="lMt-YL-XJJ" id="tMi-1k-r5O"/>
-                        <segue destination="uFT-aw-eDe" kind="custom" identifier="gameOver" customClass="RBCustomSegue" id="wvJ-x1-wKa"/>
+                        <segue destination="uFT-aw-eDe" kind="push" identifier="gameOver" customClass="RBCustomSegue" id="wvJ-x1-wKa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264" y="1352"/>
+            <point key="canvasLocation" x="1274" y="628"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="JEp-GR-lKq">
@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3I-pb-X5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-180" y="1296"/>
+            <point key="canvasLocation" x="725" y="-80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J9P-ne-iah">
