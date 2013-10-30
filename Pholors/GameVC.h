@@ -7,18 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GalleryViewController.h"
+#import "CameraVC.h"
 #import "RBImageProcessor.h"
 #import "RBGame.h"
 #import "RBTimer.h"
 #import "RBCustomSegue.h"
-#import "GameOverViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
-
-
+#import "EndGameVC.h"
 #define STARS YES
 
-@interface GameViewController : GalleryViewController <GalleryViewProtocol,RBTimerProtocol>
+@interface GameVC : CameraVC <GalleryViewProtocol,RBTimerProtocol>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
 @property (weak, nonatomic) IBOutlet UIImageView *color;

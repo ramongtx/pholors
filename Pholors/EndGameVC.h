@@ -6,6 +6,6 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-@interface GameOverViewController : UIViewController
+@interface EndGameVC : UIViewController
 
 @end

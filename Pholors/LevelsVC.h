@@ -10,9 +10,9 @@
 #import "RBGame.h"
 #import "LevelTableCell.h"
 #import "RBCustomSegue.h"
-#import "GameViewController.h"
+#import "GameVC.h"
 
-@interface LevelsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface LevelsVC : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 @property (strong,nonatomic) RBLevel* selectedLevel;
 
 @end

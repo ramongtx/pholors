@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-#import "GalleryViewController.h"
+#import "CameraVC.h"
 
-@interface GalleryViewController ()
+@interface CameraVC ()
 
 @end
 
-@implementation GalleryViewController
+@implementation CameraVC
 
 @synthesize galleryDelegate;
 

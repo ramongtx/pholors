@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-#import "GameOverViewController.h"
+#import "EndGameVC.h"
 
-@interface GameOverViewController ()
+@interface EndGameVC ()
 
 @end
 
-@implementation GameOverViewController
+@implementation EndGameVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

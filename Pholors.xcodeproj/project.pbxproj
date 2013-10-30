@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E9A7D1817FC0D0038E72D /* RBTimer.m */; };
-		3DC3D33F1818355B00096DA2 /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D33E1818355B00096DA2 /* GameOverViewController.m */; };
-		D592052218183B11004F58BD /* LevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D592052118183B11004F58BD /* LevelsViewController.m */; };
+		3DC3D33F1818355B00096DA2 /* EndGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D33E1818355B00096DA2 /* EndGameVC.m */; };
+		D592052218183B11004F58BD /* LevelsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D592052118183B11004F58BD /* LevelsVC.m */; };
 		D592052918184539004F58BD /* 0star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052518184539004F58BD /* 0star.png */; };
 		D592052A18184539004F58BD /* 1star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052618184539004F58BD /* 1star.png */; };
 		D592052B18184539004F58BD /* 2star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052718184539004F58BD /* 2star.png */; };
@@ -31,11 +31,11 @@
 		F6E6635E1816F8740094EC26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E663401816F8740094EC26 /* UIKit.framework */; };
 		F6E663661816F8740094EC26 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6E663641816F8740094EC26 /* InfoPlist.strings */; };
 		F6E663681816F8740094EC26 /* PholorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663671816F8740094EC26 /* PholorsTests.m */; };
-		F6E6638D1816F9860094EC26 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638C1816F9860094EC26 /* GameViewController.m */; };
-		F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */; };
+		F6E6638D1816F9860094EC26 /* GameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638C1816F9860094EC26 /* GameVC.m */; };
+		F6E663921816F9AF0094EC26 /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638F1816F9AF0094EC26 /* CameraVC.m */; };
 		F6E663931816F9AF0094EC26 /* RBImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663911816F9AF0094EC26 /* RBImageProcessor.m */; };
 		F6F299091817DBA300E97D0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F299081817DBA300E97D0F /* Main.storyboard */; };
-		F6F5C6D6181E9F89004A58D6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F5C6D5181E9F89004A58D6 /* MainViewController.m */; };
+		F6F5C6D6181E9F89004A58D6 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F5C6D5181E9F89004A58D6 /* MainVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +51,10 @@
 /* Begin PBXFileReference section */
 		3D8E9A7C1817FC0D0038E72D /* RBTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTimer.h; sourceTree = "<group>"; };
 		3D8E9A7D1817FC0D0038E72D /* RBTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTimer.m; sourceTree = "<group>"; };
-		3DC3D33D1818355B00096DA2 /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
-		3DC3D33E1818355B00096DA2 /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
-		D592052018183B11004F58BD /* LevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsViewController.h; sourceTree = "<group>"; };
-		D592052118183B11004F58BD /* LevelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelsViewController.m; sourceTree = "<group>"; };
+		3DC3D33D1818355B00096DA2 /* EndGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameVC.h; sourceTree = "<group>"; };
+		3DC3D33E1818355B00096DA2 /* EndGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameVC.m; sourceTree = "<group>"; };
+		D592052018183B11004F58BD /* LevelsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsVC.h; sourceTree = "<group>"; };
+		D592052118183B11004F58BD /* LevelsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelsVC.m; sourceTree = "<group>"; };
 		D592052518184539004F58BD /* 0star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0star.png; sourceTree = "<group>"; };
 		D592052618184539004F58BD /* 1star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1star.png; sourceTree = "<group>"; };
 		D592052718184539004F58BD /* 2star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2star.png; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		D597BEAF1817EAAF00F3881E /* RBLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBLevel.m; sourceTree = "<group>"; };
 		D597BEB11817F72800F3881E /* RBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGame.h; sourceTree = "<group>"; };
 		D597BEB21817F72800F3881E /* RBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGame.m; sourceTree = "<group>"; };
-		F6850C64181EBBDD00870219 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		F6850C64181EBBDD00870219 /* GameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameVC.h; sourceTree = "<group>"; };
 		F6E663391816F8740094EC26 /* Pholors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pholors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E6633C1816F8740094EC26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6E6633E1816F8740094EC26 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,14 +84,14 @@
 		F6E663631816F8740094EC26 /* PholorsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PholorsTests-Info.plist"; sourceTree = "<group>"; };
 		F6E663651816F8740094EC26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F6E663671816F8740094EC26 /* PholorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PholorsTests.m; sourceTree = "<group>"; };
-		F6E6638C1816F9860094EC26 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
-		F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		F6E6638C1816F9860094EC26 /* GameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameVC.m; sourceTree = "<group>"; };
+		F6E6638E1816F9AF0094EC26 /* CameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraVC.h; sourceTree = "<group>"; };
+		F6E6638F1816F9AF0094EC26 /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; };
 		F6E663901816F9AF0094EC26 /* RBImageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBImageProcessor.h; sourceTree = "<group>"; };
 		F6E663911816F9AF0094EC26 /* RBImageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBImageProcessor.m; sourceTree = "<group>"; };
 		F6F299081817DBA300E97D0F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		F6F5C6D4181E9F89004A58D6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		F6F5C6D5181E9F89004A58D6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		F6F5C6D4181E9F89004A58D6 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		F6F5C6D5181E9F89004A58D6 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,18 +149,18 @@
 		D596F1FE181EB68500CF092D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D592052018183B11004F58BD /* LevelsViewController.h */,
-				D592052118183B11004F58BD /* LevelsViewController.m */,
+				D592052018183B11004F58BD /* LevelsVC.h */,
+				D592052118183B11004F58BD /* LevelsVC.m */,
 				D592052F18184C61004F58BD /* LevelTableCell.h */,
 				D592053018184C61004F58BD /* LevelTableCell.m */,
-				F6F5C6D4181E9F89004A58D6 /* MainViewController.h */,
-				F6F5C6D5181E9F89004A58D6 /* MainViewController.m */,
-				F6850C64181EBBDD00870219 /* GameViewController.h */,
-				F6E6638C1816F9860094EC26 /* GameViewController.m */,
-				F6E6638E1816F9AF0094EC26 /* GalleryViewController.h */,
-				F6E6638F1816F9AF0094EC26 /* GalleryViewController.m */,
-				3DC3D33D1818355B00096DA2 /* GameOverViewController.h */,
-				3DC3D33E1818355B00096DA2 /* GameOverViewController.m */,
+				F6F5C6D4181E9F89004A58D6 /* MainVC.h */,
+				F6F5C6D5181E9F89004A58D6 /* MainVC.m */,
+				F6850C64181EBBDD00870219 /* GameVC.h */,
+				F6E6638C1816F9860094EC26 /* GameVC.m */,
+				F6E6638E1816F9AF0094EC26 /* CameraVC.h */,
+				F6E6638F1816F9AF0094EC26 /* CameraVC.m */,
+				3DC3D33D1818355B00096DA2 /* EndGameVC.h */,
+				3DC3D33E1818355B00096DA2 /* EndGameVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -343,13 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DC3D33F1818355B00096DA2 /* GameOverViewController.m in Sources */,
-				D592052218183B11004F58BD /* LevelsViewController.m in Sources */,
+				3DC3D33F1818355B00096DA2 /* EndGameVC.m in Sources */,
+				D592052218183B11004F58BD /* LevelsVC.m in Sources */,
 				3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */,
 				D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */,
-				F6F5C6D6181E9F89004A58D6 /* MainViewController.m in Sources */,
-				F6E6638D1816F9860094EC26 /* GameViewController.m in Sources */,
-				F6E663921816F9AF0094EC26 /* GalleryViewController.m in Sources */,
+				F6F5C6D6181E9F89004A58D6 /* MainVC.m in Sources */,
+				F6E6638D1816F9860094EC26 /* GameVC.m in Sources */,
+				F6E663921816F9AF0094EC26 /* CameraVC.m in Sources */,
 				D592053118184C61004F58BD /* LevelTableCell.m in Sources */,
 				F6E663931816F9AF0094EC26 /* RBImageProcessor.m in Sources */,
 				F6E6634D1816F8740094EC26 /* AppDelegate.m in Sources */,

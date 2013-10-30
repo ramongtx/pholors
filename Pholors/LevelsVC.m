@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-#import "LevelsViewController.h"
+#import "LevelsVC.h"
 
-@interface LevelsViewController ()
+@interface LevelsVC ()
 
 @end
 
-@implementation LevelsViewController
+@implementation LevelsVC
 {
     NSArray *tableData;
 }
@@ -97,7 +97,7 @@
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"loadLevel"])
     {
-        GameViewController *vc = [segue destinationViewController];
+        GameVC *vc = [segue destinationViewController];
         vc.level = self.selectedLevel;
     }
 }

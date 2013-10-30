@@ -9,7 +9,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pholors/MainViewController.m"
+            filePath = "Pholors/MainVC.m"
             timestampString = "404826970.871909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

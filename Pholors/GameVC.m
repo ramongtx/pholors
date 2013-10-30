@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
-#import "GameViewController.h"
+#import "GameVC.h"
 
-@interface GameViewController ()
+@interface GameVC ()
 
 @end
 
-@implementation GameViewController
+@implementation GameVC
 
 - (void)viewDidLoad
 {
