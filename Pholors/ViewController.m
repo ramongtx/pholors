@@ -54,7 +54,21 @@
         self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
         self.timerLabel.hidden = NO;
     }
-    else self.time = -1;
+    else {
+        self.time = -1;
+        self.stopButton.enabled=NO;
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 -(void) updateStars:(int)stars
@@ -124,7 +138,7 @@
     
     if (!self.level.isTimeAttack) {
         [RBGame saveDefaultLevels];
-        [self performSegueWithIdentifier:@"levelsSegue" sender:self];
+        [self.navigationController popViewControllerAnimated:YES];
     }
     else
     {
@@ -139,15 +153,8 @@
         self.imagePreview.image = nil;
     }
 }
-
-- (IBAction)resetTimer:(id)sender {
-    self.time = 30;
-    [self.timerLabel setTextColor:[UIColor blackColor]];
-    self.timerLabel.text = [NSString stringWithFormat:@"%d",self.time];
-}
-
-- (IBAction)back:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)stopButton:(id)sender {
+    [self timerOver];
 }
 
 @end

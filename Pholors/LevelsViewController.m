@@ -19,7 +19,6 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self.tableView setFrame:CGRectMake(0, 20, 320, 600)];
     [[[UIApplication sharedApplication] keyWindow] setBackgroundColor:[UIColor whiteColor]];
 }
 
@@ -30,9 +29,7 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSLog(@"LevelsViewController.viewDidLoad");
-    
     tableData = [RBGame getDefaultLevels]; //game.levels;
 
     

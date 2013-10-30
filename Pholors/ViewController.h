@@ -26,8 +26,7 @@
 @property (strong, nonatomic) RBTimer* timerController;
 @property (strong,nonatomic) RBLevel* level;
 
-- (IBAction)resetTimer:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UILabel *averageLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *stopButton;
 @property int time;
 @end
