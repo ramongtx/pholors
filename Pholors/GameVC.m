@@ -53,7 +53,7 @@
     self.targetPreview.backgroundColor = self.level.color;
     
     if (self.level.isTimeAttack) {
-        self.time = 10;
+        self.time = 80;
         self.timelock = 3;
         self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
         self.timerLabel.text = [NSString stringWithFormat:@"Time Left: %ds",self.time];
