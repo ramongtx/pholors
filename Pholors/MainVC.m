@@ -22,14 +22,14 @@
     }
     return self;
 }
+- (IBAction)clickPholors:(id)sender {
+    [RBSharedFunctions playSound:@"whistle" withExtension:@"mp3"];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [RBSharedFunctions playSound:@"welcome" withExtension:@"mp3"];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [RBSharedFunctions playSound:@"whistle" withExtension:@"mp3"];
-    });
 	// Do any additional setup after loading the view.
 }
 
