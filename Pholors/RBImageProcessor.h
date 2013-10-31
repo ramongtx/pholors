@@ -6,13 +6,14 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
+
+//Class responsable for every image processing done in the game
+
 #import <Foundation/Foundation.h>
 
 @interface RBImageProcessor : NSObject
 
-+ (UIColor *)averageColor:(UIImage*)image;
 + (UIColor*) getDominantColor:(UIImage*)image;
-+ (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2;
 + (float) cossineSimilarityFrom:(UIColor*)color1 to:(UIColor*)color2;
 + (UIColor*) randomColor;
 + (int) convertDistanceToPoints:(float)dist;

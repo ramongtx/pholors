@@ -11,32 +11,6 @@
 @implementation RBImageProcessor
 
 
-+ (UIColor *)averageColor:(UIImage*)image {
-    
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    unsigned char rgba[4];
-    CGContextRef context = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-    
-    CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), image.CGImage);
-    CGColorSpaceRelease(colorSpace);
-    CGContextRelease(context);
-    
-    if(rgba[3] > 0) {
-        CGFloat alpha = ((CGFloat)rgba[3])/255.0;
-        CGFloat multiplier = alpha/255.0;
-        return [UIColor colorWithRed:((CGFloat)rgba[0])*multiplier
-                               green:((CGFloat)rgba[1])*multiplier
-                                blue:((CGFloat)rgba[2])*multiplier
-                               alpha:alpha];
-    }
-    else {
-        return [UIColor colorWithRed:((CGFloat)rgba[0])/255.0
-                               green:((CGFloat)rgba[1])/255.0
-                                blue:((CGFloat)rgba[2])/255.0
-                               alpha:((CGFloat)rgba[3])/255.0];
-    }
-}
-
 struct pixel {
     unsigned char r, g, b, a;
 };
@@ -97,17 +71,6 @@ struct pixel {
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1.0f];
 }
 
-+ (float) euclideanDistanceFrom:(UIColor*)color1 to:(UIColor*)color2{
-    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
-    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
-    
-    float dist = 0;
-    
-    dist = pow(componentsColor1[0] - componentsColor2[0],2) + pow(componentsColor1[1] - componentsColor2[1],2) + pow(componentsColor1[2] - componentsColor2[2],2);
-    NSLog(@"Euclidean Dist: %f",sqrt(dist));
-    return sqrt(dist);
-}
-
 + (float) cossineSimilarityFrom:(UIColor*)color1 to:(UIColor*)color2{
     const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
     const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
@@ -133,21 +96,10 @@ struct pixel {
 }
 
 + (int) convertDistanceToPoints:(float)dist{
-//    int temp = ceil( 100 * (sqrt(3.0) - dist) / sqrt(3.0));
-//    if (temp <= 50) temp = floor(exp(temp/14.0));
-//    else if (temp > 60)
-//    {
-//        temp = temp-60;
-//        temp = (60*temp-temp*temp)/25;
-//        temp = temp+60;
-//    }
-//    return temp;
     return round(dist * 100);
 }
 
 + (int) convertPointstoStars:(int)points{
-//    int maxStars = 3;
-//    return round(points * maxStars / 100);
     if(points < 60) return 0;
     if(points < 75) return 1;
     if(points < 95) return 2;

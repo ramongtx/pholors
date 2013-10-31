@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
+// Represents the Main/Menu View
+
 #import <UIKit/UIKit.h>
 #import "GameVC.h"
 #import "RBSharedFunctions.h"

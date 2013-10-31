@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
+
+//Responsable for the view that shows up when the time ends in T.A.
+
 @interface EndGameVC : UIViewController
 
 @property int points;

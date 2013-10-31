@@ -30,7 +30,7 @@
 	// Do any additional setup after loading the view.
     NSString* str = [NSString stringWithFormat:@"You scored: %d points", self.points];
     if(self.highscore)
-        str = [str stringByAppendingString:@"(HIGH SCORE)"];
+        str = [str stringByAppendingString:@" (HIGH SCORE)"];
     self.scoreLabel.text = str;
 }
 

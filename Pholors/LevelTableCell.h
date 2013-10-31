@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
+// LevelTableCell represents each cell of the level selection screen
+
 #import <UIKit/UIKit.h>
 #import "RBLevel.h"
 
