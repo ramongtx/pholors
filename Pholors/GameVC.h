@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
+//GameVC is the ViewController of the gamescreen for both Challenge and
+//TimeAttack mode, so it contains methods for both game modes
+
 #import <UIKit/UIKit.h>
 #import "CameraVC.h"
 #import "RBImageProcessor.h"

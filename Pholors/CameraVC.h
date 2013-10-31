@@ -6,6 +6,11 @@
 //  Copyright (c) 2013 Rock Bottom. All rights reserved.
 //
 
+//Responsible for the gallery view, where the user can select a picture from
+//the gallery or take a photo with the camera
+
+//We do not garantee the camera feature is working, as we cannot test it
+
 #import <UIKit/UIKit.h>
 
 @protocol GalleryViewProtocol <NSObject>

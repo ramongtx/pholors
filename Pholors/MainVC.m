@@ -75,7 +75,7 @@
         // Get reference to the destination view controller
         GameVC *vc = [segue destinationViewController];
         
-        // Pass any objects to the view controller here, like...
+        // Set TimeAttack Mode
         vc.level = [[RBLevel alloc] init];
         vc.level.isTimeAttack = YES;
     }

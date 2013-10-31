@@ -88,6 +88,8 @@
     [self launchBrowser];
 }
 
+//When the selected picture finishes loading, it is time to calculate the distance
+//between colors, atribute the number of stars and so on
 -(void) didFinishLoadingImage:(UIImage *)image original:(UIImage*)originalImage
 {
     self.imagePreview.image = image;
@@ -114,7 +116,7 @@
 -(int) calculatePoints
 {
     if (self.imagePreview.image == nil) return 0;
-    float distance = [RBImageProcessor euclideanDistanceFrom:self.color.backgroundColor to:self.targetPreview.backgroundColor];
+    float distance = [RBImageProcessor cossineSimilarityFrom:self.color.backgroundColor to:self.targetPreview.backgroundColor];
     return [RBImageProcessor convertDistanceToPoints:distance];
 }
 

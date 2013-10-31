@@ -40,7 +40,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;//[tableData count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -65,8 +65,6 @@
     }
     
     RBLevel* level = [tableData objectAtIndex:indexPath.row];
-    
-    //cell.text = level.description;
     
     cell.cellLabel.text = [NSString stringWithFormat:@"%@!", level.colorName];
     cell.level = level;
@@ -96,7 +94,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"loadLevel"])
     {
         [RBSharedFunctions playSound:@"onemusttry" withExtension:@"mp3"];
