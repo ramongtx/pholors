@@ -1,0 +1,85 @@
+Pholors:
+
+Integrantes:
+ ✔ Carlo Felix Zanotta Dumit 
+ ✔ Rafael Soares Padilha 
+ ✔ Ramon Carvalho Maciel
+
+Descrição da Ideia:
+    A ideia é transformar o ato de tirar fotos em um jogo.
+    O usuário recebe uma cor alvo e precisa fotografar algo que seja da mesma cor. Quanto mais próximo, maior a sua pontuação.
+
+    -> Há dois modos de jogo: 
+     - Challenge: usuário escolhe uma cor de uma lista de níveis e recebe estrelas (0 a 3) quão mais próximo for a foto da cor do nível. O objetivo deste modo é obter 3 estrelas em todas as fases
+     - Time Attack: usuário tem 80 segundos para obter a maior pontuação que conseguir em diferentes cores. Ele pode avançar para uma próxima cor sem receber pontos ou retirar uma foto e receber uma pontuação.
+Pergunta:
+  
+  ☐ Qual a melhor forma de fazer um jogo baseado em tirar fotos?
+  ☐ Quanto mais simples, melhor?
+  ☐ Será single player ou multiplayer?
+  ☐ Para cada um deles, como seria?
+  
+  --- ✄ -----------------------
+  ☐ Qual é o público alvo?
+  ☐ Como atrair novos usuários?
+  ☐ Como podemos nos beneficiar das redes sociais?
+  ☐ Haverá possibilidade de compartilhar fotos tiradas?
+  ☐ Como motivar o usuário a continuar jogando?
+  ☐ Como incentivar a avaliação do app?
+  ☐ Qual a melhor forma de receber o feedback do usuário?
+  
+  --- ✄ -----------------------
+  ☐ Existem apps semelhantes? Se sim, quais os pontos fortes e fracos deles?
+  ☐ Quais as maiores reclamações dos usuários destes aplicativos?
+  ☐ O que torna um jogo viciante?
+  
+  --- ✄ -----------------------
+  ☐ Como monetizar/lucrar com isso?
+  ☐ Compras in-App? Moedas virtuais?  
+  ☐ Free to play? 
+ 
+ --- ✄ -----------------------
+  ☐ Quais APIs podemos utilizar?
+  ☐ Como usar a câmera do dispositivo?
+  ☐ Quais dispositivos irão suportar?
+  ☐ Qual o nosso diferencial?
+  ☐ Como processar a imagem? É necessário um servidor? 
+  ☐ Como usar o GameCenter? (LeaderBoards, Achievements, Multiplayer)
+ 
+  --- ✄ -----------------------
+  ☐ Como dividir as tarefas entre nós?
+  ☐ Como testar, uma vez que o simulador não permite tirar fotos?
+  ☐ O que seremos capaz de fazer em 2 semanas?
+  ☐ Uma vez pronto, quais pontos podemos melhorar/evoluir?
+  ☐ @Mais_Importante --->  Como será a divisão dos lucros?
+
+
+Atividades:
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Inserção de efeitos sonoros @Felix @done (13-10-31 15:06)
+ ✔ Melhorar ainda a forma de calcular a pontuacao @Rafa (distancia angular foi o melhor que conseguimos, talvez uma distancia que leve em conta o angulo entre os vetores e o modulo deles) @done (13-10-31 15:05)
+ ✔ Possibilidade de nao permitir que o usuario use a mesma imagem duas vezes @Felix (decidimos não utilizar esse feature...) @done (13-10-31 15:04)
+ ✔ Fazer uma forma de voltar da tela de selecao de level para o menu principal @done (13-10-31 15:03)
+ ✔ Ajustes no Time Attack (botao de Reset retirado e timer para trocar de cor antes do tempo) @done (13-10-31 15:03) @project(Atividades)
+ ✔ Melhorar a interface do Menu @Felix @Rafa @done (13-10-29 16:14) (colocamos icone e background bacanudo!)
+ ✔ Ajuste no Challenge Mode(Salvar sempre o melhor resultado e não o ultimo obtido) @Felix @done (13-10-29 15:29) @project(Atividades)
+ ✔ Utilizando API de facebook/twitter  @done (13-10-29 14:57) (escolhemos deixar para a nextGen do jogo) @project(Atividades)
+ ✔ Ajustes no Time Attack (timer nao vai prabaixo do negativo, mais) @Felix @done (13-10-29 14:56) @project(Atividades)
+ ✔ Ajuste no Challenge Mode (Quando clicar no botao avancar, voltar para a tela de escolha de fase) @Felix @done (13-10-29 14:55) @project(Atividades)
+ ✔ Desenvolver a lógica do jogo e classes do MVC @done (13-10-29 14:54) @project(Atividades)
+ ✔ Deixar interface mais bonita @done (13-10-29 14:54) @project(Atividades)
+ ✔ Ver uma forma de contar a Pontuação de forma correta @Rafa @done (13-10-29 14:44) (melhoramos mas ainda tá ruim) @project(Atividades)
+ ✔ Interface dos levels @Felix @Ramon @done (13-10-29 14:44) (levels funcionando) @project(Atividades)
+ ✔ Fazer um TimeAttack @Ramon @done (13-10-29 13:28) @project(Atividades)
+ ✔ Fazer com que, quando o timer zerar, o usuário seja levado para uma tela falando que perdeu @Ramon @done (13-10-28 08:39) (implementado sem problemas) @project(Atividades)
+ ✔ Aprender a fazer um Custom Segue @Ramon @done (13-10-28 08:39) (implementado!) @project(Atividades)
+ ✔ Guardar os dados do usuário no app (NSUserDefaults) @Felix @done (13-10-23 16:39) (Implementado) @project(Atividades)
+ ✔ Procurar como funciona o Timer @Rafa @done (13-10-23 11:39) (Timer implementado) @project(Atividades)
+ ✔ Pesquisar apps concorrentes @all @done (13-10-23 10:06) (Bout) @project(Atividades)
+ ✔ API do GameCenter @Felix @done (13-10-23 09:54) (Não vai funcionar por causa da conta de desenvolvimento) @project(Atividades)
+ ✔ Como fazer processamento de imagem (melhor forma de comparar duas imagens) e desenvolver um PoC @Rafa @done (13-10-23 09:51) (Já conseguimos encontrar a cor dominante e calcular a distancia euclidiana entre duas cores) @project(Atividades)
+ ✔ Aprender a acessar Galeria e utilizar imagens dela @Ramon @done (13-10-23 09:51) (já está sendo utilizado) @project(Atividades)
+ ✔ Pesquisar Google Googles @Ramon @done (13-10-23 09:49) (Inviável, não há API e Engines possiveis são pagas) @project(Atividades)
+ ✔ Pesquisar sobre uma possibilidade de simular o uso da camera no simulador @Felix @done (13-10-23 08:18) (também não é possível simular) @project(Atividades)
+ ✔ Pesquisar como se utiliza a câmera @Felix @done (13-10-23 08:18) (não há como utilizar a camera no simulador) @project(Atividades)
