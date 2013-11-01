@@ -16,7 +16,7 @@
 #import "RBTimer.h"
 #import "EndGameVC.h"
 #import "RBSharedFunctions.h"
-#define STARS NO
+#define STARS YES
 
 @interface GameVC : CameraVC <GalleryViewProtocol,RBTimerProtocol>
 
