@@ -15,6 +15,10 @@ struct pixel {
     unsigned char r, g, b, a;
 };
 
+typedef struct _pixel {
+    double x,y,z,ll,aa,bb;
+} Pixel;
+
 + (UIColor*) getDominantColor:(UIImage*)image
 {
     NSUInteger red = 0;
@@ -99,10 +103,20 @@ struct pixel {
     return round(dist * 100);
 }
 
++ (int) convertDistanceToPointsLab:(float)dist
+{
+    int n = round(dist);
+    n = n-20;
+    n = 100-n;
+    if (n > 100) n = 100;
+    else if (n < 0) n = 0;
+    return n;
+}
+
 + (int) convertPointstoStars:(int)points{
-    if(points < 60) return 0;
-    if(points < 75) return 1;
-    if(points < 95) return 2;
+    if(points < 50) return 0;
+    if(points < 65) return 1;
+    if(points < 85) return 2;
     return 3;
 
 }
@@ -117,6 +131,52 @@ struct pixel {
     float blue = (rgbValue & 0xFF)/255.0;
     return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
 }
+
++(Pixel) getPixelWithR:(float)r G:(float)g B:(float)b
+{
+    Pixel p;
+    
+    p.x = 0.4755678*r + 0.3396722*g + 0.1489800*b;
+    p.y = 0.2551812*r + 0.6725693*g + 0.0722496*b;
+    p.z = 0.0184697*r + 0.1133771*g + 0.6933632*b;
+    p.x = p.x/(0.4755678 + 0.3396722 + 0.1489800);
+    p.y = p.y/(0.2551812 + 0.6725693 + 0.0722496);
+    p.z = p.z/(0.0184697 + 0.1133771 + 0.6933632);
+    
+    double fx = [RBImageProcessor fFunction:p.x];
+    double fy = [RBImageProcessor fFunction:p.y];
+    double fz = [RBImageProcessor fFunction:p.z];
+    
+    p.ll = 116*fy-16;
+    p.aa = 500*(fx-fy);
+    p.bb = 200*(fy-fz);
+    return p;
+}
+
++(double)fFunction:(double)t
+{
+    if (t>pow((6.0/29.0),3)) return pow(t,(1.0/3.0));
+    else return (t/3.0)*(29.0/6.0)*(29.0/6.0)+(4.0/29.0);
+}
+
++(double) labDistanceFrom:(Pixel)p1 to:(Pixel)p2
+{
+    double res = 0;
+    res = (p2.ll-p1.ll)*(p2.ll-p1.ll)+(p2.aa-p1.aa)*(p2.aa-p1.aa)+(p2.bb-p1.bb)*(p2.bb-p1.bb);
+    res = sqrt(res);
+    return res;
+}
+
++(double) labDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2
+{
+    const float* componentsColor1 = CGColorGetComponents([c1 CGColor]);
+    const float* componentsColor2 = CGColorGetComponents([c2 CGColor]);
+    Pixel p1 = [RBImageProcessor getPixelWithR:componentsColor1[0] G:componentsColor1[1] B:componentsColor1[2]];
+    Pixel p2 = [RBImageProcessor getPixelWithR:componentsColor2[0] G:componentsColor2[1] B:componentsColor2[2]];
+    return [RBImageProcessor labDistanceFrom:p1 to:p2];
+}
+
+
 
 
 @end

@@ -44,8 +44,10 @@
 -(int) playImageOnLevel:(UIImage*)img original:(UIImage*) originalImg{
     
     UIColor * color = [RBImageProcessor getDominantColor:img];
-    float distance = [RBImageProcessor cossineSimilarityFrom:self.color to:color];
-    int points = [RBImageProcessor convertDistanceToPoints:distance];
+//    float distance = [RBImageProcessor cossineSimilarityFrom:self.color to:color];
+//    int points = [RBImageProcessor convertDistanceToPoints:distance];
+    float distance = [RBImageProcessor labDistanceFromColor:self.color to:color];
+    int points = [RBImageProcessor convertDistanceToPointsLab:distance];
     
     if(points > MAX(0, self.pointsScored)){
         self.colorPlayed = color;
