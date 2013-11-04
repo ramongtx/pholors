@@ -106,7 +106,7 @@ typedef struct _pixel {
 + (int) convertDistanceToPointsLab:(float)dist
 {
     int n = round(dist);
-    n = n-20;
+    n = n-10;
     n = 100-n;
     if (n > 100) n = 100;
     else if (n < 0) n = 0;
@@ -114,9 +114,9 @@ typedef struct _pixel {
 }
 
 + (int) convertPointstoStars:(int)points{
-    if(points < 50) return 0;
-    if(points < 65) return 1;
-    if(points < 85) return 2;
+    if(points < 45) return 0;
+    if(points < 60) return 1;
+    if(points < 80) return 2;
     return 3;
 
 }
