@@ -98,9 +98,9 @@
     self.averageLabel.text = @"Average Color";
 
     
-    int points = [self.level playImageOnLevel:image original:originalImage];
+    int points = [self.level playImageOnLevel:image];
     
-    self.color.backgroundColor = [RBImageProcessor getDominantColor:image];
+    self.color.backgroundColor = self.level.colorPlayed;
     int stars = [RBImageProcessor convertPointstoStars:points];
     [self updateStars:stars];
     if(stars==3)

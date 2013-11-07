@@ -23,7 +23,7 @@
 -(int) stars;
 
 -(void) changeColor;
--(int) playImageOnLevel:(UIImage*)img original:(UIImage*) originalImg;
+-(int) playImageOnLevel:(UIImage*)img;
 
 
 @end
