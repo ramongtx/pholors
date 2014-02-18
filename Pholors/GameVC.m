@@ -18,12 +18,9 @@
 {
     [super viewDidLoad];
     
-
+    if (self.level.isTimeAttack) self.stars.hidden = YES;
+    else self.result.hidden = YES;
     
-    if (!STARS || self.level.isTimeAttack) self.stars.hidden = YES;
-    else{
-        self.result.hidden = YES;
-    }
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];
     self.color.layer.borderWidth = 2.0;
     self.color.layer.cornerRadius = 25;
@@ -132,6 +129,10 @@
 - (void)onTick{
     self.time--;
     self.timelock--;
+    
+    if (self.timelock > 0) self.nextButton.tintColor = [UIColor redColor];
+    else self.nextButton.tintColor = [UIColor blueColor];
+    
     if(self.time ==7){
         [RBSharedFunctions playSound:@"sample" withExtension:@"mp3"];
     }
@@ -162,7 +163,7 @@
     else if ((self.timelock <= 0) || (self.imagePreview.image != nil))
     {
         self.timelock = 3;
-        self.totalPoints += self.level.pointsScored;//[self calculatePoints];
+        self.totalPoints += self.level.pointsScored;
         self.level = [[RBLevel alloc] init];
         self.level.isTimeAttack = YES;
         self.result.text = [NSString stringWithFormat:@"Total Pontuation: %d",self.totalPoints];
