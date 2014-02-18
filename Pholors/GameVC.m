@@ -53,6 +53,7 @@
     if (self.level.isTimeAttack) {
         self.time = 80;
         self.timelock = 3;
+        self.nextButton.enabled = NO;
         self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
         self.timerLabel.text = [NSString stringWithFormat:@"Time Left: %ds",self.time];
         self.timerLabel.hidden = NO;
@@ -130,8 +131,8 @@
     self.time--;
     self.timelock--;
     
-    if (self.timelock > 0) self.nextButton.tintColor = [UIColor redColor];
-    else self.nextButton.tintColor = [UIColor blueColor];
+    if (self.timelock <= 0) self.nextButton.enabled = YES;
+    else self.nextButton.enabled = NO;
     
     if(self.time ==7){
         [RBSharedFunctions playSound:@"sample" withExtension:@"mp3"];
@@ -163,6 +164,8 @@
     else if ((self.timelock <= 0) || (self.imagePreview.image != nil))
     {
         self.timelock = 3;
+        self.nextButton.enabled = NO;
+    
         self.totalPoints += self.level.pointsScored;
         self.level = [[RBLevel alloc] init];
         self.level.isTimeAttack = YES;
