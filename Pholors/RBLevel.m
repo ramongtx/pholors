@@ -23,6 +23,19 @@
 }
 
 
+-(id) initWithName:(NSString*) name red:(NSInteger) red green:(NSInteger)green blue:(NSInteger)blue{
+    if(self = [super init]){
+        self.pointsScored = 0;
+        self.color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1.0];
+        self.colorName = name;
+        self.colorPlayed = nil;
+        self.completed = NO;
+        self.isTimeAttack = NO;
+    }
+    return self;
+   
+}
+
 -(id) initWithColor:(NSString*)colorHex name:(NSString*)name{
     if(self = [super init]){
         self.pointsScored = 0;

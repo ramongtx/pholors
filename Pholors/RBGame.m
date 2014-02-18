@@ -7,10 +7,12 @@
 //
 
 #import "RBGame.h"
+#import "UIColor+Named.h"
 
 @implementation RBGame
 
 static long int timeRecord;
+static long int levelPackCount = 1;
 
 -(id) init
 {
@@ -28,7 +30,7 @@ static long int timeRecord;
     
     // maybe remove this
     [self saveLevels];
-        
+    
 }
 
 - (void) createLevelSet
@@ -68,39 +70,63 @@ static long int timeRecord;
 
 +(void) createDefaultSet
 {
-    NSDictionary* colors = @{@"Air Force Blue": @"#5d8aa8",
-                             @"Apple green": @"#8db600",
-                             @"AuroMetalSaurus": @"#6e7f80",
-                             @"Banana yellow": @"#ffe135",
-                             @"Bittersweet": @"#fe6f5e",
-                             @"Bubble gum": @"#ffc1cc",
-                             @"Bubbles": @"#e7feff",
-                             @"Capri": @"#00bfff",
-                             @"Cinnamon": @"#d2691e",
-                             @"Cofee": @"#6f4e37",
-                             @"Ferrari Red": @"#ff2800",
-                             @"Electric Purple": @"#bf00ff",
-                             @"Grullo": @"#a99a86",
-                             @"Inchworm": @"#b2ec5d",
-                             @"Navy Blue": @"#000080",
-                             @"Pastel Yellow": @"#fdfd96",
-                             @"Pumpkin": @"#ff7518",
-                             @"Purple pizzazz": @"#fe4eda",
-                             @"Wine" : @"#722f37",
-                             @"White Smoke": @"#f5f5f5",
-                             @"Smoky Black": @"#100c08",
-                             @"Sand": @"#c2b280",
-                             @"Ruby": @"#e0115f",
-                             @"Mango Tango": @"#ff8243"
-                             };
+    //    NSDictionary* colors = @{@"Air Force Blue": @"#5d8aa8",
+    //                             @"Apple green": @"#8db600",
+    //                             @"AuroMetalSaurus": @"#6e7f80",
+    //                             @"Banana yellow": @"#ffe135",
+    //                             @"Bittersweet": @"#fe6f5e",
+    //                             @"Bubble gum": @"#ffc1cc",
+    //                             @"Bubbles": @"#e7feff",
+    //                             @"Capri": @"#00bfff",
+    //                             @"Cinnamon": @"#d2691e",
+    //                             @"Cofee": @"#6f4e37",
+    //                             @"Ferrari Red": @"#ff2800",
+    //                             @"Electric Purple": @"#bf00ff",
+    //                             @"Grullo": @"#a99a86",
+    //                             @"Inchworm": @"#b2ec5d",
+    //                             @"Navy Blue": @"#000080",
+    //                             @"Pastel Yellow": @"#fdfd96",
+    //                             @"Pumpkin": @"#ff7518",
+    //                             @"Purple pizzazz": @"#fe4eda",
+    //                             @"Wine" : @"#722f37",
+    //                             @"White Smoke": @"#f5f5f5",
+    //                             @"Smoky Black": @"#100c08",
+    //                             @"Sand": @"#c2b280",
+    //                             @"Ruby": @"#e0115f",
+    //                             @"Mango Tango": @"#ff8243"
+    //                             };
+    NSArray* colors = [UIColor getColorsData];
     
+    if( defaultLevels == NULL){
     defaultLevels = [[NSMutableArray alloc] init];
-    for(id key in colors){
-        RBLevel * newLevel = [[RBLevel alloc] initWithColor:colors[key] name:key];
-        [defaultLevels addObject:newLevel];
     }
+    
+    for(int i=0; i<[colors count]; i++){
+        
+        if(i % 50 < levelPackCount){
+            NSDictionary* color = [colors objectAtIndex:i];
+            
+            
+            RBLevel * newLevel = [[RBLevel alloc] initWithName:[color objectForKey:@"label"]
+                                                           red:[[color objectForKey:@"r"] integerValue]
+                                                         green:[[color objectForKey:@"g"] integerValue]
+                                                          blue:[[color objectForKey:@"b"] integerValue]];
+            if(![RBGame isColorOnGame:newLevel.colorName])   [defaultLevels addObject:newLevel];
+        }
+    }
+    
     [self saveDefaultLevels];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"levelset"];
+}
+
+
++(BOOL) isColorOnGame:(NSString*) color
+{
+    for(RBLevel* level in defaultLevels){
+        if([level.colorName isEqualToString:color]) return YES;
+    }
+    
+    return NO;
 }
 
 +(NSArray*) getDefaultLevels
@@ -147,6 +173,7 @@ static long int timeRecord;
 {
     timeRecord = 0;
     [RBGame updateRecord:0];
+    defaultLevels = nil;
 }
 
 +(void) clearAll
@@ -154,6 +181,14 @@ static long int timeRecord;
     [RBGame clearRecord];
     [RBGame createDefaultSet];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"levelset"];
-
+    
 }
+
++(void) increaseLevelPackCount
+{
+    levelPackCount = 2;
+    //levelPackCount += 1;
+    [RBGame createDefaultSet];
+}
+
 @end

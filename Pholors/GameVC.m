@@ -44,18 +44,20 @@
     self.imagePreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.imagePreview.layer.borderWidth = 1.5;
     
-    self.timerLabel.hidden = YES;
     
     self.totalPoints = 0;
     
     self.targetPreview.backgroundColor = self.level.color;
+    
+    self.timerLabel.text = self.level.colorName;
+    self.timerLabel.textColor = [UIColor blackColor];
     
     if (self.level.isTimeAttack) {
         self.time = 80;
         self.timelock = 3;
         self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
         self.timerLabel.text = [NSString stringWithFormat:@"Time Left: %ds",self.time];
-        self.timerLabel.hidden = NO;
+        self.timerLabel.textColor = [UIColor redColor];
     }
 }
 

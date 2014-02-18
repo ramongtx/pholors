@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E9A7D1817FC0D0038E72D /* RBTimer.m */; };
 		3DC3D33F1818355B00096DA2 /* EndGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D33E1818355B00096DA2 /* EndGameVC.m */; };
+		D591366D18B3D42200CEE732 /* UIColor+Named.m in Sources */ = {isa = PBXBuildFile; fileRef = D591366C18B3D42200CEE732 /* UIColor+Named.m */; };
+		D591367018B3D44300CEE732 /* Colors.json in Resources */ = {isa = PBXBuildFile; fileRef = D591366F18B3D44300CEE732 /* Colors.json */; };
 		D592052218183B11004F58BD /* LevelsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D592052118183B11004F58BD /* LevelsVC.m */; };
 		D592052918184539004F58BD /* 0star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052518184539004F58BD /* 0star.png */; };
 		D592052A18184539004F58BD /* 1star.png in Resources */ = {isa = PBXBuildFile; fileRef = D592052618184539004F58BD /* 1star.png */; };
@@ -65,6 +67,9 @@
 		3D8E9A7D1817FC0D0038E72D /* RBTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTimer.m; sourceTree = "<group>"; };
 		3DC3D33D1818355B00096DA2 /* EndGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameVC.h; sourceTree = "<group>"; };
 		3DC3D33E1818355B00096DA2 /* EndGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameVC.m; sourceTree = "<group>"; };
+		D591366B18B3D42200CEE732 /* UIColor+Named.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Named.h"; sourceTree = "<group>"; };
+		D591366C18B3D42200CEE732 /* UIColor+Named.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Named.m"; sourceTree = "<group>"; };
+		D591366F18B3D44300CEE732 /* Colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Colors.json; sourceTree = "<group>"; };
 		D592052018183B11004F58BD /* LevelsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsVC.h; sourceTree = "<group>"; };
 		D592052118183B11004F58BD /* LevelsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelsVC.m; sourceTree = "<group>"; };
 		D592052518184539004F58BD /* 0star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0star.png; sourceTree = "<group>"; };
@@ -143,6 +148,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D591366E18B3D42F00CEE732 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				D591366F18B3D44300CEE732 /* Colors.json */,
+				D591366B18B3D42200CEE732 /* UIColor+Named.h */,
+				D591366C18B3D42200CEE732 /* UIColor+Named.m */,
+			);
+			name = Color;
+			sourceTree = "<group>";
+		};
 		D592052418184539004F58BD /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +174,7 @@
 		D596F1FD181EB66800CF092D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D591366E18B3D42F00CEE732 /* Color */,
 				F6E663901816F9AF0094EC26 /* RBImageProcessor.h */,
 				F6E663911816F9AF0094EC26 /* RBImageProcessor.m */,
 				D597BEAE1817EAAF00F3881E /* RBLevel.h */,
@@ -367,6 +383,7 @@
 			files = (
 				F6E663551816F8740094EC26 /* Images.xcassets in Resources */,
 				D5BE102318217F8E0046AAF1 /* pholors.png in Resources */,
+				D591367018B3D44300CEE732 /* Colors.json in Resources */,
 				D5BE101A18217D7E0046AAF1 /* itsaspell.mp3 in Resources */,
 				D5BE101718217D7E0046AAF1 /* beam.mp3 in Resources */,
 				D592052C18184539004F58BD /* 3star.png in Resources */,
@@ -410,6 +427,7 @@
 				D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */,
 				F6F5C6D6181E9F89004A58D6 /* MainVC.m in Sources */,
 				F6E6638D1816F9860094EC26 /* GameVC.m in Sources */,
+				D591366D18B3D42200CEE732 /* UIColor+Named.m in Sources */,
 				F6E663921816F9AF0094EC26 /* CameraVC.m in Sources */,
 				D592053118184C61004F58BD /* LevelTableCell.m in Sources */,
 				F6E663931816F9AF0094EC26 /* RBImageProcessor.m in Sources */,

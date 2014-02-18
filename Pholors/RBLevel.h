@@ -20,6 +20,8 @@
 
 -(id) init;
 -(id) initWithColor:(NSString*)colorHex name:(NSString*)name;
+-(id) initWithName:(NSString*) name red:(NSInteger) red green:(NSInteger)green blue:(NSInteger)blue;
+
 -(int) stars;
 
 -(void) changeColor;

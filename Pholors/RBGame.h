@@ -21,6 +21,8 @@
 -(void) loadLevels;
 
 
+
+
 +(void) loadDefaultLevels;
 +(void) saveDefaultLevels;
 +(void) createDefaultSet;
@@ -34,6 +36,9 @@
 +(void)clearRecord;
 
 +(void) clearAll;
+
++(void) increaseLevelPackCount;
+
 
 @end
 

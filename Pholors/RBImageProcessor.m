@@ -7,6 +7,7 @@
 //
 
 #import "RBImageProcessor.h"
+#import "UIColor+Named.h"
 
 @implementation RBImageProcessor
 
@@ -92,11 +93,13 @@ typedef struct _pixel {
 
 + (UIColor*) randomColor
 {
-    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-    return color;
+//
+    NSArray* colors = [UIColor getColorsData];
+    NSDictionary* color = [colors objectAtIndex:arc4random() % [colors count]];
+    UIColor *c = [UIColor colorWithRed:[[color objectForKey:@"r"] integerValue]/255.0
+                                     green:[[color objectForKey:@"g"] integerValue]/255.0
+                                      blue:[[color objectForKey:@"b"] integerValue]/255.0 alpha:1.0];
+    return c;
 }
 
 + (int) convertDistanceToPoints:(float)dist{

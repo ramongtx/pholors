@@ -7,6 +7,7 @@
 //
 
 #import "MainVC.h"
+#import "RBGame.h"
 
 @interface MainVC ()
 
@@ -23,7 +24,10 @@
     return self;
 }
 - (IBAction)clickPholors:(id)sender {
+    [RBGame increaseLevelPackCount];
     [RBSharedFunctions playSound:@"whistle" withExtension:@"mp3"];
+    self.starsLabel.text = [NSString stringWithFormat:@"%li/%li",[RBGame allStars], [RBGame maxStars]];
+    self.timeLabel.text = [NSString stringWithFormat:@"%li",[RBGame getRecord]];
 }
 
 - (void)viewDidLoad
