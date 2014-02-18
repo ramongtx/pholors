@@ -32,7 +32,7 @@
     [RBSharedFunctions playSound:@"comein" withExtension:@"mp3"];
     
     NSLog(@"LevelsViewController.viewDidLoad");
-    tableData = [RBGame getDefaultLevels]; //game.levels;
+    tableData = [RBGame getDefaultLevels];
 }
 
 #pragma mark - Table view data source

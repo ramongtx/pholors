@@ -266,6 +266,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Bfs-A7-uqL"/>
+                                    <barButtonItem title="Item" id="0My-Rp-9z1"/>
                                     <barButtonItem systemItem="play" id="pzP-dB-Vvl">
                                         <connections>
                                             <action selector="playButton:" destination="vXZ-lx-hvc" id="rrg-nV-wBe"/>
@@ -330,6 +331,7 @@
                         <outlet property="averageLabel" destination="qEM-YQ-R88" id="DMq-xK-cUW"/>
                         <outlet property="color" destination="61T-u3-cMb" id="jyV-VM-BRq"/>
                         <outlet property="imagePreview" destination="8W7-Qw-1fO" id="Zd4-Ws-pCF"/>
+                        <outlet property="nextColorBarButton" destination="0My-Rp-9z1" id="d1r-jk-C6i"/>
                         <outlet property="result" destination="u4U-TA-wne" id="Crc-T0-31V"/>
                         <outlet property="stars" destination="lNw-PV-dME" id="mVU-q3-Gmv"/>
                         <outlet property="stopButton" destination="aIY-2h-nid" id="RWx-Ty-0Li"/>
