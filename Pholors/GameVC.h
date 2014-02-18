@@ -31,6 +31,8 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *stopButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *finishLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nextColorLabel;
 
 @property (strong, nonatomic) RBTimer* timerController;
 @property (strong,nonatomic) RBLevel* level;
