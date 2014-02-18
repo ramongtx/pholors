@@ -349,6 +349,7 @@
                         <outlet property="averageLabel" destination="qEM-YQ-R88" id="DMq-xK-cUW"/>
                         <outlet property="color" destination="61T-u3-cMb" id="jyV-VM-BRq"/>
                         <outlet property="imagePreview" destination="8W7-Qw-1fO" id="Zd4-Ws-pCF"/>
+                        <outlet property="nextButton" destination="pzP-dB-Vvl" id="4dt-Va-y7k"/>
                         <outlet property="result" destination="u4U-TA-wne" id="Crc-T0-31V"/>
                         <outlet property="stars" destination="lNw-PV-dME" id="mVU-q3-Gmv"/>
                         <outlet property="stopButton" destination="aIY-2h-nid" id="RWx-Ty-0Li"/>

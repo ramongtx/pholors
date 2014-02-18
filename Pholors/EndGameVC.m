@@ -40,7 +40,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)restart:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 -(void)viewWillAppear:(BOOL)animated
