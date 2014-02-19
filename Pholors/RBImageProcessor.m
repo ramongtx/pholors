@@ -62,7 +62,7 @@ typedef struct _pixel {
                 blue += pixels[i].b;// * pixels[i].a;
             }
             
-            
+            if(numberOfPixels == 0) numberOfPixels++;
             red /= numberOfPixels;
             green /= numberOfPixels;
             blue/= numberOfPixels;
@@ -172,8 +172,8 @@ typedef struct _pixel {
 
 +(double) labDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2
 {
-    const float* componentsColor1 = CGColorGetComponents([c1 CGColor]);
-    const float* componentsColor2 = CGColorGetComponents([c2 CGColor]);
+    const CGFloat* componentsColor1 = CGColorGetComponents([c1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([c2 CGColor]);
     Pixel p1 = [RBImageProcessor getPixelWithR:componentsColor1[0] G:componentsColor1[1] B:componentsColor1[2]];
     Pixel p2 = [RBImageProcessor getPixelWithR:componentsColor2[0] G:componentsColor2[1] B:componentsColor2[2]];
     return [RBImageProcessor labDistanceFrom:p1 to:p2];

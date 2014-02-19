@@ -54,7 +54,7 @@
     
     NSArray *colors = [self getColorsData];
     
-    int min = NSIntegerMax;
+    int min = (int) NSIntegerMax;
     int min_idx = -1;
     int dist, last_result;
     
