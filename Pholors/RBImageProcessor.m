@@ -109,6 +109,20 @@ typedef struct _LABPixel {
     return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
 }
 
+#pragma mark - Weighted RGB Distance
+
++ (float) weightedDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2
+{
+    const CGFloat* componentsColor1 = CGColorGetComponents([c1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([c2 CGColor]);
+    CGFloat rr = componentsColor1[0]-componentsColor2[0];
+        CGFloat gg = componentsColor1[1]-componentsColor2[1];
+        CGFloat bb = componentsColor1[2]-componentsColor2[2];
+    float colorDiff = (30*(rr))*(30*(rr)) + (59*(gg))*(59*(gg)) + (11*(bb))*(11*(bb));
+    return colorDiff;
+
+}
+
 #pragma mark - Cossine Distance
 
 + (float) cossineSimilarityFrom:(UIColor*)color1 to:(UIColor*)color2{
@@ -127,6 +141,15 @@ typedef struct _LABPixel {
 }
 
 #pragma mark - LAB Distance
+
++(double) labDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2
+{
+    const CGFloat* componentsColor1 = CGColorGetComponents([c1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([c2 CGColor]);
+    LABPixel p1 = [RBImageProcessor getLABPixelWithR:componentsColor1[0] G:componentsColor1[1] B:componentsColor1[2]];
+    LABPixel p2 = [RBImageProcessor getLABPixelWithR:componentsColor2[0] G:componentsColor2[1] B:componentsColor2[2]];
+    return [RBImageProcessor distanceFromLAB:p1 to:p2];
+}
 
 +(LABPixel) getLABPixelWithR:(float)r G:(float)g B:(float)b
 {
@@ -161,15 +184,6 @@ typedef struct _LABPixel {
     res = (p2.ll-p1.ll)*(p2.ll-p1.ll)+(p2.aa-p1.aa)*(p2.aa-p1.aa)+(p2.bb-p1.bb)*(p2.bb-p1.bb);
     res = sqrt(res);
     return res;
-}
-
-+(double) labDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2
-{
-    const CGFloat* componentsColor1 = CGColorGetComponents([c1 CGColor]);
-    const CGFloat* componentsColor2 = CGColorGetComponents([c2 CGColor]);
-    LABPixel p1 = [RBImageProcessor getLABPixelWithR:componentsColor1[0] G:componentsColor1[1] B:componentsColor1[2]];
-    LABPixel p2 = [RBImageProcessor getLABPixelWithR:componentsColor2[0] G:componentsColor2[1] B:componentsColor2[2]];
-    return [RBImageProcessor distanceFromLAB:p1 to:p2];
 }
 
 + (int) convertDistanceToPointsLab:(float)dist

@@ -58,8 +58,11 @@
 {
     
     UIColor * color = [RBImageProcessor getDominantColor:img];
+    
+    // CURRENTLY USING LAB METHOD ===============================================
     float distance = [RBImageProcessor labDistanceFromColor:self.color to:color];
     int points = [RBImageProcessor convertDistanceToPointsLab:distance];
+    // ==========================================================================
     
     if(points > MAX(0, self.pointsScored)){
         self.colorPlayed = color;
