@@ -16,9 +16,9 @@ struct pixel {
     unsigned char r, g, b, a;
 };
 
-typedef struct _pixel {
+typedef struct _LABPixel {
     double x,y,z,ll,aa,bb;
-} Pixel;
+} LABPixel;
 
 + (UIColor*) getDominantColor:(UIImage*)image
 {
@@ -76,24 +76,8 @@ typedef struct _pixel {
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1.0f];
 }
 
-+ (float) cossineSimilarityFrom:(UIColor*)color1 to:(UIColor*)color2{
-    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
-    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
-    
-    float cossine, norm1, norm2;
-    
-    cossine = (componentsColor1[0] * componentsColor2[0]) + (componentsColor1[1] * componentsColor2[1]) + (componentsColor1[2] * componentsColor2[2]);
-    norm1 = sqrt(pow(componentsColor1[0],2) + pow(componentsColor1[1], 2) + pow(componentsColor1[2],2));
-    norm2 = sqrt(pow(componentsColor2[0],2) + pow(componentsColor2[1], 2) + pow(componentsColor2[2],2));
-    
-    cossine = cossine / (norm1 * norm2);
-    NSLog(@"CS: %f",cossine);
-    return cossine;
-}
-
 + (UIColor*) randomColor
 {
-//
     NSArray* colors = [UIColor getColorsData];
     NSDictionary* color = [colors objectAtIndex:arc4random() % [colors count]];
     UIColor *c = [UIColor colorWithRed:[[color objectForKey:@"r"] integerValue]/255.0
@@ -104,16 +88,6 @@ typedef struct _pixel {
 
 + (int) convertDistanceToPoints:(float)dist{
     return round(dist * 100);
-}
-
-+ (int) convertDistanceToPointsLab:(float)dist
-{
-    int n = round(dist);
-    n = n-10;
-    n = 100-n;
-    if (n > 100) n = 100;
-    else if (n < 0) n = 0;
-    return n;
 }
 
 + (int) convertPointstoStars:(int)points{
@@ -135,9 +109,28 @@ typedef struct _pixel {
     return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
 }
 
-+(Pixel) getPixelWithR:(float)r G:(float)g B:(float)b
+#pragma mark - Cossine Distance
+
++ (float) cossineSimilarityFrom:(UIColor*)color1 to:(UIColor*)color2{
+    const CGFloat* componentsColor1 = CGColorGetComponents([color1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([color2 CGColor]);
+    
+    float cossine, norm1, norm2;
+    
+    cossine = (componentsColor1[0] * componentsColor2[0]) + (componentsColor1[1] * componentsColor2[1]) + (componentsColor1[2] * componentsColor2[2]);
+    norm1 = sqrt(pow(componentsColor1[0],2) + pow(componentsColor1[1], 2) + pow(componentsColor1[2],2));
+    norm2 = sqrt(pow(componentsColor2[0],2) + pow(componentsColor2[1], 2) + pow(componentsColor2[2],2));
+    
+    cossine = cossine / (norm1 * norm2);
+    NSLog(@"CS: %f",cossine);
+    return cossine;
+}
+
+#pragma mark - LAB Distance
+
++(LABPixel) getLABPixelWithR:(float)r G:(float)g B:(float)b
 {
-    Pixel p;
+    LABPixel p;
     
     p.x = 0.4755678*r + 0.3396722*g + 0.1489800*b;
     p.y = 0.2551812*r + 0.6725693*g + 0.0722496*b;
@@ -162,7 +155,7 @@ typedef struct _pixel {
     else return (t/3.0)*(29.0/6.0)*(29.0/6.0)+(4.0/29.0);
 }
 
-+(double) labDistanceFrom:(Pixel)p1 to:(Pixel)p2
++(double) distanceFromLAB:(LABPixel)p1 to:(LABPixel)p2
 {
     double res = 0;
     res = (p2.ll-p1.ll)*(p2.ll-p1.ll)+(p2.aa-p1.aa)*(p2.aa-p1.aa)+(p2.bb-p1.bb)*(p2.bb-p1.bb);
@@ -174,12 +167,20 @@ typedef struct _pixel {
 {
     const CGFloat* componentsColor1 = CGColorGetComponents([c1 CGColor]);
     const CGFloat* componentsColor2 = CGColorGetComponents([c2 CGColor]);
-    Pixel p1 = [RBImageProcessor getPixelWithR:componentsColor1[0] G:componentsColor1[1] B:componentsColor1[2]];
-    Pixel p2 = [RBImageProcessor getPixelWithR:componentsColor2[0] G:componentsColor2[1] B:componentsColor2[2]];
-    return [RBImageProcessor labDistanceFrom:p1 to:p2];
+    LABPixel p1 = [RBImageProcessor getLABPixelWithR:componentsColor1[0] G:componentsColor1[1] B:componentsColor1[2]];
+    LABPixel p2 = [RBImageProcessor getLABPixelWithR:componentsColor2[0] G:componentsColor2[1] B:componentsColor2[2]];
+    return [RBImageProcessor distanceFromLAB:p1 to:p2];
 }
 
-
++ (int) convertDistanceToPointsLab:(float)dist
+{
+    int n = round(dist);
+    n = n-10;
+    n = 100-n;
+    if (n > 100) n = 100;
+    else if (n < 0) n = 0;
+    return n;
+}
 
 
 @end

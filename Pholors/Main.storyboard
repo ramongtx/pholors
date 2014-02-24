@@ -461,7 +461,6 @@
     <resources>
         <image name="0star.png" width="429" height="139"/>
         <image name="6b2dd6f01f209f7fac5de216c820e516.jpg" width="646" height="655"/>
-        <image name="6b2dd6f01f209f7fac5de216c820e516.jpg" width="646" height="655"/>
         <image name="pholors.png" width="1265" height="261"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
