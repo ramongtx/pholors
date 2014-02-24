@@ -60,8 +60,8 @@
     UIColor * color = [RBImageProcessor getDominantColor:img];
     
     // CURRENTLY USING LAB METHOD ===============================================
-    float distance = [RBImageProcessor labDistanceFromColor:self.color to:color];
-    int points = [RBImageProcessor convertLABDistanceToPoints:distance];
+    float distance = [RBImageProcessor weightedDistanceFromColor:self.color to:color];
+    int points = [RBImageProcessor convertWeightedDistanceToPoints:distance];
     // ==========================================================================
     
     if(points > MAX(0, self.pointsScored)){

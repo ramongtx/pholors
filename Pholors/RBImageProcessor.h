@@ -22,5 +22,8 @@
 + (UIColor *)colorFromHexString:(NSString *)hexString;
 + (double) labDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2;
 
++ (float) weightedDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2;
++ (int) convertWeightedDistanceToPoints:(float)dist;
+
 @end
 

@@ -125,6 +125,7 @@ typedef struct _LABPixel {
 
 + (int) convertWeightedDistanceToPoints:(float)dist
 {
+    NSLog(@"%d",round(dist));
     return round(dist);
 }
 
