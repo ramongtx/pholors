@@ -151,7 +151,7 @@ static long int levelPackCount = 1;
 
 +(BOOL)updateRecord:(int)newRecord
 {
-    if (newRecord >= timeRecord) {
+    if (newRecord > timeRecord) {
         [[NSUserDefaults standardUserDefaults] setInteger:newRecord forKey:@"timeRecord"];
         timeRecord = newRecord;
         return YES;
