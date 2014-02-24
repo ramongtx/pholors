@@ -123,6 +123,11 @@ typedef struct _LABPixel {
 
 }
 
++ (int) convertWeightedDistanceToPoints:(float)dist
+{
+    return round(dist);
+}
+
 #pragma mark - Cossine Distance
 
 + (float) cossineSimilarityFrom:(UIColor*)color1 to:(UIColor*)color2{
@@ -186,7 +191,7 @@ typedef struct _LABPixel {
     return res;
 }
 
-+ (int) convertDistanceToPointsLab:(float)dist
++ (int) convertLABDistanceToPoints:(float)dist
 {
     int n = round(dist);
     n = n-10;

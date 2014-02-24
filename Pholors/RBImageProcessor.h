@@ -17,7 +17,7 @@
 + (float) cossineSimilarityFrom:(UIColor*)color1 to:(UIColor*)color2;
 + (UIColor*) randomColor;
 + (int) convertDistanceToPoints:(float)dist;
-+ (int) convertDistanceToPointsLab:(float)dist;
++ (int) convertLABDistanceToPoints:(float)dist;
 + (int) convertPointstoStars:(int)points;
 + (UIColor *)colorFromHexString:(NSString *)hexString;
 + (double) labDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2;

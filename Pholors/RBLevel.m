@@ -61,7 +61,7 @@
     
     // CURRENTLY USING LAB METHOD ===============================================
     float distance = [RBImageProcessor labDistanceFromColor:self.color to:color];
-    int points = [RBImageProcessor convertDistanceToPointsLab:distance];
+    int points = [RBImageProcessor convertLABDistanceToPoints:distance];
     // ==========================================================================
     
     if(points > MAX(0, self.pointsScored)){
