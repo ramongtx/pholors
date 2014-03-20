@@ -9,8 +9,7 @@
 #import "MainVC.h"
 #import "RBGame.h"
 
-@interface MainVC ()
-
+@interface MainVC () <UIAlertViewDelegate>
 @end
 
 @implementation MainVC
@@ -51,8 +50,16 @@
     [self performSegueWithIdentifier:@"timeAttack" sender:self];
 }
 - (IBAction)clear:(id)sender {
-    [RBGame clearAll];
-    [self viewWillAppear:FALSE];
+    UIAlertView *confirmAlertView = [[UIAlertView alloc]initWithTitle:@"Clear Stats" message:@"Are you sure?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [confirmAlertView show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1){
+        [RBGame clearAll];
+        //Call it to update
+        [self viewWillAppear:NO];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
