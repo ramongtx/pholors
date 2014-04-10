@@ -26,15 +26,15 @@
     self.color.layer.cornerRadius = 25;
     self.color.layer.masksToBounds = YES;
     
-    self.result.text = [NSString stringWithFormat:@"Pontuation: %d",self.level.pointsScored];
+    self.result.text = [NSString stringWithFormat:@"%@ %d",NSLocalizedString(@"Pontuation:",@"Pontuation"),self.level.pointsScored];
     
     if(self.level.colorPlayed){
         self.color.backgroundColor = self.level.colorPlayed;
-        self.averageLabel.text = @"Last Played";
+        self.averageLabel.text = NSLocalizedString(@"Last Played",@"Last played color");
         [self updateStars:[self.level stars]];
     }
     else
-        self.averageLabel.text = @"Average Color";
+        self.averageLabel.text = NSLocalizedString(@"Average Color",@"Average Color");
     
     self.targetPreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.targetPreview.layer.borderWidth = 2.0;
@@ -57,7 +57,7 @@
         self.timelock = 3;
         self.nextButton.enabled = NO;
         self.timerController = [[RBTimer alloc]initWithTimer:1.0 andDelegate:self];
-        self.timerLabel.text = [NSString stringWithFormat:@"Time Left: %ds",self.time];
+        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ds",NSLocalizedString(@"Time Left:", @"Time left"),self.time];
         self.timerLabel.textColor = [UIColor redColor];
     }
 }
@@ -96,7 +96,7 @@
     self.imagePreview.image = image;
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
-    self.averageLabel.text = @"Average Color";
+    self.averageLabel.text = NSLocalizedString(@"Average Color",@"Average Color");
 
     
     int points = [self.level playImageOnLevel:image];
@@ -107,7 +107,8 @@
     if(stars==3)
         [RBSharedFunctions playSound:@"itsaspell" withExtension:@"mp3"];
     
-    self.result.text = [NSString stringWithFormat:@"Pontuation: %d",points];
+    self.result.text = [NSString stringWithFormat:@"%@ %d",NSLocalizedString(@"Pontuation:",@"Pontuation"),points];
+    [self.result sizeToFit];
     
     if(self.level.isTimeAttack)
         [RBSharedFunctions playSound:@"beam" withExtension:@"mp3"];
@@ -146,13 +147,12 @@
         self.time=0;
     }
     
-    self.timerLabel.text = [NSString stringWithFormat:@"Time Left: %ds",self.time];
+    self.timerLabel.text = [NSString stringWithFormat:@"%@ %ds",NSLocalizedString(@"Time Left:", @"Time left"),self.time];
 }
 
 - (void) timerOver
 {
     [self.timerController.timer invalidate];
-    NSLog(@"TIMER OVER");
      self.highscore = [RBGame updateRecord:self.totalPoints];
     [self performSegueWithIdentifier:@"gameOver" sender:self];
 }
@@ -171,7 +171,7 @@
         self.totalPoints += self.level.pointsScored;
         self.level = [[RBLevel alloc] init];
         self.level.isTimeAttack = YES;
-        self.result.text = [NSString stringWithFormat:@"Total Pontuation: %d",self.totalPoints];
+        self.result.text = [NSString stringWithFormat:@"%@ %d",NSLocalizedString(@"Total Pontuation:", @"Total Pontuation"),self.totalPoints];
         self.color.backgroundColor = nil;
         self.targetPreview.backgroundColor = self.level.color;
         self.imagePreview.image = nil;

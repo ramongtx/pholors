@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E9A7D1817FC0D0038E72D /* RBTimer.m */; };
+		3DB6687C18F6FAC7001262DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB6687E18F6FAC7001262DF /* Main.storyboard */; };
+		3DB9D18A18F7056B00CE65EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DB9D18C18F7056B00CE65EC /* Localizable.strings */; };
 		3DC3D33F1818355B00096DA2 /* EndGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D33E1818355B00096DA2 /* EndGameVC.m */; };
 		D591366D18B3D42200CEE732 /* UIColor+Named.m in Sources */ = {isa = PBXBuildFile; fileRef = D591366C18B3D42200CEE732 /* UIColor+Named.m */; };
 		D591367018B3D44300CEE732 /* Colors.json in Resources */ = {isa = PBXBuildFile; fileRef = D591366F18B3D44300CEE732 /* Colors.json */; };
@@ -48,7 +50,6 @@
 		F6E6638D1816F9860094EC26 /* GameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638C1816F9860094EC26 /* GameVC.m */; };
 		F6E663921816F9AF0094EC26 /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E6638F1816F9AF0094EC26 /* CameraVC.m */; };
 		F6E663931816F9AF0094EC26 /* RBImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E663911816F9AF0094EC26 /* RBImageProcessor.m */; };
-		F6F299091817DBA300E97D0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F299081817DBA300E97D0F /* Main.storyboard */; };
 		F6F5C6D6181E9F89004A58D6 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F5C6D5181E9F89004A58D6 /* MainVC.m */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,14 @@
 /* Begin PBXFileReference section */
 		3D8E9A7C1817FC0D0038E72D /* RBTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTimer.h; sourceTree = "<group>"; };
 		3D8E9A7D1817FC0D0038E72D /* RBTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTimer.m; sourceTree = "<group>"; };
+		3DB6687F18F6FAD6001262DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DB6688118F6FB61001262DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3DB6688218F6FB67001262DF /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3DB9D18B18F7056B00CE65EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3DB9D18D18F7056F00CE65EC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3DB9D18E18F7057000CE65EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3DB9D19118F7070700CE65EC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		3DB9D19218F7070B00CE65EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3DC3D33D1818355B00096DA2 /* EndGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameVC.h; sourceTree = "<group>"; };
 		3DC3D33E1818355B00096DA2 /* EndGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameVC.m; sourceTree = "<group>"; };
 		D591366B18B3D42200CEE732 /* UIColor+Named.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Named.h"; sourceTree = "<group>"; };
@@ -119,7 +128,6 @@
 		F6E6638F1816F9AF0094EC26 /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; };
 		F6E663901816F9AF0094EC26 /* RBImageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBImageProcessor.h; sourceTree = "<group>"; };
 		F6E663911816F9AF0094EC26 /* RBImageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBImageProcessor.m; sourceTree = "<group>"; };
-		F6F299081817DBA300E97D0F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F6F5C6D4181E9F89004A58D6 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		F6F5C6D5181E9F89004A58D6 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,7 +271,7 @@
 				D5BE100B18217D7E0046AAF1 /* sounds */,
 				D596F1FE181EB68500CF092D /* ViewController */,
 				D596F1FD181EB66800CF092D /* Model */,
-				F6F299081817DBA300E97D0F /* Main.storyboard */,
+				3DB6687E18F6FAC7001262DF /* Main.storyboard */,
 				F6E6634B1816F8740094EC26 /* AppDelegate.h */,
 				F6E6634C1816F8740094EC26 /* AppDelegate.m */,
 				F6E663541816F8740094EC26 /* Images.xcassets */,
@@ -275,6 +283,7 @@
 		F6E663431816F8740094EC26 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3DB9D18C18F7056B00CE65EC /* Localizable.strings */,
 				F6E663441816F8740094EC26 /* Pholors-Info.plist */,
 				F6E663451816F8740094EC26 /* InfoPlist.strings */,
 				F6E663481816F8740094EC26 /* main.m */,
@@ -349,7 +358,7 @@
 				ORGANIZATIONNAME = "Rock Bottom";
 				TargetAttributes = {
 					F6E663381816F8740094EC26 = {
-						DevelopmentTeam = 5T4R8F8RP9;
+						DevelopmentTeam = BA2CZKU7QH;
 					};
 					F6E663591816F8740094EC26 = {
 						TestTargetID = F6E663381816F8740094EC26;
@@ -364,6 +373,7 @@
 				en,
 				Base,
 				de,
+				pt,
 			);
 			mainGroup = F6E663301816F8740094EC26;
 			productRefGroup = F6E6633A1816F8740094EC26 /* Products */;
@@ -394,7 +404,8 @@
 				D592052918184539004F58BD /* 0star.png in Resources */,
 				D5BE101918217D7E0046AAF1 /* comein.mp3 in Resources */,
 				D5BE101E18217D7E0046AAF1 /* soundyes.mp3 in Resources */,
-				F6F299091817DBA300E97D0F /* Main.storyboard in Resources */,
+				3DB9D18A18F7056B00CE65EC /* Localizable.strings in Resources */,
+				3DB6687C18F6FAC7001262DF /* Main.storyboard in Resources */,
 				D5BE101D18217D7E0046AAF1 /* sample.mp3 in Resources */,
 				D5BE102018217D7E0046AAF1 /* welcome.mp3 in Resources */,
 				D5BE101F18217D7E0046AAF1 /* upupandaway.mp3 in Resources */,
@@ -456,10 +467,32 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3DB6687E18F6FAC7001262DF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DB6687F18F6FAD6001262DF /* Base */,
+				3DB9D19118F7070700CE65EC /* pt */,
+				3DB9D19218F7070B00CE65EC /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3DB9D18C18F7056B00CE65EC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DB9D18B18F7056B00CE65EC /* Base */,
+				3DB9D18D18F7056F00CE65EC /* pt */,
+				3DB9D18E18F7057000CE65EC /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F6E663451816F8740094EC26 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F6E663461816F8740094EC26 /* en */,
+				3DB6688118F6FB61001262DF /* Base */,
+				3DB6688218F6FB67001262DF /* pt */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -508,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -541,7 +574,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
