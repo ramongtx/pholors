@@ -20,6 +20,10 @@ typedef struct _LABPixel {
     double x,y,z,ll,aa,bb;
 } LABPixel;
 
+typedef struct _LMSPixel {
+    double l,m,s;
+} LMSPixel;
+
 + (UIColor*) getDominantColor:(UIImage*)image
 {
     NSUInteger red = 0;
@@ -201,5 +205,59 @@ typedef struct _LABPixel {
     return n;
 }
 
+#pragma mark - LMS
++(LMSPixel) getLMSPixelWithR:(float)r G:(float)g B:(float)b
+{
+    LMSPixel p;
+    
+    p.l = (17.8824 * r + 43.5161 * g + 4.1193 * b) / (17.8824 + 43.5161 + 4.1193);
+    p.m = (3.4557 * r + 27.1554 * g + 3.8671 * b) / (3.4557 + 27.1554 + 3.8671);
+    p.s = (0.02996 * r + 0.18431 * g + 1.4670 * b) / (0.02996 + 0.18431 + 1.4670);
+    
+    return p;
+}
+
++(double) distanceFromLMS:(LMSPixel)p1 to:(LMSPixel)p2
+{
+    double res = 0;
+    res = (p2.l-p1.l)*(p2.l-p1.l)+(p2.m-p1.m)*(p2.m-p1.m)+(p2.s-p1.s)*(p2.s-p1.s);
+    res = sqrt(res);
+    return res;
+}
+
++(double) LMSDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2
+{
+    const CGFloat* componentsColor1 = CGColorGetComponents([c1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([c2 CGColor]);
+    LMSPixel p1 = [RBImageProcessor getLMSPixelWithR:componentsColor1[0] G:componentsColor1[1] B:componentsColor1[2]];
+    LMSPixel p2 = [RBImageProcessor getLMSPixelWithR:componentsColor2[0] G:componentsColor2[1] B:componentsColor2[2]];
+    return [RBImageProcessor distanceFromLMS:p1 to:p2];
+}
+
++ (float) LMScossineSimilarityFrom:(LMSPixel)p1 to:(LMSPixel)p2{
+    float cossine, norm1, norm2;
+    
+    cossine = (p1.l * p2.l) + (p1.m * p2.m) + (p1.s * p2.s);
+    norm1 = sqrt(pow(p1.l,2) + pow(p1.m, 2) + pow(p1.s,2));
+    norm2 = sqrt(pow(p2.l,2) + pow(p2.m, 2) + pow(p2.s,2));
+    
+    cossine = cossine / (norm1 * norm2);
+    NSLog(@"CS: %f",cossine);
+    return cossine;
+}
+
+// TO DO! 
++ (int) convertLMSDistanceToPoints:(float)dist
+{
+    float maxDist = 1.7;
+    float temp = dist/(maxDist-dist);
+    
+    float points = 100/1+temp;
+    
+    
+    NSLog(@"Pont: %f   --  Dist: %f",points,dist);
+    
+    return round(points);
+}
 
 @end

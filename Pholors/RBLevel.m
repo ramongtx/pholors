@@ -60,9 +60,15 @@
     UIColor * color = [RBImageProcessor getDominantColor:img];
     
     // CURRENTLY USING LAB METHOD ===============================================
-    float distance = [RBImageProcessor labDistanceFromColor:self.color to:color];
-    int points = [RBImageProcessor convertLABDistanceToPoints:distance];
+    //float distance = [RBImageProcessor labDistanceFromColor:self.color to:color];
+    //int points = [RBImageProcessor convertLABDistanceToPoints:distance];
     // ==========================================================================
+    
+    // CURRENTLY USING LMS METHOD ===============================================
+    float distance = [RBImageProcessor LMSDistanceFromColor:self.color to:color];
+    int points = [RBImageProcessor convertLMSDistanceToPoints:distance];
+    // ==========================================================================
+    
     
     if(points > MAX(0, self.pointsScored)){
         self.colorPlayed = color;
