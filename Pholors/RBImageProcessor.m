@@ -96,7 +96,7 @@ typedef struct _LMSPixel {
 
 + (int) convertPointstoStars:(int)points{
     if(points < 45) return 0;
-    if(points < 60) return 1;
+    if(points < 55) return 1;
     if(points < 80) return 2;
     return 3;
 
@@ -249,14 +249,37 @@ typedef struct _LMSPixel {
 // TO DO! 
 + (int) convertLMSDistanceToPoints:(float)dist
 {
-    float maxDist = 1.7;
-    float temp = dist/(maxDist-dist);
+    float points = 101.98744 - (84.00231115 * dist);
+    NSLog(@"Points: %f   --  Dist: %f",points,dist);
+
+    /* Linear Regression formula created by the values bellow
     
-    float points = 100/1+temp;
-    
-    
-    NSLog(@"Pont: %f   --  Dist: %f",points,dist);
-    
+        10 --- 0.094848
+    9.5 --- 0.145446
+    9.5 --- 0.083935
+     9.5 --- 0.187528
+     9.5 --- 0.27558
+     9 --- 0.312092
+     9 --- 0.260951
+     8.5 --- 0.286962
+     8 --- 0.432276
+     7 --- 0.547384
+     7 --- 0.427549
+     7 --- 0.368862
+     6 --- 0.638282
+     6 --- 0.760043
+     6 --- 0.41599
+     5 --- 0.2684
+     5 --- 0.788321
+     5 --- 0.601
+     3 --- 0.577453
+    2 --- 0.759054
+     2 --- 0.777
+     1 --- 0.618466
+    0 --- 1.474908
+    0 --- 0.774361
+    0 --- 1.273971
+    */
     return round(points);
 }
 
