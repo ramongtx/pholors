@@ -300,6 +300,7 @@
                         <outlet property="leftColorView" destination="F5w-1n-5RI" id="AxF-fg-v85"/>
                         <outlet property="pointsTF" destination="A3Q-OR-wvO" id="0Em-Xi-SXn"/>
                         <outlet property="rightColorView" destination="A3N-hn-3cb" id="h6H-BZ-FBG"/>
+                        <outlet property="saveButton" destination="Y99-YG-JIv" id="zbs-b0-9Yd"/>
                         <outlet property="viewPickSC" destination="468-sB-pRO" id="NkP-gU-Oun"/>
                     </connections>
                 </viewController>

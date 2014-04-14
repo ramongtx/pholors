@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *GLabel;
 @property (weak, nonatomic) IBOutlet UILabel *BLabel;
 @property (weak, nonatomic) IBOutlet UITextField *pointsTF;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 @end

@@ -65,9 +65,13 @@
     self.RLabel.text = [NSString stringWithFormat:@"%f",self.RSlider.value];
     self.GLabel.text = [NSString stringWithFormat:@"%f",self.GSlider.value];
     self.BLabel.text = [NSString stringWithFormat:@"%f",self.BSlider.value];
+    
+    self.saveButton.enabled = YES;
+
 }
 - (IBAction)saveOnTxt:(id)sender {
     [RBImageProcessor writeToLearningLog:self.leftColorView.backgroundColor To:self.rightColorView.backgroundColor Stars:[self.pointsTF.text integerValue]];
+    self.saveButton.enabled = NO;
 }
 
 - (IBAction)selectView:(id)sender {
@@ -94,6 +98,8 @@
         self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
     }
     else self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
+    
+    self.saveButton.enabled = YES;
 }
 - (IBAction)greenComponentChange:(id)sender {
     self.GLabel.text = [NSString stringWithFormat:@"%f",self.GSlider.value];
@@ -101,6 +107,9 @@
         self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
     }
     else self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
+    
+    self.saveButton.enabled = YES;
+
 }
 - (IBAction)blueComponentChange:(id)sender {
     self.BLabel.text = [NSString stringWithFormat:@"%f",self.BSlider.value];
@@ -108,6 +117,8 @@
         self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
     }
     else self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
+    self.saveButton.enabled = YES;
+
 }
 
 -(void)dismissKeyboard
