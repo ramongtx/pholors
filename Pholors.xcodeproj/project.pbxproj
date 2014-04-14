@@ -11,6 +11,8 @@
 		3DB6687C18F6FAC7001262DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB6687E18F6FAC7001262DF /* Main.storyboard */; };
 		3DB9D18A18F7056B00CE65EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DB9D18C18F7056B00CE65EC /* Localizable.strings */; };
 		3DC3D33F1818355B00096DA2 /* EndGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D33E1818355B00096DA2 /* EndGameVC.m */; };
+		D58FEF2C18FC50E700408B58 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D58FEF2918FC50E700408B58 /* iRate.bundle */; };
+		D58FEF2D18FC50E700408B58 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = D58FEF2B18FC50E700408B58 /* iRate.m */; };
 		D591366D18B3D42200CEE732 /* UIColor+Named.m in Sources */ = {isa = PBXBuildFile; fileRef = D591366C18B3D42200CEE732 /* UIColor+Named.m */; };
 		D591367018B3D44300CEE732 /* Colors.json in Resources */ = {isa = PBXBuildFile; fileRef = D591366F18B3D44300CEE732 /* Colors.json */; };
 		D592052218183B11004F58BD /* LevelsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D592052118183B11004F58BD /* LevelsVC.m */; };
@@ -77,6 +79,9 @@
 		3DB9D19218F7070B00CE65EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3DC3D33D1818355B00096DA2 /* EndGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameVC.h; sourceTree = "<group>"; };
 		3DC3D33E1818355B00096DA2 /* EndGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameVC.m; sourceTree = "<group>"; };
+		D58FEF2918FC50E700408B58 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		D58FEF2A18FC50E700408B58 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		D58FEF2B18FC50E700408B58 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		D591366B18B3D42200CEE732 /* UIColor+Named.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Named.h"; sourceTree = "<group>"; };
 		D591366C18B3D42200CEE732 /* UIColor+Named.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Named.m"; sourceTree = "<group>"; };
 		D591366F18B3D44300CEE732 /* Colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Colors.json; sourceTree = "<group>"; };
@@ -159,6 +164,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D58FEF2818FC50E700408B58 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				D58FEF2918FC50E700408B58 /* iRate.bundle */,
+				D58FEF2A18FC50E700408B58 /* iRate.h */,
+				D58FEF2B18FC50E700408B58 /* iRate.m */,
+			);
+			path = iRate;
+			sourceTree = "<group>";
+		};
 		D591366E18B3D42F00CEE732 /* Color */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +286,7 @@
 		F6E663421816F8740094EC26 /* Pholors */ = {
 			isa = PBXGroup;
 			children = (
+				D58FEF2818FC50E700408B58 /* iRate */,
 				D592052418184539004F58BD /* images */,
 				D5BE100B18217D7E0046AAF1 /* sounds */,
 				D596F1FE181EB68500CF092D /* ViewController */,
@@ -362,7 +378,7 @@
 				ORGANIZATIONNAME = "Rock Bottom";
 				TargetAttributes = {
 					F6E663381816F8740094EC26 = {
-						DevelopmentTeam = BA2CZKU7QH;
+						DevelopmentTeam = 5T4R8F8RP9;
 					};
 					F6E663591816F8740094EC26 = {
 						TestTargetID = F6E663381816F8740094EC26;
@@ -395,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D58FEF2C18FC50E700408B58 /* iRate.bundle in Resources */,
 				F6E663551816F8740094EC26 /* Images.xcassets in Resources */,
 				D5BE102318217F8E0046AAF1 /* pholors.png in Resources */,
 				D591367018B3D44300CEE732 /* Colors.json in Resources */,
@@ -441,6 +458,7 @@
 				3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */,
 				D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */,
 				F6F5C6D6181E9F89004A58D6 /* MainVC.m in Sources */,
+				D58FEF2D18FC50E700408B58 /* iRate.m in Sources */,
 				F6E6638D1816F9860094EC26 /* GameVC.m in Sources */,
 				D591366D18B3D42200CEE732 /* UIColor+Named.m in Sources */,
 				F6E663921816F9AF0094EC26 /* CameraVC.m in Sources */,
