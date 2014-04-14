@@ -1,0 +1,36 @@
+/* High score */
+"(HIGH SCORE)" = "(MELHOR PONTUAÇÃO)";
+
+/* Message from the Alert to confirm if the user wants to clear his stats */
+"Are you sure?" = "Você tem certeza?";
+
+/* Average Color */
+"Average Color" = "Cor Média";
+
+/* Message from the Alert to Clear Stats */
+"Clear Stats" = "Limpar Pontuação";
+
+/* Last played color */
+"Last Played" = "Última cor jogada:";
+
+/* No */
+"No" = "Não";
+
+/* points */
+"points" = "pontos";
+
+/* Pontuation */
+"Pontuation:" = "Pontuação:";
+
+/* Time left */
+"Time Left:" = "Tempo Restante:";
+
+/* Total Pontuation */
+"Total Pontuation:" = "Pontuação Total:";
+
+/* Yes */
+"Yes" = "Sim";
+
+/* You scored */
+"You scored:" = "Você fez";
+

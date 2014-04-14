@@ -10,6 +10,7 @@
 
 @interface EndGameVC ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *highScoreLabel;
 
 @end
 
@@ -28,9 +29,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSString* str = [NSString stringWithFormat:@"You scored: %d points", self.points];
+    NSString* str = [NSString stringWithFormat:@"%@ %d %@",NSLocalizedString(@"You scored:", @"You scored"), self.points, NSLocalizedString(@"points", "points")];
     if(self.highscore)
-        str = [str stringByAppendingString:@" (HIGH SCORE)"];
+        self.highScoreLabel.text = NSLocalizedString(@"(HIGH SCORE)", "High score");
+    else self.highScoreLabel.text = @"";
     self.scoreLabel.text = str;
 }
 

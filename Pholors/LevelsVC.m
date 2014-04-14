@@ -31,7 +31,6 @@
     
     [RBSharedFunctions playSound:@"comein" withExtension:@"mp3"];
     
-    NSLog(@"LevelsViewController.viewDidLoad");
     tableData = [RBGame getDefaultLevels];
 }
 

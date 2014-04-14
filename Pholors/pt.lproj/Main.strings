@@ -1,0 +1,51 @@
+
+/* Class = "IBUITableViewController"; title = "Challenge"; ObjectID = "3Zu-dx-Vl9"; */
+"3Zu-dx-Vl9.title" = "Modo Desafio";
+
+/* Class = "IBUILabel"; text = "Estrelas obtidas:"; ObjectID = "45g-b0-LNt"; */
+"45g-b0-LNt.text" = "Estrelas obtidas:";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "7hZ-2X-IQW"; */
+"7hZ-2X-IQW.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Fim de jogo!"; ObjectID = "Act-EE-K6C"; */
+"Act-EE-K6C.text" = "Fim de jogo!";
+
+/* Class = "IBUIButton"; normalTitle = "Continuar"; ObjectID = "Dpd-8D-wf0"; */
+"Dpd-8D-wf0.normalTitle" = "Continuar";
+
+/* Class = "IBUIButton"; normalTitle = "Modo Desafio"; ObjectID = "JFF-xp-fme"; */
+"JFF-xp-fme.normalTitle" = "Modo Desafio";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "SMs-OB-ce4"; */
+"SMs-OB-ce4.text" = "0";
+
+/* Class = "IBUILabel"; text = "Cor Alvo"; ObjectID = "Ukq-u7-8x0"; */
+"Ukq-u7-8x0.text" = "Cor Alvo";
+
+/* Class = "IBUIButton"; normalTitle = "Modo Contra o Tempo"; ObjectID = "WNO-4T-Mel"; */
+"WNO-4T-Mel.normalTitle" = "Modo Contra o Tempo";
+
+/* Class = "IBUIButton"; normalTitle = "Limpar Pontuação"; ObjectID = "X8U-zm-Jtk"; */
+"X8U-zm-Jtk.normalTitle" = "Limpar Pontuação";
+
+/* Class = "IBUILabel"; text = "Melhor pontuação Contra o Tempo:"; ObjectID = "gla-nt-eGE"; */
+"gla-nt-eGE.text" = "Melhor pontuação CoT:";
+
+/* Class = "IBUILabel"; text = "Timer"; ObjectID = "lMt-YL-XJJ"; */
+"lMt-YL-XJJ.text" = "Timer";
+
+/* Class = "IBUILabel"; text = "Cor Média"; ObjectID = "qEM-YQ-R88"; */
+"qEM-YQ-R88.text" = "Cor Média";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "u4U-TA-wne"; */
+"u4U-TA-wne.text" = "Label";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "u8P-Bb-hzp"; */
+"u8P-Bb-hzp.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "51/52"; ObjectID = "v93-w1-RX8"; */
+"v93-w1-RX8.text" = "51/52";
+
+/* Class = "IBUILabel"; text = "Você fez"; ObjectID = "vWe-Bs-1JB"; */
+"vWe-Bs-1JB.text" = "Você fez";

@@ -53,7 +53,8 @@
     [self performSegueWithIdentifier:@"timeAttack" sender:self];
 }
 - (IBAction)clear:(id)sender {
-    UIAlertView *confirmAlertView = [[UIAlertView alloc]initWithTitle:@"Clear Stats" message:@"Are you sure?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView *confirmAlertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Clear Stats", @"Message from the Alert to Clear Stats")
+                                     message:NSLocalizedString(@"Are you sure?", @"Message from the Alert to confirm if the user wants to clear his stats") delegate:self cancelButtonTitle:NSLocalizedString(@"No", @"No") otherButtonTitles:NSLocalizedString(@"Yes",@"Yes"), nil];
     [confirmAlertView show];
 }
 
