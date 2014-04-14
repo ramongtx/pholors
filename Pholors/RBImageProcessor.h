@@ -27,7 +27,7 @@
 + (float)weightedDistanceFromColor:(UIColor *)c1 to:(UIColor *)c2;
 + (int)convertWeightedDistanceToPoints:(float)dist;
 
-+ (void)writeToLearningLog:(UIColor *const)color1 To:(UIColor *const)color2 Stars:(int const)stars;
++ (void)writeToLearningLog:(UIColor *const)color1 To:(UIColor *const)color2 Stars:(double const)stars;
 
 
 @end

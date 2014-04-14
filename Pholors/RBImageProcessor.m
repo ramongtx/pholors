@@ -272,8 +272,8 @@ typedef struct _LMSPixel {
 	return [NSString stringWithFormat:@"%f;%f;%f", lmspix.l, lmspix.m, lmspix.s];
 }
 
-+ (NSString *)configurationToLMSStringFrom:(UIColor *const)color1 To:(UIColor *const)color2 Stars:(int const)stars {
-	return [NSString stringWithFormat:@"%@;%@;%d\n", [RBImageProcessor colorToLMSString:color1], [RBImageProcessor colorToLMSString:color2], stars];
++ (NSString *)configurationToLMSStringFrom:(UIColor *const)color1 To:(UIColor *const)color2 Stars:(double const)stars {
+	return [NSString stringWithFormat:@"%@;%@;%f\n", [RBImageProcessor colorToLMSString:color1], [RBImageProcessor colorToLMSString:color2], stars];
 }
 
 + (void)writeStringToFile:(NSString *)aString {
@@ -293,7 +293,7 @@ typedef struct _LMSPixel {
 	[handle writeData:[aString dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
-+ (void)writeToLearningLog:(UIColor *const)color1 To:(UIColor *const)color2 Stars:(int const)stars {
++ (void)writeToLearningLog:(UIColor *const)color1 To:(UIColor *const)color2 Stars:(double const)stars {
 	[RBImageProcessor writeStringToFile:[RBImageProcessor configurationToLMSStringFrom:color1 To:color2 Stars:stars]];
 }
 
