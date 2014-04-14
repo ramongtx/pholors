@@ -20,6 +20,10 @@ typedef struct _LABPixel {
     double x,y,z,ll,aa,bb;
 } LABPixel;
 
+typedef struct _LMSPixel {
+    double l,m,s;
+} LMSPixel;
+
 + (UIColor*) getDominantColor:(UIImage*)image
 {
     NSUInteger red = 0;
@@ -92,7 +96,7 @@ typedef struct _LABPixel {
 
 + (int) convertPointstoStars:(int)points{
     if(points < 45) return 0;
-    if(points < 60) return 1;
+    if(points < 55) return 1;
     if(points < 80) return 2;
     return 3;
 
@@ -202,5 +206,82 @@ typedef struct _LABPixel {
     return n;
 }
 
+#pragma mark - LMS
++(LMSPixel) getLMSPixelWithR:(float)r G:(float)g B:(float)b
+{
+    LMSPixel p;
+    
+    p.l = (17.8824 * r + 43.5161 * g + 4.1193 * b) / (17.8824 + 43.5161 + 4.1193);
+    p.m = (3.4557 * r + 27.1554 * g + 3.8671 * b) / (3.4557 + 27.1554 + 3.8671);
+    p.s = (0.02996 * r + 0.18431 * g + 1.4670 * b) / (0.02996 + 0.18431 + 1.4670);
+    
+    return p;
+}
+
++(double) distanceFromLMS:(LMSPixel)p1 to:(LMSPixel)p2
+{
+    double res = 0;
+    res = (p2.l-p1.l)*(p2.l-p1.l)+(p2.m-p1.m)*(p2.m-p1.m)+(p2.s-p1.s)*(p2.s-p1.s);
+    res = sqrt(res);
+    return res;
+}
+
++(double) LMSDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2
+{
+    const CGFloat* componentsColor1 = CGColorGetComponents([c1 CGColor]);
+    const CGFloat* componentsColor2 = CGColorGetComponents([c2 CGColor]);
+    LMSPixel p1 = [RBImageProcessor getLMSPixelWithR:componentsColor1[0] G:componentsColor1[1] B:componentsColor1[2]];
+    LMSPixel p2 = [RBImageProcessor getLMSPixelWithR:componentsColor2[0] G:componentsColor2[1] B:componentsColor2[2]];
+    return [RBImageProcessor distanceFromLMS:p1 to:p2];
+}
+
++ (float) LMScossineSimilarityFrom:(LMSPixel)p1 to:(LMSPixel)p2{
+    float cossine, norm1, norm2;
+    
+    cossine = (p1.l * p2.l) + (p1.m * p2.m) + (p1.s * p2.s);
+    norm1 = sqrt(pow(p1.l,2) + pow(p1.m, 2) + pow(p1.s,2));
+    norm2 = sqrt(pow(p2.l,2) + pow(p2.m, 2) + pow(p2.s,2));
+    
+    cossine = cossine / (norm1 * norm2);
+    NSLog(@"CS: %f",cossine);
+    return cossine;
+}
+
+// TO DO! 
++ (int) convertLMSDistanceToPoints:(float)dist
+{
+    float points = 101.98744 - (84.00231115 * dist);
+    NSLog(@"Points: %f   --  Dist: %f",points,dist);
+
+    /* Linear Regression formula created by the values bellow
+    
+        10 --- 0.094848
+    9.5 --- 0.145446
+    9.5 --- 0.083935
+     9.5 --- 0.187528
+     9.5 --- 0.27558
+     9 --- 0.312092
+     9 --- 0.260951
+     8.5 --- 0.286962
+     8 --- 0.432276
+     7 --- 0.547384
+     7 --- 0.427549
+     7 --- 0.368862
+     6 --- 0.638282
+     6 --- 0.760043
+     6 --- 0.41599
+     5 --- 0.2684
+     5 --- 0.788321
+     5 --- 0.601
+     3 --- 0.577453
+    2 --- 0.759054
+     2 --- 0.777
+     1 --- 0.618466
+    0 --- 1.474908
+    0 --- 0.774361
+    0 --- 1.273971
+    */
+    return round(points);
+}
 
 @end

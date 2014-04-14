@@ -1,0 +1,51 @@
+
+/* Class = "IBUITableViewController"; title = "Challenge"; ObjectID = "3Zu-dx-Vl9"; */
+"3Zu-dx-Vl9.title" = "Challenge Mode";
+
+/* Class = "IBUILabel"; text = "Challenge stars:"; ObjectID = "45g-b0-LNt"; */
+"45g-b0-LNt.text" = "Challenge stars:";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "7hZ-2X-IQW"; */
+"7hZ-2X-IQW.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Game Over!"; ObjectID = "Act-EE-K6C"; */
+"Act-EE-K6C.text" = "Game Over!";
+
+/* Class = "IBUIButton"; normalTitle = "Continue"; ObjectID = "Dpd-8D-wf0"; */
+"Dpd-8D-wf0.normalTitle" = "Continue";
+
+/* Class = "IBUIButton"; normalTitle = "Challenge Mode"; ObjectID = "JFF-xp-fme"; */
+"JFF-xp-fme.normalTitle" = "Challenge Mode";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "SMs-OB-ce4"; */
+"SMs-OB-ce4.text" = "0";
+
+/* Class = "IBUILabel"; text = "Target Color"; ObjectID = "Ukq-u7-8x0"; */
+"Ukq-u7-8x0.text" = "Target Color";
+
+/* Class = "IBUIButton"; normalTitle = "Time Attack"; ObjectID = "WNO-4T-Mel"; */
+"WNO-4T-Mel.normalTitle" = "Time Attack";
+
+/* Class = "IBUIButton"; normalTitle = "Clear Stats"; ObjectID = "X8U-zm-Jtk"; */
+"X8U-zm-Jtk.normalTitle" = "Clear Stats";
+
+/* Class = "IBUILabel"; text = "Time Attack record:"; ObjectID = "gla-nt-eGE"; */
+"gla-nt-eGE.text" = "Time Attack record:";
+
+/* Class = "IBUILabel"; text = "Timer"; ObjectID = "lMt-YL-XJJ"; */
+"lMt-YL-XJJ.text" = "Timer";
+
+/* Class = "IBUILabel"; text = "Average Color"; ObjectID = "qEM-YQ-R88"; */
+"qEM-YQ-R88.text" = "Average Color";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "u4U-TA-wne"; */
+"u4U-TA-wne.text" = "Label";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "u8P-Bb-hzp"; */
+"u8P-Bb-hzp.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "51/52"; ObjectID = "v93-w1-RX8"; */
+"v93-w1-RX8.text" = "51/52";
+
+/* Class = "IBUILabel"; text = "You scored"; ObjectID = "vWe-Bs-1JB"; */
+"vWe-Bs-1JB.text" = "You scored";

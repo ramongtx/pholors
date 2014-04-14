@@ -8,9 +8,11 @@
 
 #import "MainVC.h"
 #import "RBGame.h"
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
 
-@interface MainVC ()
 
+@interface MainVC () <UIAlertViewDelegate>
 @end
 
 @implementation MainVC
@@ -51,8 +53,17 @@
     [self performSegueWithIdentifier:@"timeAttack" sender:self];
 }
 - (IBAction)clear:(id)sender {
-    [RBGame clearAll];
-    [self viewWillAppear:FALSE];
+    UIAlertView *confirmAlertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Clear Stats", @"Message from the Alert to Clear Stats")
+                                     message:NSLocalizedString(@"Are you sure?", @"Message from the Alert to confirm if the user wants to clear his stats") delegate:self cancelButtonTitle:NSLocalizedString(@"No", @"No") otherButtonTitles:NSLocalizedString(@"Yes",@"Yes"), nil];
+    [confirmAlertView show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1){
+        [RBGame clearAll];
+        //Call it to update
+        [self viewWillAppear:NO];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -83,6 +94,46 @@
         vc.level = [[RBLevel alloc] init];
         vc.level.isTimeAttack = YES;
     }
+}
+- (IBAction)shareTwitter:(id)sender {
+    ACAccountStore *account = [[ACAccountStore alloc] init];
+    ACAccountType *accountType = [account accountTypeWithAccountTypeIdentifier:
+                                  ACAccountTypeIdentifierTwitter];
+    
+    [account requestAccessToAccountsWithType:accountType options:nil
+                                  completion:^(BOOL granted, NSError *error)
+    {
+        if (granted == YES)
+        {
+            NSArray *arrayOfAccounts = [account
+                                        accountsWithAccountType:accountType];
+            
+            if ([arrayOfAccounts count] > 0)
+            {
+                ACAccount *twitterAccount =
+                [arrayOfAccounts lastObject];
+                
+                NSDictionary *message = @{@"status": @"Pholors is great! #pholors"};
+                NSURL *requestURL = [NSURL
+                                     URLWithString:@"http://api.twitter.com/1/statuses/update.json"];
+                
+                SLRequest *postRequest = [SLRequest
+                                          requestForServiceType:SLServiceTypeTwitter
+                                          requestMethod:SLRequestMethodPOST
+                                          URL:requestURL parameters:message];
+                
+                postRequest.account = twitterAccount;
+                
+                [postRequest
+                 performRequestWithHandler:^(NSData *responseData, 
+                                             NSHTTPURLResponse *urlResponse, NSError *error)
+                 {
+                     NSLog(@"Twitter HTTP response: %i", 
+                           [urlResponse statusCode]);
+                 }];
+            }
+        }
+    }];
 }
 
 @end
