@@ -13,19 +13,21 @@
 
 @interface RBImageProcessor : NSObject
 
-+ (UIColor*) getDominantColor:(UIImage*)image;
-+ (float) cossineSimilarityFrom:(UIColor*)color1 to:(UIColor*)color2;
-+ (UIColor*) randomColor;
-+ (int) convertDistanceToPoints:(float)dist;
-+ (int) convertLABDistanceToPoints:(float)dist;
-+ (int) convertPointstoStars:(int)points;
++ (UIColor *)getDominantColor:(UIImage *)image;
++ (float)cossineSimilarityFrom:(UIColor *)color1 to:(UIColor *)color2;
++ (UIColor *)randomColor;
++ (int)convertDistanceToPoints:(float)dist;
++ (int)convertLABDistanceToPoints:(float)dist;
++ (int)convertPointstoStars:(int)points;
 + (UIColor *)colorFromHexString:(NSString *)hexString;
-+ (double) labDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2;
-+(double) LMSDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2;
-+ (int) convertLMSDistanceToPoints:(float)dist;
++ (double)labDistanceFromColor:(UIColor *)c1 to:(UIColor *)c2;
++ (double)LMSDistanceFromColor:(UIColor *)c1 to:(UIColor *)c2;
++ (int)convertLMSDistanceToPoints:(float)dist;
 
-+ (float) weightedDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2;
-+ (int) convertWeightedDistanceToPoints:(float)dist;
++ (float)weightedDistanceFromColor:(UIColor *)c1 to:(UIColor *)c2;
++ (int)convertWeightedDistanceToPoints:(float)dist;
+
++ (void)writeToLearningLog:(UIColor *const)color1 To:(UIColor *const)color2 Stars:(int const)stars;
+
 
 @end
-

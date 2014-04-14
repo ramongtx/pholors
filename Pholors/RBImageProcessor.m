@@ -278,16 +278,19 @@ typedef struct _LMSPixel {
 
 + (void)writeStringToFile:(NSString *)aString {
 	// Build the path, and create if needed.
-	NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-	NSString *fileName = @"learningLog.txt";
-	NSString *fileAtPath = [filePath stringByAppendingPathComponent:fileName];
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *path = [documentsDirectory stringByAppendingPathComponent:@"learningLog.txt"];
 
-	if (![[NSFileManager defaultManager] fileExistsAtPath:fileAtPath]) {
-		[[NSFileManager defaultManager] createFileAtPath:fileAtPath contents:nil attributes:nil];
+	// create if needed
+	if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+		[[NSData data] writeToFile:path atomically:YES];
 	}
 
-	// The main act...
-	[[aString dataUsingEncoding:NSUTF8StringEncoding] writeToFile:fileAtPath atomically:NO];
+	// append
+	NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:path];
+	[handle truncateFileAtOffset:[handle seekToEndOfFile]];
+	[handle writeData:[aString dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 + (void)writeToLearningLog:(UIColor *const)color1 To:(UIColor *const)color2 Stars:(int const)stars {

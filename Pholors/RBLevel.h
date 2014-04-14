@@ -27,7 +27,4 @@
 - (void)changeColor;
 - (int)playImageOnLevel:(UIImage *)img;
 
-- (void)writeToLearningLog:(UIColor *const)color1 To:(UIColor *const)color2 Stars:(int const)stars;
-
-
 @end

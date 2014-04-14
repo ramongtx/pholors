@@ -362,7 +362,7 @@
 				ORGANIZATIONNAME = "Rock Bottom";
 				TargetAttributes = {
 					F6E663381816F8740094EC26 = {
-						DevelopmentTeam = BA2CZKU7QH;
+						DevelopmentTeam = HGC8KC34RW;
 					};
 					F6E663591816F8740094EC26 = {
 						TestTargetID = F6E663381816F8740094EC26;
