@@ -63,7 +63,7 @@
     self.BLabel.text = [NSString stringWithFormat:@"%f",self.BSlider.value];
 }
 - (IBAction)saveOnTxt:(id)sender {
-
+    [RBImageProcessor writeToLearningLog:self.leftColorView.backgroundColor To:self.rightColorView.backgroundColor Stars:[self.pointsTF.text integerValue]];
 }
 
 - (IBAction)selectView:(id)sender {
