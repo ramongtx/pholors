@@ -28,6 +28,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,6 +108,11 @@
         self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
     }
     else self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
+}
+
+-(void)dismissKeyboard
+{
+    [self.pointsTF resignFirstResponder];
 }
 
 @end
