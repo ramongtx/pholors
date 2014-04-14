@@ -35,6 +35,7 @@
 		D5BE102018217D7E0046AAF1 /* welcome.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D5BE101518217D7E0046AAF1 /* welcome.mp3 */; };
 		D5BE102118217D7E0046AAF1 /* whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D5BE101618217D7E0046AAF1 /* whistle.mp3 */; };
 		D5BE102318217F8E0046AAF1 /* pholors.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BE102218217F8E0046AAF1 /* pholors.png */; };
+		D5DCEC0118FC30D10064A90C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5DCEC0018FC30D10064A90C /* iAd.framework */; };
 		F6E6633D1816F8740094EC26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633C1816F8740094EC26 /* Foundation.framework */; };
 		F6E6633F1816F8740094EC26 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E6633E1816F8740094EC26 /* CoreGraphics.framework */; };
 		F6E663411816F8740094EC26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E663401816F8740094EC26 /* UIKit.framework */; };
@@ -106,6 +107,7 @@
 		D5BE101518217D7E0046AAF1 /* welcome.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = welcome.mp3; sourceTree = "<group>"; };
 		D5BE101618217D7E0046AAF1 /* whistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whistle.mp3; sourceTree = "<group>"; };
 		D5BE102218217F8E0046AAF1 /* pholors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pholors.png; sourceTree = "<group>"; };
+		D5DCEC0018FC30D10064A90C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		F6850C64181EBBDD00870219 /* GameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameVC.h; sourceTree = "<group>"; };
 		F6E663391816F8740094EC26 /* Pholors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pholors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E6633C1816F8740094EC26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5DCEC0118FC30D10064A90C /* iAd.framework in Frameworks */,
 				F6E6633F1816F8740094EC26 /* CoreGraphics.framework in Frameworks */,
 				F6E663411816F8740094EC26 /* UIKit.framework in Frameworks */,
 				F6E6633D1816F8740094EC26 /* Foundation.framework in Frameworks */,
@@ -256,6 +259,7 @@
 		F6E6633B1816F8740094EC26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D5DCEC0018FC30D10064A90C /* iAd.framework */,
 				F6E6633C1816F8740094EC26 /* Foundation.framework */,
 				F6E6633E1816F8740094EC26 /* CoreGraphics.framework */,
 				F6E663401816F8740094EC26 /* UIKit.framework */,
