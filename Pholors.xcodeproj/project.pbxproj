@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D59BD4618FC45700041BDA9 /* LearnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D59BD4518FC45700041BDA9 /* LearnViewController.m */; };
 		3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E9A7D1817FC0D0038E72D /* RBTimer.m */; };
 		3DB6687C18F6FAC7001262DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB6687E18F6FAC7001262DF /* Main.storyboard */; };
 		3DB9D18A18F7056B00CE65EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DB9D18C18F7056B00CE65EC /* Localizable.strings */; };
@@ -64,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D59BD4418FC45700041BDA9 /* LearnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnViewController.h; sourceTree = "<group>"; };
+		3D59BD4518FC45700041BDA9 /* LearnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnViewController.m; sourceTree = "<group>"; };
 		3D8E9A7C1817FC0D0038E72D /* RBTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTimer.h; sourceTree = "<group>"; };
 		3D8E9A7D1817FC0D0038E72D /* RBTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTimer.m; sourceTree = "<group>"; };
 		3DB6687F18F6FAD6001262DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				F6E6638F1816F9AF0094EC26 /* CameraVC.m */,
 				3DC3D33D1818355B00096DA2 /* EndGameVC.h */,
 				3DC3D33E1818355B00096DA2 /* EndGameVC.m */,
+				3D59BD4418FC45700041BDA9 /* LearnViewController.h */,
+				3D59BD4518FC45700041BDA9 /* LearnViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -354,7 +359,7 @@
 		F6E663311816F8740094EC26 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Rock Bottom";
 				TargetAttributes = {
 					F6E663381816F8740094EC26 = {
@@ -435,6 +440,7 @@
 				3DC3D33F1818355B00096DA2 /* EndGameVC.m in Sources */,
 				D592052218183B11004F58BD /* LevelsVC.m in Sources */,
 				3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */,
+				3D59BD4618FC45700041BDA9 /* LearnViewController.m in Sources */,
 				D597BEB01817EAAF00F3881E /* RBLevel.m in Sources */,
 				F6F5C6D6181E9F89004A58D6 /* MainVC.m in Sources */,
 				F6E6638D1816F9860094EC26 /* GameVC.m in Sources */,
@@ -512,7 +518,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -551,7 +556,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -615,7 +619,6 @@
 		F6E6636F1816F8740094EC26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pholors.app/Pholors";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -638,7 +641,6 @@
 		F6E663701816F8740094EC26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pholors.app/Pholors";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

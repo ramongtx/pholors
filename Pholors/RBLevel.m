@@ -93,7 +93,7 @@
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if(self = [super init]){
-        self.pointsScored = [decoder decodeIntegerForKey:@"pointsScored"];
+        self.pointsScored = (int)[decoder decodeIntegerForKey:@"pointsScored"];
         self.color = [decoder decodeObjectForKey:@"color"];
         self.colorPlayed = [decoder decodeObjectForKey:@"colorPlayed"];
         self.colorName = [decoder decodeObjectForKey:@"colorName"];

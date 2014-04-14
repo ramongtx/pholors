@@ -96,7 +96,7 @@ typedef struct _LMSPixel {
 
 + (int) convertPointstoStars:(int)points{
     if(points < 45) return 0;
-    if(points < 55) return 1;
+    if(points < 70) return 1;
     if(points < 80) return 2;
     return 3;
 
@@ -146,6 +146,30 @@ typedef struct _LMSPixel {
     
     cossine = cossine / (norm1 * norm2);
     NSLog(@"CS: %f",cossine);
+    return cossine;
+}
+
++ (float) LABcossineSimilarityFrom:(LABPixel)p1 to:(LABPixel)p2{
+    float cossine, norm1, norm2;
+    
+    cossine = (p1.ll * p2.ll) + (p1.aa * p2.aa) + (p1.bb * p2.bb);
+    norm1 = sqrt(pow(p1.ll,2) + pow(p1.aa, 2) + pow(p1.bb,2));
+    norm2 = sqrt(pow(p2.ll,2) + pow(p2.aa, 2) + pow(p2.bb,2));
+    
+    cossine = cossine / (norm1 * norm2);
+    //NSLog(@"CS: %f",cossine);
+    return cossine;
+}
+
++ (float) LMScossineSimilarityFrom:(LMSPixel)p1 to:(LMSPixel)p2{
+    float cossine, norm1, norm2;
+    
+    cossine = (p1.l * p2.l) + (p1.m * p2.m) + (p1.s * p2.s);
+    norm1 = sqrt(pow(p1.l,2) + pow(p1.m, 2) + pow(p1.s,2));
+    norm2 = sqrt(pow(p2.l,2) + pow(p2.m, 2) + pow(p2.s,2));
+    
+    cossine = cossine / (norm1 * norm2);
+    //NSLog(@"CS: %f",cossine);
     return cossine;
 }
 
@@ -234,53 +258,10 @@ typedef struct _LMSPixel {
     return [RBImageProcessor distanceFromLMS:p1 to:p2];
 }
 
-+ (float) LMScossineSimilarityFrom:(LMSPixel)p1 to:(LMSPixel)p2{
-    float cossine, norm1, norm2;
-    
-    cossine = (p1.l * p2.l) + (p1.m * p2.m) + (p1.s * p2.s);
-    norm1 = sqrt(pow(p1.l,2) + pow(p1.m, 2) + pow(p1.s,2));
-    norm2 = sqrt(pow(p2.l,2) + pow(p2.m, 2) + pow(p2.s,2));
-    
-    cossine = cossine / (norm1 * norm2);
-    NSLog(@"CS: %f",cossine);
-    return cossine;
-}
-
-// TO DO! 
 + (int) convertLMSDistanceToPoints:(float)dist
 {
     float points = 101.98744 - (84.00231115 * dist);
     NSLog(@"Points: %f   --  Dist: %f",points,dist);
-
-    /* Linear Regression formula created by the values bellow
-    
-        10 --- 0.094848
-    9.5 --- 0.145446
-    9.5 --- 0.083935
-     9.5 --- 0.187528
-     9.5 --- 0.27558
-     9 --- 0.312092
-     9 --- 0.260951
-     8.5 --- 0.286962
-     8 --- 0.432276
-     7 --- 0.547384
-     7 --- 0.427549
-     7 --- 0.368862
-     6 --- 0.638282
-     6 --- 0.760043
-     6 --- 0.41599
-     5 --- 0.2684
-     5 --- 0.788321
-     5 --- 0.601
-     3 --- 0.577453
-    2 --- 0.759054
-     2 --- 0.777
-     1 --- 0.618466
-    0 --- 1.474908
-    0 --- 0.774361
-    0 --- 1.273971
-    */
     return round(points);
 }
-
 @end

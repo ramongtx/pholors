@@ -23,6 +23,5 @@
 + (double) labDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2;
 +(double) LMSDistanceFromColor:(UIColor*)c1 to:(UIColor*)c2;
 + (int) convertLMSDistanceToPoints:(float)dist;
-
 @end
 
