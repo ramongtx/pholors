@@ -263,7 +263,12 @@ typedef struct _YUVPixel {
 
 + (NSString*)configurationToLMSStringFrom:(UIColor* const)color1 To:(UIColor* const)color2 Stars:(double const)stars
 {
-    return [NSString stringWithFormat:@"%@;%@;%f\n", [RBImageProcessor colorToLMSString:color1], [RBImageProcessor colorToLMSString:color2], stars];
+    float YUVdist, LABdist, LMSdist;
+    YUVdist = [RBImageProcessor YUVDistanceFromColor:color1 to:color2];
+    LABdist = [RBImageProcessor LABDistanceFromColor:color1 to:color2];
+    LMSdist = [RBImageProcessor LMSDistanceFromColor:color1 to:color2];
+    
+    return [NSString stringWithFormat:@"%f;%f;%f;%f\n", YUVdist, LABdist,LMSdist, stars];
 }
 
 /*+ (double)classifyColor:(UIColor*)color againstColor:(UIColor*)targetColor
