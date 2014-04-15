@@ -32,7 +32,7 @@
 
 + (void)writeToLearningLog:(UIColor* const)color1 To:(UIColor* const)color2 Stars:(double const)stars;
 
-+ (MLPNeuralNet*)nnetModel;
+//+ (MLPNeuralNet*)nnetModel;
 + (double)classifyColor:(UIColor*)color againstColor:(UIColor*)targetColor;
 
 + (int)YUVPointsComparingColor:(UIColor*)color toColor:(UIColor*)targetColor;

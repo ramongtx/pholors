@@ -80,9 +80,9 @@
 {
     [RBImageProcessor writeToLearningLog:self.leftColorView.backgroundColor
                                       To:self.rightColorView.backgroundColor
-                                   Stars:[self.pointsTF.text integerValue]];
+                                   Stars:self.starsSlider.value];
     self.saveButton.enabled = NO;
-    self.pointsTF.text = @"";
+    //self.pointsTF.text = @"";
 }
 
 - (IBAction)selectView:(id)sender
@@ -150,10 +150,13 @@
                                                               alpha:1.0];
     self.saveButton.enabled = YES;
 }
+- (IBAction)starsChanged:(id)sender {
+    self.starsLabel.text = [NSString stringWithFormat:@"Stars:%d", (int)self.starsSlider.value];
+}
 
 - (void)dismissKeyboard
 {
-    [self.pointsTF resignFirstResponder];
+    //[self.pointsTF resignFirstResponder];
 }
 
 @end
