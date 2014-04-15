@@ -15,9 +15,10 @@
 
 @implementation LearnViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:nibNameOrNil
+                           bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -28,10 +29,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+
+    UITapGestureRecognizer* gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                        action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:gestureRecognizer];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,78 +51,107 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)randomColor:(id)sender {
-    float r = drand48(), g = drand48(),b = drand48();
-    
-    if(self.viewPickSC.selectedSegmentIndex == 0){
-        self.leftColorView.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
-    }
-    else self.rightColorView.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
-    
+- (IBAction)randomColor:(id)sender
+{
+    float r = drand48(), g = drand48(), b = drand48();
+
+    if (self.viewPickSC.selectedSegmentIndex == 0) {
+        self.leftColorView.backgroundColor = [UIColor colorWithRed:r
+                                                             green:g
+                                                              blue:b
+                                                             alpha:1.0];
+    } else
+        self.rightColorView.backgroundColor = [UIColor colorWithRed:r
+                                                              green:g
+                                                               blue:b
+                                                              alpha:1.0];
+
     self.RSlider.value = r;
     self.GSlider.value = g;
     self.BSlider.value = b;
-    
-    self.RLabel.text = [NSString stringWithFormat:@"%f",self.RSlider.value];
-    self.GLabel.text = [NSString stringWithFormat:@"%f",self.GSlider.value];
-    self.BLabel.text = [NSString stringWithFormat:@"%f",self.BSlider.value];
-    
+
+    self.RLabel.text = [NSString stringWithFormat:@"%f", self.RSlider.value];
+    self.GLabel.text = [NSString stringWithFormat:@"%f", self.GSlider.value];
+    self.BLabel.text = [NSString stringWithFormat:@"%f", self.BSlider.value];
+
     self.saveButton.enabled = YES;
-
 }
-- (IBAction)saveOnTxt:(id)sender {
-    [RBImageProcessor writeToLearningLog:self.leftColorView.backgroundColor To:self.rightColorView.backgroundColor Stars:[self.pointsTF.text integerValue]];
+- (IBAction)saveOnTxt:(id)sender
+{
+    [RBImageProcessor writeToLearningLog:self.leftColorView.backgroundColor
+                                      To:self.rightColorView.backgroundColor
+                                   Stars:[self.pointsTF.text integerValue]];
     self.saveButton.enabled = NO;
+    self.pointsTF.text = @"";
 }
 
-- (IBAction)selectView:(id)sender {
-    
+- (IBAction)selectView:(id)sender
+{
+
     if (self.viewPickSC.selectedSegmentIndex == 0) {
         const CGFloat* componentsColor = CGColorGetComponents([self.leftColorView.backgroundColor CGColor]);
         self.RSlider.value = componentsColor[0];
         self.GSlider.value = componentsColor[1];
         self.BSlider.value = componentsColor[2];
-    }
-    else{
+    } else {
         const CGFloat* componentsColor = CGColorGetComponents([self.rightColorView.backgroundColor CGColor]);
         self.RSlider.value = componentsColor[0];
         self.GSlider.value = componentsColor[1];
         self.BSlider.value = componentsColor[2];
     }
-    self.RLabel.text = [NSString stringWithFormat:@"%f",self.RSlider.value];
-    self.GLabel.text = [NSString stringWithFormat:@"%f",self.GSlider.value];
-    self.BLabel.text = [NSString stringWithFormat:@"%f",self.BSlider.value];
+    self.RLabel.text = [NSString stringWithFormat:@"%f", self.RSlider.value];
+    self.GLabel.text = [NSString stringWithFormat:@"%f", self.GSlider.value];
+    self.BLabel.text = [NSString stringWithFormat:@"%f", self.BSlider.value];
 }
-- (IBAction)colorComponentChange:(id)sender {
-    self.RLabel.text = [NSString stringWithFormat:@"%f",self.RSlider.value];
-    if(self.viewPickSC.selectedSegmentIndex == 0){
-        self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
-    }
-    else self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
-    
+- (IBAction)colorComponentChange:(id)sender
+{
+    self.RLabel.text = [NSString stringWithFormat:@"%f", self.RSlider.value];
+    if (self.viewPickSC.selectedSegmentIndex == 0) {
+        self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value
+                                                             green:self.GSlider.value
+                                                              blue:self.BSlider.value
+                                                             alpha:1.0];
+    } else
+        self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value
+                                                              green:self.GSlider.value
+                                                               blue:self.BSlider.value
+                                                              alpha:1.0];
+
     self.saveButton.enabled = YES;
 }
-- (IBAction)greenComponentChange:(id)sender {
-    self.GLabel.text = [NSString stringWithFormat:@"%f",self.GSlider.value];
-    if(self.viewPickSC.selectedSegmentIndex == 0){
-        self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
-    }
-    else self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
-    
+- (IBAction)greenComponentChange:(id)sender
+{
+    self.GLabel.text = [NSString stringWithFormat:@"%f", self.GSlider.value];
+    if (self.viewPickSC.selectedSegmentIndex == 0) {
+        self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value
+                                                             green:self.GSlider.value
+                                                              blue:self.BSlider.value
+                                                             alpha:1.0];
+    } else
+        self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value
+                                                              green:self.GSlider.value
+                                                               blue:self.BSlider.value
+                                                              alpha:1.0];
+
     self.saveButton.enabled = YES;
-
 }
-- (IBAction)blueComponentChange:(id)sender {
-    self.BLabel.text = [NSString stringWithFormat:@"%f",self.BSlider.value];
-    if(self.viewPickSC.selectedSegmentIndex == 0){
-        self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
-    }
-    else self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value green:self.GSlider.value blue:self.BSlider.value alpha:1.0];
+- (IBAction)blueComponentChange:(id)sender
+{
+    self.BLabel.text = [NSString stringWithFormat:@"%f", self.BSlider.value];
+    if (self.viewPickSC.selectedSegmentIndex == 0) {
+        self.leftColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value
+                                                             green:self.GSlider.value
+                                                              blue:self.BSlider.value
+                                                             alpha:1.0];
+    } else
+        self.rightColorView.backgroundColor = [UIColor colorWithRed:self.RSlider.value
+                                                              green:self.GSlider.value
+                                                               blue:self.BSlider.value
+                                                              alpha:1.0];
     self.saveButton.enabled = YES;
-
 }
 
--(void)dismissKeyboard
+- (void)dismissKeyboard
 {
     [self.pointsTF resignFirstResponder];
 }
