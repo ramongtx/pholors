@@ -61,26 +61,21 @@
 {
     UIColor* color = [RBImageProcessor getDominantColor:img];
 
-    // CURRENTLY USING LAB METHOD ===============================================
-    //float distance = [RBImageProcessor labDistanceFromColor:self.color to:color];
-    //int points = [RBImageProcessor convertLABDistanceToPoints:distance];
-    // ==========================================================================
-
-    // CURRENTLY USING LMS METHOD ===============================================
-    //float netDistance = [RBImageProcessor classifyColor:self.color
-    //                                       againstColor:color];
-
+    // CURRENTLY USING AN AVERAGE OF LAB, LMS AND YUV METHODS ===================
     int YUVpoints = [RBImageProcessor YUVPointsComparingColor:self.color
                                                       toColor:color];
-
     int LMSpoints = [RBImageProcessor LMSPointsComparingColor:self.color
                                                       toColor:color];
     int LABpoints = [RBImageProcessor LABPointsComparingColor:self.color
                                                       toColor:color];
 
-    //int points = [RBImageProcessor convertLMSDistanceToPoints:distance];
     int points = (4 * YUVpoints + LMSpoints + LABpoints) / 6;
+
     NSLog(@"LMS:%d YUV:%d LAB:%d", LMSpoints, YUVpoints, LABpoints);
+    NSLog(@"Average Points: %d", points);
+
+    NSLog(@"Predicted stars: %d", [RBImageProcessor classifyColor:self.color
+                                                     againstColor:color]);
 
     // ==========================================================================
 

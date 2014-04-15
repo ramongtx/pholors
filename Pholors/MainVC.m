@@ -95,45 +95,4 @@
         vc.level.isTimeAttack = YES;
     }
 }
-- (IBAction)shareTwitter:(id)sender {
-    ACAccountStore *account = [[ACAccountStore alloc] init];
-    ACAccountType *accountType = [account accountTypeWithAccountTypeIdentifier:
-                                  ACAccountTypeIdentifierTwitter];
-    
-    [account requestAccessToAccountsWithType:accountType options:nil
-                                  completion:^(BOOL granted, NSError *error)
-    {
-        if (granted == YES)
-        {
-            NSArray *arrayOfAccounts = [account
-                                        accountsWithAccountType:accountType];
-            
-            if ([arrayOfAccounts count] > 0)
-            {
-                ACAccount *twitterAccount =
-                [arrayOfAccounts lastObject];
-                
-                NSDictionary *message = @{@"status": @"Pholors is great! #pholors"};
-                NSURL *requestURL = [NSURL
-                                     URLWithString:@"http://api.twitter.com/1/statuses/update.json"];
-                
-                SLRequest *postRequest = [SLRequest
-                                          requestForServiceType:SLServiceTypeTwitter
-                                          requestMethod:SLRequestMethodPOST
-                                          URL:requestURL parameters:message];
-                
-                postRequest.account = twitterAccount;
-                
-                [postRequest
-                 performRequestWithHandler:^(NSData *responseData, 
-                                             NSHTTPURLResponse *urlResponse, NSError *error)
-                 {
-                     NSLog(@"Twitter HTTP response: %i", 
-                           [urlResponse statusCode]);
-                 }];
-            }
-        }
-    }];
-}
-
 @end
