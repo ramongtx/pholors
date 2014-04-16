@@ -11,14 +11,16 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
++ (void)initialize
 {
-    // Override point for customization after application launch.
-
     [iRate sharedInstance].usesUntilPrompt = 5;
     [iRate sharedInstance].remindPeriod = 3;
     //[iRate sharedInstance].previewMode = YES;
+}
 
+- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
+{
+    // Override point for customization after application launch.
     BOOL firstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"levelset"];
     if (firstTime) {
         [RBGame loadDefaultLevels];

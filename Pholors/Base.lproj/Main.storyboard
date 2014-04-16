@@ -270,20 +270,12 @@
                                     <action selector="saveOnTxt:" destination="mvA-n5-kVr" eventType="touchUpInside" id="EFK-wi-mgd"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="kzF-Mn-efI">
-                                <rect key="frame" x="29" y="496" width="118" height="31"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NjE-rX-Kop">
+                                <rect key="frame" x="109" y="458" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="starsChanged:" destination="mvA-n5-kVr" eventType="valueChanged" id="6ZD-Va-QXO"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stars:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLg-Do-NHC">
-                                <rect key="frame" x="169" y="500" width="121" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -297,8 +289,7 @@
                         <outlet property="leftColorView" destination="F5w-1n-5RI" id="AxF-fg-v85"/>
                         <outlet property="rightColorView" destination="A3N-hn-3cb" id="h6H-BZ-FBG"/>
                         <outlet property="saveButton" destination="Y99-YG-JIv" id="zbs-b0-9Yd"/>
-                        <outlet property="starsLabel" destination="sLg-Do-NHC" id="O7l-n8-TAI"/>
-                        <outlet property="starsSlider" destination="kzF-Mn-efI" id="jim-yB-hZt"/>
+                        <outlet property="valueTF" destination="NjE-rX-Kop" id="I72-Ac-XEo"/>
                         <outlet property="viewPickSC" destination="468-sB-pRO" id="NkP-gU-Oun"/>
                     </connections>
                 </viewController>

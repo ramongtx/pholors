@@ -13,7 +13,7 @@
 - (id)init
 {
     if (self = [super init]) {
-        self.pointsScored = 0;
+        self.starsScored = 0;
         self.color = [RBImageProcessor randomColor];
         self.colorName = self.color.description;
         self.colorPlayed = nil;
@@ -26,7 +26,7 @@
 - (id)initWithName:(NSString*)name red:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue
 {
     if (self = [super init]) {
-        self.pointsScored = 0;
+        self.starsScored = 0;
         self.color = [UIColor colorWithRed:red / 255.0
                                      green:green / 255.0
                                       blue:blue / 255.0
@@ -42,7 +42,7 @@
 - (id)initWithColor:(NSString*)colorHex name:(NSString*)name
 {
     if (self = [super init]) {
-        self.pointsScored = 0;
+        self.starsScored = 0;
         self.color = [RBImageProcessor colorFromHexString:colorHex];
         self.colorName = name;
         self.colorPlayed = nil;
@@ -62,39 +62,28 @@
     UIColor* color = [RBImageProcessor getDominantColor:img];
 
     // CURRENTLY USING AN AVERAGE OF LAB, LMS AND YUV METHODS ===================
-    int YUVpoints = [RBImageProcessor YUVPointsComparingColor:self.color
-                                                      toColor:color];
-    int LMSpoints = [RBImageProcessor LMSPointsComparingColor:self.color
-                                                      toColor:color];
-    int LABpoints = [RBImageProcessor LABPointsComparingColor:self.color
-                                                      toColor:color];
 
-    int points = (4 * YUVpoints + LMSpoints + LABpoints) / 6;
-
-    NSLog(@"LMS:%d YUV:%d LAB:%d", LMSpoints, YUVpoints, LABpoints);
-    NSLog(@"Average Points: %d", points);
-
-    NSLog(@"Predicted stars: %d", [RBImageProcessor classifyColor:self.color
-                                                     againstColor:color]);
+    int stars = [RBImageProcessor classifyColor:self.color
+                                   againstColor:color];
 
     // ==========================================================================
 
-    if (points > MAX(0, self.pointsScored)) {
+    if (stars > MAX(0, self.starsScored)) {
         self.colorPlayed = color;
-        self.pointsScored = MAX(points, self.pointsScored);
+        self.starsScored = MAX(stars, self.starsScored);
         self.completed = YES;
     }
-    return points;
+    return stars;
 }
 
 - (int)stars
 {
-    return [RBImageProcessor convertPointstoStars:self.pointsScored];
+    return self.starsScored; //[RBImageProcessor convertPointstoStars:self.starsScored];
 }
 
 - (void)encodeWithCoder:(NSCoder*)encoder
 {
-    [encoder encodeInteger:self.pointsScored
+    [encoder encodeInteger:self.starsScored
                     forKey:@"pointsScored"];
     [encoder encodeObject:self.color
                    forKey:@"color"];
@@ -109,7 +98,7 @@
 - (id)initWithCoder:(NSCoder*)decoder
 {
     if (self = [super init]) {
-        self.pointsScored = (int)[decoder decodeIntegerForKey:@"pointsScored"];
+        self.starsScored = (int)[decoder decodeIntegerForKey:@"pointsScored"];
         self.color = [decoder decodeObjectForKey:@"color"];
         self.colorPlayed = [decoder decodeObjectForKey:@"colorPlayed"];
         self.colorName = [decoder decodeObjectForKey:@"colorName"];

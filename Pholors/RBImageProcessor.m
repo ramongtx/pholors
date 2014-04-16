@@ -297,8 +297,22 @@ typedef struct _YUVPixel {
             nStars = i;
         }
     }
-
     NSLog(@"Model assessment is %f %f %f %f", assessment[0], assessment[1], assessment[2], assessment[3]);
+
+    if (nStars == -1) {
+
+        int YUVpoints = [RBImageProcessor YUVPointsComparingColor:color
+                                                          toColor:targetColor];
+        int LMSpoints = [RBImageProcessor LMSPointsComparingColor:color
+                                                          toColor:targetColor];
+        int LABpoints = [RBImageProcessor LABPointsComparingColor:color
+                                                          toColor:targetColor];
+
+        int points = (4 * YUVpoints + LMSpoints + LABpoints) / 6;
+        nStars = [RBImageProcessor convertPointstoStars:points];
+    }
+
+    NSLog(@"Predicted Stars: %d", nStars);
 
     return nStars;
 }

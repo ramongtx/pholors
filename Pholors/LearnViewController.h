@@ -21,5 +21,6 @@
 @property(weak, nonatomic) IBOutlet UIButton* saveButton;
 @property(weak, nonatomic) IBOutlet UISlider* starsSlider;
 @property(weak, nonatomic) IBOutlet UILabel* starsLabel;
+@property (weak, nonatomic) IBOutlet UITextField *valueTF;
 
 @end
