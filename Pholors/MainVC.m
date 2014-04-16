@@ -27,9 +27,6 @@
 }
 - (IBAction)clickPholors:(id)sender
 {
-    [RBGame increaseLevelPackCount];
-    [RBSharedFunctions playSound:@"whistle"
-                   withExtension:@"mp3"];
     self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
     self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
 
@@ -39,27 +36,47 @@
 
     /*
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+
         SLComposeViewController* tweetSheet = [SLComposeViewController
-            composeViewControllerForServiceType:SLServiceTypeFacebook];
+            composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweetSheet setInitialText:text];
 
         [tweetSheet addImage:image];
         [tweetSheet addURL:url];
 
+        tweetSheet.completionHandler = ^(SLComposeViewControllerResult result)
+        {
+            if (result == SLComposeViewControllerResultDone) {
+                [RBGame increaseLevelPackCount];
+                [RBSharedFunctions playSound:@"whistle"
+                               withExtension:@"mp3"];
+            }
+            NSLog(@"here");
+        };
+
         [self presentViewController:tweetSheet
                            animated:YES
                          completion:nil];
     }
-     */
+*/
 
     UIActivityViewController* controller =
         [[UIActivityViewController alloc]
             initWithActivityItems:@[
                                       text,
                                       url,
-                                      image
+                                      image,
                                   ]
             applicationActivities:nil];
+
+    [controller setCompletionHandler:^(NSString *activityType, BOOL completed)
+    {
+        if (completed) {
+            [RBGame increaseLevelPackCount];
+            [RBSharedFunctions playSound:@"whistle"
+                           withExtension:@"mp3"];
+        }
+    }];
 
     controller.excludedActivityTypes = @[
         UIActivityTypePostToWeibo,
@@ -70,7 +87,7 @@
         UIActivityTypeAssignToContact,
         UIActivityTypeSaveToCameraRoll,
         UIActivityTypeAddToReadingList,
-        UIActivityTypePostToFlickr,
+        //UIActivityTypePostToFlickr,
         UIActivityTypePostToVimeo,
         //UIActivityTypePostToTencentWeibo,
         UIActivityTypeAirDrop
