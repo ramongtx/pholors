@@ -25,6 +25,7 @@
     if (!self.level.isTimeAttack) {
         self.totalStarsLabel.hidden = YES;
         self.topStarsImage.hidden = YES;
+        self.timerLabel.textAlignment = NSTextAlignmentCenter;
     }
 
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];

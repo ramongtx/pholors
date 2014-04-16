@@ -344,8 +344,8 @@ typedef struct _YUVPixel {
 + (double)distanceFromYUV:(YUVPixel)p1 to:(YUVPixel)p2
 {
     double res = 0;
-    res = (p2.y - p1.y) * (p2.y - p1.y) + (p2.u - p1.u) * (p2.u - p1.u) + (p2.v - p1.v) * (p2.v - p1.v);
-    res = sqrt(res);
+    res = 4 * (p2.y - p1.y) * (p2.y - p1.y) + (p2.u - p1.u) * (p2.u - p1.u) + (p2.v - p1.v) * (p2.v - p1.v);
+    res = sqrt(res / 6);
     return res;
 }
 

@@ -11,32 +11,82 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 
-
 @interface MainVC () <UIAlertViewDelegate>
 @end
 
 @implementation MainVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:nibNameOrNil
+                           bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
 }
-- (IBAction)clickPholors:(id)sender {
+- (IBAction)clickPholors:(id)sender
+{
     [RBGame increaseLevelPackCount];
-    [RBSharedFunctions playSound:@"whistle" withExtension:@"mp3"];
-    self.starsLabel.text = [NSString stringWithFormat:@"%li/%li",[RBGame allStars], [RBGame maxStars]];
-    self.timeLabel.text = [NSString stringWithFormat:@"%li",[RBGame getRecord]];
+    [RBSharedFunctions playSound:@"whistle"
+                   withExtension:@"mp3"];
+    self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
+    self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
+
+    NSString* text = @"I'm playing pholors, its amazing! #pholors";
+    NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=824331341&mt=8"];
+    UIImage* image = [UIImage imageNamed:@"pholors"];
+
+    /*
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        SLComposeViewController* tweetSheet = [SLComposeViewController
+            composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [tweetSheet setInitialText:text];
+
+        [tweetSheet addImage:image];
+        [tweetSheet addURL:url];
+
+        [self presentViewController:tweetSheet
+                           animated:YES
+                         completion:nil];
+    }
+     */
+
+    UIActivityViewController* controller =
+        [[UIActivityViewController alloc]
+            initWithActivityItems:@[
+                                      text,
+                                      url,
+                                      image
+                                  ]
+            applicationActivities:nil];
+
+    controller.excludedActivityTypes = @[
+        UIActivityTypePostToWeibo,
+        //UIActivityTypeMessage,
+        //UIActivityTypeMail,
+        UIActivityTypePrint,
+        UIActivityTypeCopyToPasteboard,
+        UIActivityTypeAssignToContact,
+        UIActivityTypeSaveToCameraRoll,
+        UIActivityTypeAddToReadingList,
+        UIActivityTypePostToFlickr,
+        UIActivityTypePostToVimeo,
+        //UIActivityTypePostToTencentWeibo,
+        UIActivityTypeAirDrop
+    ];
+
+    [self presentViewController:controller
+                       animated:YES
+                     completion:nil];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [RBSharedFunctions playSound:@"welcome" withExtension:@"mp3"];
-	// Do any additional setup after loading the view.
+    [RBSharedFunctions playSound:@"welcome"
+                   withExtension:@"mp3"];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,52 +94,59 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)challengeMode:(id)sender {
-    [self performSegueWithIdentifier:@"challengeSegue" sender:self];
-
+- (IBAction)challengeMode:(id)sender
+{
+    [self performSegueWithIdentifier:@"challengeSegue"
+                              sender:self];
 }
-- (IBAction)timeAttack:(id)sender {
-    [RBSharedFunctions playSound:@"upupandaway" withExtension:@"mp3"];
-    [self performSegueWithIdentifier:@"timeAttack" sender:self];
+- (IBAction)timeAttack:(id)sender
+{
+    [RBSharedFunctions playSound:@"upupandaway"
+                   withExtension:@"mp3"];
+    [self performSegueWithIdentifier:@"timeAttack"
+                              sender:self];
 }
-- (IBAction)clear:(id)sender {
-    UIAlertView *confirmAlertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Clear Stats", @"Message from the Alert to Clear Stats")
-                                     message:NSLocalizedString(@"Are you sure?", @"Message from the Alert to confirm if the user wants to clear his stats") delegate:self cancelButtonTitle:NSLocalizedString(@"No", @"No") otherButtonTitles:NSLocalizedString(@"Yes",@"Yes"), nil];
+- (IBAction)clear:(id)sender
+{
+    UIAlertView* confirmAlertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Clear Stats", @"Message from the Alert to Clear Stats")
+                                                               message:NSLocalizedString(@"Are you sure?", @"Message from the Alert to confirm if the user wants to clear his stats")
+                                                              delegate:self
+                                                     cancelButtonTitle:NSLocalizedString(@"No", @"No")
+                                                     otherButtonTitles:NSLocalizedString(@"Yes", @"Yes"), nil];
     [confirmAlertView show];
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1){
+- (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
         [RBGame clearAll];
         //Call it to update
         [self viewWillAppear:NO];
     }
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    
+
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-    self.starsLabel.text = [NSString stringWithFormat:@"%li/%li",[RBGame allStars], [RBGame maxStars]];
-    self.timeLabel.text = [NSString stringWithFormat:@"%li",[RBGame getRecord]];
-    
+    self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
+    self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
 }
 
--(void)viewWillDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     // Make sure your segue name in storyboard is the same as this line
-    if ([[segue identifier] isEqualToString:@"timeAttack"])
-    {
+    if ([[segue identifier] isEqualToString:@"timeAttack"]) {
         // Get reference to the destination view controller
-        GameVC *vc = [segue destinationViewController];
-        
+        GameVC* vc = [segue destinationViewController];
+
         // Set TimeAttack Mode
         vc.level = [[RBLevel alloc] init];
         vc.level.isTimeAttack = YES;

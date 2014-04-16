@@ -66,6 +66,8 @@
     int stars = [RBImageProcessor classifyColor:self.color
                                    againstColor:color];
 
+    stars = [RBImageProcessor convertPointstoStars:[RBImageProcessor YUVPointsComparingColor:self.color
+                                                                                     toColor:color]];
     // ==========================================================================
 
     if (stars > MAX(0, self.starsScored)) {
