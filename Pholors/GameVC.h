@@ -18,26 +18,24 @@
 #import "RBSharedFunctions.h"
 #define STARS YES
 
-@interface GameVC : CameraVC <GalleryViewProtocol,RBTimerProtocol>
+@interface GameVC : CameraVC <GalleryViewProtocol, RBTimerProtocol>
 
-@property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
-@property (weak, nonatomic) IBOutlet UIImageView *color;
-@property (weak, nonatomic) IBOutlet UIImageView *targetPreview;
-@property (weak, nonatomic) IBOutlet UIImageView *stars;
+@property(weak, nonatomic) IBOutlet UIImageView* imagePreview;
+@property(weak, nonatomic) IBOutlet UIImageView* color;
+@property(weak, nonatomic) IBOutlet UIImageView* targetPreview;
+@property(weak, nonatomic) IBOutlet UIImageView* stars;
 
-@property (weak, nonatomic) IBOutlet UILabel *result;
-@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *averageLabel;
+@property(weak, nonatomic) IBOutlet UILabel* timerLabel;
+@property(weak, nonatomic) IBOutlet UILabel* averageLabel;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *stopButton;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem* stopButton;
 
-@property (strong,nonatomic) IBOutlet UIBarButtonItem *nextButton;
+@property(strong, nonatomic) IBOutlet UIBarButtonItem* nextButton;
 
-@property (strong, nonatomic) RBTimer* timerController;
-@property (strong,nonatomic) RBLevel* level;
+@property(strong, nonatomic) RBTimer* timerController;
+@property(strong, nonatomic) RBLevel* level;
 @property BOOL highscore;
 
-@property int time,timelock,totalPoints;
-
+@property(nonatomic) NSInteger time, timelock, totalPoints;
 
 @end

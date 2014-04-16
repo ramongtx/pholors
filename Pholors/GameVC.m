@@ -9,6 +9,8 @@
 #import "GameVC.h"
 
 @interface GameVC ()
+@property(weak, nonatomic) IBOutlet UILabel* totalStarsLabel;
+@property(weak, nonatomic) IBOutlet UIImageView* topStarsImage;
 
 @end
 
@@ -18,17 +20,19 @@
 {
     [super viewDidLoad];
 
-    if (self.level.isTimeAttack)
-        self.stars.hidden = YES;
-    else
-        self.result.hidden = YES;
+    [self.totalStarsLabel sizeToFit];
+
+    if (!self.level.isTimeAttack) {
+        self.totalStarsLabel.hidden = YES;
+        self.topStarsImage.hidden = YES;
+    }
 
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];
     self.color.layer.borderWidth = 2.0;
     self.color.layer.cornerRadius = 25;
     self.color.layer.masksToBounds = YES;
 
-    self.result.text = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"Pontuation:", @"Pontuation"), self.level.starsScored];
+    self.totalStarsLabel.text = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"Pontuation:", @"Pontuation"), self.level.starsScored];
 
     if (self.level.colorPlayed) {
         self.color.backgroundColor = self.level.colorPlayed;
@@ -103,17 +107,17 @@
     self.imagePreview.clipsToBounds = YES;
     self.averageLabel.text = NSLocalizedString(@"Average Color", @"Average Color");
 
-    int points = [self.level playImageOnLevel:image];
+    int stars = [self.level playImageOnLevel:image];
 
+    NSLog(@"starsHEre:%d", stars);
     self.color.backgroundColor = [RBImageProcessor getDominantColor:image]; //self.level.colorPlayed;
-    int stars = [RBImageProcessor convertPointstoStars:points];
     [self updateStars:stars];
+
+    self.totalPoints += self.level.starsScored;
+
     if (stars == 3)
         [RBSharedFunctions playSound:@"itsaspell"
                        withExtension:@"mp3"];
-
-    self.result.text = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"Pontuation:", @"Pontuation"), points];
-    [self.result sizeToFit];
 
     if (self.level.isTimeAttack)
         [RBSharedFunctions playSound:@"beam"
@@ -179,16 +183,21 @@
     } else if ((self.timelock <= 0) || (self.imagePreview.image != nil)) {
         self.timelock = 3;
         self.nextButton.enabled = NO;
-
-        self.totalPoints += self.level.starsScored;
         self.level = [[RBLevel alloc] init];
         self.level.isTimeAttack = YES;
-        self.result.text = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"Total Pontuation:", @"Total Pontuation"), self.totalPoints];
         self.color.backgroundColor = nil;
         self.targetPreview.backgroundColor = self.level.color;
         self.imagePreview.image = nil;
+        self.stars.image = nil;
     }
 }
+
+- (void)setTotalPoints:(int)totalPoints
+{
+    _totalPoints = totalPoints;
+    self.totalStarsLabel.text = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"Total Stars:", @"Total Stars:"), self.totalPoints];
+}
+
 - (IBAction)stopButton:(id)sender
 {
 

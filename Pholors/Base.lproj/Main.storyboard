@@ -408,8 +408,8 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMt-YL-XJJ">
-                                <rect key="frame" x="134" y="34" width="53" height="26"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Timer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMt-YL-XJJ">
+                                <rect key="frame" x="28" y="34" width="159" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -423,17 +423,10 @@
                                         <rect key="frame" x="30" y="33" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0star.png" translatesAutoresizingMaskIntoConstraints="NO" id="lNw-PV-dME">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0star.png" translatesAutoresizingMaskIntoConstraints="NO" id="lNw-PV-dME">
                                         <rect key="frame" x="128" y="47" width="65" height="27"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4U-TA-wne">
-                                        <rect key="frame" x="139" y="33" width="42" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="Target Color" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ukq-u7-8x0">
                                         <rect key="frame" x="220" y="4" width="94" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -457,6 +450,17 @@
                                     <constraint firstAttribute="height" constant="89" id="pEp-VS-X1L"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="singleStar.png" translatesAutoresizingMaskIntoConstraints="NO" id="iuS-on-QBg">
+                                <rect key="frame" x="286" y="33" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Stars:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg5-59-iHP">
+                                <rect key="frame" x="131" y="37" width="147" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -467,8 +471,8 @@
                             <constraint firstAttribute="centerX" secondItem="8W7-Qw-1fO" secondAttribute="centerX" id="STf-MC-gEV"/>
                             <constraint firstItem="WoP-Dl-LVt" firstAttribute="top" secondItem="nNs-AW-cj4" secondAttribute="bottom" constant="1" id="U9f-Hm-ao7"/>
                             <constraint firstItem="lMt-YL-XJJ" firstAttribute="top" secondItem="HuK-yO-BL4" secondAttribute="bottom" constant="14" id="aXI-Xe-IXO"/>
+                            <constraint firstItem="lMt-YL-XJJ" firstAttribute="leading" secondItem="IiK-k2-qMt" secondAttribute="leading" constant="20" symbolic="YES" id="ap8-Xs-XfI"/>
                             <constraint firstItem="8W7-Qw-1fO" firstAttribute="top" secondItem="HuK-yO-BL4" secondAttribute="bottom" constant="48" id="mzZ-70-9M4"/>
-                            <constraint firstAttribute="centerX" secondItem="lMt-YL-XJJ" secondAttribute="centerX" constant="-0.5" id="oJU-nT-UzU"/>
                             <constraint firstItem="hdc-rt-aE3" firstAttribute="top" secondItem="8W7-Qw-1fO" secondAttribute="bottom" constant="3" id="yVu-Ot-gpp"/>
                         </constraints>
                     </view>
@@ -477,17 +481,18 @@
                         <outlet property="color" destination="61T-u3-cMb" id="jyV-VM-BRq"/>
                         <outlet property="imagePreview" destination="8W7-Qw-1fO" id="Zd4-Ws-pCF"/>
                         <outlet property="nextButton" destination="pzP-dB-Vvl" id="4dt-Va-y7k"/>
-                        <outlet property="result" destination="u4U-TA-wne" id="Crc-T0-31V"/>
                         <outlet property="stars" destination="lNw-PV-dME" id="mVU-q3-Gmv"/>
                         <outlet property="stopButton" destination="aIY-2h-nid" id="RWx-Ty-0Li"/>
                         <outlet property="targetPreview" destination="Q2H-Bz-gXM" id="FZh-oH-U4B"/>
                         <outlet property="timerLabel" destination="lMt-YL-XJJ" id="tMi-1k-r5O"/>
+                        <outlet property="topStarsImage" destination="iuS-on-QBg" id="5Dz-06-bba"/>
+                        <outlet property="totalStarsLabel" destination="Lg5-59-iHP" id="K1G-Nd-qsb"/>
                         <segue destination="uFT-aw-eDe" kind="push" identifier="gameOver" customClass="RBCustomSegue" id="wvJ-x1-wKa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1294" y="628"/>
+            <point key="canvasLocation" x="1296" y="618"/>
         </scene>
         <!--End GameVC-->
         <scene sceneID="JEp-GR-lKq">
@@ -520,8 +525,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWe-Bs-1JB">
-                                        <rect key="frame" x="58" y="74" width="86" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWe-Bs-1JB">
+                                        <rect key="frame" x="47" y="74" width="97" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -543,6 +548,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="singleStar.png" translatesAutoresizingMaskIntoConstraints="NO" id="ExC-C7-Vz9">
+                                        <rect key="frame" x="170" y="71" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="Act-EE-K6C" secondAttribute="centerX" id="BDy-V7-ifQ"/>
@@ -594,6 +603,7 @@
         <image name="0star.png" width="429" height="139"/>
         <image name="6b2dd6f01f209f7fac5de216c820e516.jpg" width="646" height="655"/>
         <image name="pholors.png" width="1265" height="261"/>
+        <image name="singleStar.png" width="135" height="130"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
