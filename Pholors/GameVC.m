@@ -193,7 +193,7 @@
         self.color.backgroundColor = nil;
         self.targetPreview.backgroundColor = self.level.color;
         self.imagePreview.image = nil;
-        self.stars.image = nil;
+        self.stars.image = [UIImage imageNamed:@"0star.png"];
     }
 }
 

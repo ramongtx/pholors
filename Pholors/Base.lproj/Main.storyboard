@@ -474,13 +474,17 @@
                         <constraints>
                             <constraint firstItem="nNs-AW-cj4" firstAttribute="width" secondItem="IiK-k2-qMt" secondAttribute="width" id="0tz-jg-p6x"/>
                             <constraint firstAttribute="centerX" secondItem="hdc-rt-aE3" secondAttribute="centerX" id="7rX-Gy-jV8"/>
+                            <constraint firstAttribute="centerX" secondItem="qVG-2C-Ayp" secondAttribute="centerX" id="Aex-Ve-FIP"/>
                             <constraint firstItem="WoP-Dl-LVt" firstAttribute="top" secondItem="8W7-Qw-1fO" secondAttribute="bottom" constant="144" id="CK5-PX-ZLz"/>
                             <constraint firstAttribute="centerX" secondItem="nNs-AW-cj4" secondAttribute="centerX" id="N4i-Tq-HQP"/>
                             <constraint firstAttribute="centerX" secondItem="8W7-Qw-1fO" secondAttribute="centerX" id="STf-MC-gEV"/>
                             <constraint firstItem="WoP-Dl-LVt" firstAttribute="top" secondItem="nNs-AW-cj4" secondAttribute="bottom" constant="1" id="U9f-Hm-ao7"/>
                             <constraint firstItem="lMt-YL-XJJ" firstAttribute="top" secondItem="HuK-yO-BL4" secondAttribute="bottom" constant="14" id="aXI-Xe-IXO"/>
                             <constraint firstItem="lMt-YL-XJJ" firstAttribute="leading" secondItem="IiK-k2-qMt" secondAttribute="leading" constant="20" symbolic="YES" id="ap8-Xs-XfI"/>
+                            <constraint firstAttribute="width" secondItem="qVG-2C-Ayp" secondAttribute="width" id="b6r-DK-dxs"/>
+                            <constraint firstItem="8W7-Qw-1fO" firstAttribute="top" secondItem="qVG-2C-Ayp" secondAttribute="bottom" constant="8" id="dOT-Bf-LRF"/>
                             <constraint firstItem="8W7-Qw-1fO" firstAttribute="top" secondItem="HuK-yO-BL4" secondAttribute="bottom" constant="48" id="mzZ-70-9M4"/>
+                            <constraint firstItem="qVG-2C-Ayp" firstAttribute="top" secondItem="HuK-yO-BL4" secondAttribute="bottom" constant="14" id="rpp-Uh-0XG"/>
                             <constraint firstItem="hdc-rt-aE3" firstAttribute="top" secondItem="8W7-Qw-1fO" secondAttribute="bottom" constant="3" id="yVu-Ot-gpp"/>
                         </constraints>
                     </view>

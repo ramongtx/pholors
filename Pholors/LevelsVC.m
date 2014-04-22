@@ -71,6 +71,7 @@
     RBLevel* level = [tableData objectAtIndex:indexPath.row];
 
     cell.cellLabel.text = [NSString stringWithFormat:@"%@!", level.colorName];
+    cell.cellLabel.textColor = level.color;
     cell.level = level;
 
     int stars = [level stars];
