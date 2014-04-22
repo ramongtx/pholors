@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSString* str = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"You scored:", @"You scored"), self.points];
+    NSString* str = [NSString stringWithFormat:@"%@  %d", NSLocalizedString(@"You scored:", @"You scored"), self.points];
     if (self.highscore)
         self.highScoreLabel.text = NSLocalizedString(@"(HIGH SCORE)", "High score");
     else
