@@ -25,7 +25,10 @@
     if (!self.level.isTimeAttack) {
         self.totalStarsLabel.hidden = YES;
         self.topStarsImage.hidden = YES;
+        self.timerLabel.hidden = YES;
         self.timerLabel.textAlignment = NSTextAlignmentCenter;
+        self.colorNameLabel.text = self.level.colorName;
+        self.colorNameLabel.textColor = self.level.color;
     }
 
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];
@@ -63,8 +66,9 @@
         self.nextButton.enabled = NO;
         self.timerController = [[RBTimer alloc] initWithTimer:1.0
                                                   andDelegate:self];
-        self.timerLabel.text = [NSString stringWithFormat:@"%@ %ds", NSLocalizedString(@"Time Left:", @"Time left"), self.time];
+        self.timerLabel.text = [NSString stringWithFormat:@"%@ %lds", NSLocalizedString(@"Time Left:", @"Time left"), (long)self.time];
         self.timerLabel.textColor = [UIColor redColor];
+        self.colorNameLabel.hidden = YES;
     }
 }
 
@@ -164,7 +168,7 @@
         self.time = 0;
     }
 
-    self.timerLabel.text = [NSString stringWithFormat:@"%@ %ds", NSLocalizedString(@"Time Left:", @"Time left"), self.time];
+    self.timerLabel.text = [NSString stringWithFormat:@"%@ %lds", NSLocalizedString(@"Time Left:", @"Time left"), (long)self.time];
 }
 
 - (void)timerOver
@@ -196,7 +200,7 @@
 - (void)setTotalPoints:(int)totalPoints
 {
     _totalPoints = totalPoints;
-    self.totalStarsLabel.text = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"Total Stars:", @"Total Stars:"), self.totalPoints];
+    self.totalStarsLabel.text = [NSString stringWithFormat:@"%@ %ld", NSLocalizedString(@"Total Stars:", @"Total Stars:"), (long)self.totalPoints];
 }
 
 - (IBAction)stopButton:(id)sender
