@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D4ACDAF1907F68900CA513F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4ACDAE1907F68900CA513F /* Main_iPad.storyboard */; };
+		3D4ACDB11907FECD00CA513F /* singleStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4ACDB01907FECD00CA513F /* singleStar.png */; };
 		3D59BD4618FC45700041BDA9 /* LearnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D59BD4518FC45700041BDA9 /* LearnViewController.m */; };
 		3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E9A7D1817FC0D0038E72D /* RBTimer.m */; };
 		3DB6687C18F6FAC7001262DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB6687E18F6FAC7001262DF /* Main.storyboard */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		29CB383E550F4B1A8AF3D239 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D4ACDAE1907F68900CA513F /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		3D4ACDB01907FECD00CA513F /* singleStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = singleStar.png; sourceTree = "<group>"; };
 		3D59BD4418FC45700041BDA9 /* LearnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnViewController.h; sourceTree = "<group>"; };
 		3D59BD4518FC45700041BDA9 /* LearnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnViewController.m; sourceTree = "<group>"; };
 		3D8E9A7C1817FC0D0038E72D /* RBTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTimer.h; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				D592052518184539004F58BD /* 0star.png */,
 				D5BE102218217F8E0046AAF1 /* pholors.png */,
 				D592052618184539004F58BD /* 1star.png */,
+				3D4ACDB01907FECD00CA513F /* singleStar.png */,
 				D592052718184539004F58BD /* 2star.png */,
 				D592052818184539004F58BD /* 3star.png */,
 			);
@@ -439,6 +442,7 @@
 				F6E663551816F8740094EC26 /* Images.xcassets in Resources */,
 				D5BE102318217F8E0046AAF1 /* pholors.png in Resources */,
 				D591367018B3D44300CEE732 /* Colors.json in Resources */,
+				3D4ACDB11907FECD00CA513F /* singleStar.png in Resources */,
 				D5BE101A18217D7E0046AAF1 /* itsaspell.mp3 in Resources */,
 				D5BE101718217D7E0046AAF1 /* beam.mp3 in Resources */,
 				D592052C18184539004F58BD /* 3star.png in Resources */,

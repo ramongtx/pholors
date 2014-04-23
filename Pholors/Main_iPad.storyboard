@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6b2dd6f01f209f7fac5de216c820e516.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HpT-iN-U91">
-                                <rect key="frame" x="-60" y="68" width="888" height="888"/>
+                                <rect key="frame" x="-152" y="-24" width="1072" height="1072"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="888" id="e9J-mk-Ha1"/>
-                                    <constraint firstAttribute="width" constant="888" id="lUX-tA-OPO"/>
+                                    <constraint firstAttribute="width" constant="1072" id="F41-Mb-mGf"/>
+                                    <constraint firstAttribute="height" constant="1072" id="e5g-5I-K1P"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iL7-tV-XyY" userLabel="View_TextBox">
@@ -379,7 +379,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-3e-mew">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-3e-mew">
                                 <rect key="frame" x="42" y="112" width="685" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
@@ -444,7 +444,7 @@
                                     <constraint firstAttribute="width" constant="320" id="V4U-Dr-h9T"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nix-1N-UhC" userLabel="View_TopLabels">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nix-1N-UhC" userLabel="View_TopLabels">
                                 <rect key="frame" x="5" y="78" width="768" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -543,11 +543,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6b2dd6f01f209f7fac5de216c820e516.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dmJ-SQ-a9h">
-                                <rect key="frame" x="-60" y="68" width="888" height="888"/>
+                                <rect key="frame" x="-152" y="-24" width="1072" height="1072"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="888" id="QgO-sW-b7l"/>
-                                    <constraint firstAttribute="height" constant="888" id="vTL-4j-BL6"/>
+                                    <constraint firstAttribute="width" constant="1072" id="QgO-sW-b7l"/>
+                                    <constraint firstAttribute="height" constant="1072" id="vTL-4j-BL6"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9S9-33-aWw">
@@ -667,7 +667,7 @@
         <image name="0star.png" width="429" height="139"/>
         <image name="6b2dd6f01f209f7fac5de216c820e516.jpg" width="646" height="655"/>
         <image name="pholors.png" width="1265" height="261"/>
-        <image name="singleStar.png" width="646" height="655"/>
+        <image name="singleStar.png" width="135" height="130"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -675,6 +675,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="CPc-uI-7RK"/>
+        <segue reference="UiB-SC-6bq"/>
     </inferredMetricsTieBreakers>
 </document>
