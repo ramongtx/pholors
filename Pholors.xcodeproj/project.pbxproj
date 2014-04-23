@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D4ACDAF1907F68900CA513F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4ACDAE1907F68900CA513F /* Main_iPad.storyboard */; };
 		3D59BD4618FC45700041BDA9 /* LearnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D59BD4518FC45700041BDA9 /* LearnViewController.m */; };
 		3D8E9A7E1817FC0D0038E72D /* RBTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E9A7D1817FC0D0038E72D /* RBTimer.m */; };
 		3DB6687C18F6FAC7001262DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB6687E18F6FAC7001262DF /* Main.storyboard */; };
 		3DB9D18A18F7056B00CE65EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DB9D18C18F7056B00CE65EC /* Localizable.strings */; };
 		3DC3D33F1818355B00096DA2 /* EndGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D33E1818355B00096DA2 /* EndGameVC.m */; };
+		CB43F60814AF46C0B0C9211E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CB383E550F4B1A8AF3D239 /* libPods.a */; };
 		D58FEF2C18FC50E700408B58 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D58FEF2918FC50E700408B58 /* iRate.bundle */; };
 		D58FEF2D18FC50E700408B58 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = D58FEF2B18FC50E700408B58 /* iRate.m */; };
 		D591366D18B3D42200CEE732 /* UIColor+Named.m in Sources */ = {isa = PBXBuildFile; fileRef = D591366C18B3D42200CEE732 /* UIColor+Named.m */; };
@@ -68,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29CB383E550F4B1A8AF3D239 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D4ACDAE1907F68900CA513F /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		3D59BD4418FC45700041BDA9 /* LearnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnViewController.h; sourceTree = "<group>"; };
 		3D59BD4518FC45700041BDA9 /* LearnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnViewController.m; sourceTree = "<group>"; };
 		3D8E9A7C1817FC0D0038E72D /* RBTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTimer.h; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		3DB9D19218F7070B00CE65EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3DC3D33D1818355B00096DA2 /* EndGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameVC.h; sourceTree = "<group>"; };
 		3DC3D33E1818355B00096DA2 /* EndGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameVC.m; sourceTree = "<group>"; };
+		A5F8C9D378C04F00915ED6D5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D58FEF2918FC50E700408B58 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
 		D58FEF2A18FC50E700408B58 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		D58FEF2B18FC50E700408B58 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
@@ -151,6 +156,7 @@
 				F6E6633F1816F8740094EC26 /* CoreGraphics.framework in Frameworks */,
 				F6E663411816F8740094EC26 /* UIKit.framework in Frameworks */,
 				F6E6633D1816F8740094EC26 /* Foundation.framework in Frameworks */,
+				CB43F60814AF46C0B0C9211E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +173,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D4ACDAD1907F1CD00CA513F /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		D58FEF2818FC50E700408B58 /* iRate */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +277,7 @@
 				F6E663611816F8740094EC26 /* PholorsTests */,
 				F6E6633B1816F8740094EC26 /* Frameworks */,
 				F6E6633A1816F8740094EC26 /* Products */,
+				A5F8C9D378C04F00915ED6D5 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -284,6 +298,7 @@
 				F6E6633E1816F8740094EC26 /* CoreGraphics.framework */,
 				F6E663401816F8740094EC26 /* UIKit.framework */,
 				F6E6635B1816F8740094EC26 /* XCTest.framework */,
+				29CB383E550F4B1A8AF3D239 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -291,13 +306,15 @@
 		F6E663421816F8740094EC26 /* Pholors */ = {
 			isa = PBXGroup;
 			children = (
+				3D4ACDAD1907F1CD00CA513F /* iPad */,
 				D58FEF2818FC50E700408B58 /* iRate */,
 				D592052418184539004F58BD /* images */,
 				D5BE100B18217D7E0046AAF1 /* sounds */,
 				D596F1FE181EB68500CF092D /* ViewController */,
 				D596F1FD181EB66800CF092D /* Model */,
-				3DB6687E18F6FAC7001262DF /* Main.storyboard */,
 				F6E6634B1816F8740094EC26 /* AppDelegate.h */,
+				3D4ACDAE1907F68900CA513F /* Main_iPad.storyboard */,
+				3DB6687E18F6FAC7001262DF /* Main.storyboard */,
 				F6E6634C1816F8740094EC26 /* AppDelegate.m */,
 				F6E663541816F8740094EC26 /* Images.xcassets */,
 				F6E663431816F8740094EC26 /* Supporting Files */,
@@ -342,9 +359,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6E6636B1816F8740094EC26 /* Build configuration list for PBXNativeTarget "Pholors" */;
 			buildPhases = (
+				7605D988C3A74A15A90C63D7 /* Check Pods Manifest.lock */,
 				F6E663351816F8740094EC26 /* Sources */,
 				F6E663361816F8740094EC26 /* Frameworks */,
 				F6E663371816F8740094EC26 /* Resources */,
+				72DF2789040340A099FC930F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -383,7 +402,7 @@
 				ORGANIZATIONNAME = "Rock Bottom";
 				TargetAttributes = {
 					F6E663381816F8740094EC26 = {
-						DevelopmentTeam = 5T4R8F8RP9;
+						DevelopmentTeam = BA2CZKU7QH;
 					};
 					F6E663591816F8740094EC26 = {
 						TestTargetID = F6E663381816F8740094EC26;
@@ -437,6 +456,7 @@
 				D5BE101F18217D7E0046AAF1 /* upupandaway.mp3 in Resources */,
 				D5BE101B18217D7E0046AAF1 /* onemusttry.mp3 in Resources */,
 				D5BE101818217D7E0046AAF1 /* byebye.mp3 in Resources */,
+				3D4ACDAF1907F68900CA513F /* Main_iPad.storyboard in Resources */,
 				D597664B18202974008AA843 /* 6b2dd6f01f209f7fac5de216c820e516.jpg in Resources */,
 				D5BE101C18217D7E0046AAF1 /* pullover.mp3 in Resources */,
 			);
@@ -451,6 +471,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		72DF2789040340A099FC930F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7605D988C3A74A15A90C63D7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F6E663351816F8740094EC26 /* Sources */ = {
@@ -608,6 +661,7 @@
 		};
 		F6E6636C1816F8740094EC26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5F8C9D378C04F00915ED6D5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -616,14 +670,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pholors/Pholors-Prefix.pch";
 				INFOPLIST_FILE = "Pholors/Pholors-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		F6E6636D1816F8740094EC26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5F8C9D378C04F00915ED6D5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -632,8 +689,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pholors/Pholors-Prefix.pch";
 				INFOPLIST_FILE = "Pholors/Pholors-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
