@@ -313,16 +313,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06O-yE-cT0">
-                                            <rect key="frame" x="177" y="3" width="50" height="50"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="06O-yE-cT0">
+                                            <rect key="frame" x="625" y="3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="PFh-Bh-UYm"/>
                                                 <constraint firstAttribute="width" constant="50" id="wUJ-Q9-6rV"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdf-In-65z">
-                                            <rect key="frame" x="235" y="17" width="513" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zdf-In-65z">
+                                            <rect key="frame" x="683" y="17" width="65" height="21"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="65" id="Pup-me-6EW"/>
@@ -379,8 +379,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-3e-mew">
-                                <rect key="frame" x="22" y="68" width="724" height="812"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-3e-mew">
+                                <rect key="frame" x="42" y="112" width="685" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ckj-3e-mew" secondAttribute="height" multiplier="320:359" id="nwo-uU-h9x"/>
@@ -444,8 +444,8 @@
                                     <constraint firstAttribute="width" constant="320" id="V4U-Dr-h9T"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nix-1N-UhC" userLabel="View_TopLabels">
-                                <rect key="frame" x="5" y="32" width="768" height="26"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nix-1N-UhC" userLabel="View_TopLabels">
+                                <rect key="frame" x="5" y="78" width="768" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BK-0W-zx4">
@@ -490,7 +490,7 @@
                                     <constraint firstItem="PyF-Df-r6o" firstAttribute="leading" secondItem="bm7-gR-eR4" secondAttribute="trailing" constant="8" id="fLj-sm-tlo"/>
                                     <constraint firstAttribute="height" secondItem="3BK-0W-zx4" secondAttribute="height" id="kIk-nK-4bn"/>
                                     <constraint firstAttribute="height" constant="26" id="lGv-LX-B0y"/>
-                                    <constraint firstAttribute="height" secondItem="PyF-Df-r6o" secondAttribute="height" id="ylP-fm-RHS"/>
+                                    <constraint firstAttribute="height" secondItem="PyF-Df-r6o" secondAttribute="height" constant="1" id="ylP-fm-RHS"/>
                                     <constraint firstAttribute="centerY" secondItem="bm7-gR-eR4" secondAttribute="centerY" constant="-2" id="zZc-bY-cpv"/>
                                 </constraints>
                             </view>
@@ -502,7 +502,7 @@
                             <constraint firstItem="doo-7D-tp3" firstAttribute="top" secondItem="Ckj-3e-mew" secondAttribute="bottom" constant="3" id="EfE-vF-7tV"/>
                             <constraint firstAttribute="centerX" secondItem="qdF-Hd-Vn3" secondAttribute="centerX" id="M9K-od-0KA"/>
                             <constraint firstAttribute="centerX" secondItem="nix-1N-UhC" secondAttribute="centerX" constant="-5.5" id="TZC-4E-y6j"/>
-                            <constraint firstItem="nix-1N-UhC" firstAttribute="top" secondItem="1AZ-8r-3Kt" secondAttribute="bottom" constant="12" id="fz4-jj-2ib"/>
+                            <constraint firstItem="nix-1N-UhC" firstAttribute="top" secondItem="1AZ-8r-3Kt" secondAttribute="bottom" constant="14" id="fz4-jj-2ib"/>
                             <constraint firstItem="Ckj-3e-mew" firstAttribute="top" secondItem="1AZ-8r-3Kt" secondAttribute="bottom" constant="48" id="luh-el-6Ml"/>
                             <constraint firstAttribute="centerX" secondItem="doo-7D-tp3" secondAttribute="centerX" id="ohi-ud-JEt"/>
                             <constraint firstItem="nix-1N-UhC" firstAttribute="width" secondItem="e9H-y2-oR4" secondAttribute="width" id="uub-v1-Mu8"/>
