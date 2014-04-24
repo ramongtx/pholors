@@ -8,6 +8,7 @@
 
 #import "LevelsVC.h"
 #import <iAd/iAd.h>
+#import "RBImageProcessor.h"
 
 #import "BRFlabbyTableManager.h"
 #import "BRFlabbyTableViewCell.h"
@@ -26,6 +27,7 @@
 {
     [self.tableView reloadData];
     //uncomment for flabbyness
+    self.flabbyTableManager = nil;
     self.flabbyTableManager = [[BRFlabbyTableManager alloc] initWithTableView:self.tableView];
     [self.flabbyTableManager setDelegate:self];
 }
@@ -38,19 +40,33 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // propagandou!! $$$$$
-    self.canDisplayBannerAds = YES;
+    //self.canDisplayBannerAds = YES;
     
     [RBSharedFunctions playSound:@"comein"
                    withExtension:@"mp3"];
     
     tableData = [RBGame getDefaultLevels];
+    
+    /* Tentativa de ordenar o vetor por cores
+    tableData = [[RBGame getDefaultLevels] sortedArrayUsingComparator:^NSComparisonResult(RBLevel* obj1, RBLevel* obj2) {
+        
+        UIColor* referenceColor = [UIColor whiteColor];
+        double dist1 = (4 * [RBImageProcessor YUVDistanceFromColor:obj1.color to:referenceColor] + [RBImageProcessor LMSDistanceFromColor:obj1.color to:referenceColor] + [RBImageProcessor LABDistanceFromColor:obj1.color to:referenceColor]) / 6;
+        double dist2 = (4 * [RBImageProcessor YUVDistanceFromColor:obj2.color to:referenceColor] + [RBImageProcessor LMSDistanceFromColor:obj2.color to:referenceColor] + [RBImageProcessor LABDistanceFromColor:obj2.color to:referenceColor]) / 6;
+        
+        if (dist1 > dist2) return NSOrderedDescending;
+        else if (dist1 < dist2) return NSOrderedAscending;
+        return NSOrderedSame;
+        
+    }];*/
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    self.flabbyTableManager.delegate = nil;
+//    self.flabbyTableManager.delegate = nil;
     self.flabbyTableManager.tableView = nil;
-    self.flabbyTableManager = nil;
+//    self.flabbyTableManager = nil;
 }
 
 #pragma mark - Table view data source
@@ -93,7 +109,13 @@
     [cell setFlabbyColor:level.color];
     
     cell.cellLabel.text = [NSString stringWithFormat:@"%@!", level.colorName];
+
     cell.cellLabel.textColor = [UIColor blackColor];
+
+   
+    //If we want to change the background color of the cells... we gotta sort by color first
+    cell.backgroundColor = [level.color colorWithAlphaComponent:0.05];
+    
     cell.level = level;
     
     int stars = [level stars];

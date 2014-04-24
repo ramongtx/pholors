@@ -28,7 +28,6 @@
         self.timerLabel.hidden = YES;
         self.timerLabel.textAlignment = NSTextAlignmentCenter;
         self.colorNameLabel.text = self.level.colorName;
-        self.colorNameLabel.textColor = self.level.color;
     }
     
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];

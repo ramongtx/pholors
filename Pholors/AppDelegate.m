@@ -7,19 +7,21 @@
 //
 
 #import "AppDelegate.h"
-#import "iRate.h"
+#import <Appirater.h>
 
 @implementation AppDelegate
 
-+ (void)initialize
-{
-    [iRate sharedInstance].usesUntilPrompt = 5;
-    [iRate sharedInstance].remindPeriod = 3;
-    //[iRate sharedInstance].previewMode = YES;
-}
-
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    
+    [Appirater setAppId:@"824331341"];
+    [Appirater setDaysUntilPrompt:7];
+    [Appirater setUsesUntilPrompt:5];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:2];
+    [Appirater setDebug:NO];
+    [Appirater appLaunched:YES];
+    
     // Override point for customization after application launch.
     BOOL firstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"levelset"];
     if (firstTime) {
@@ -30,6 +32,7 @@
         [RBGame createDefaultSet];
         [RBGame saveDefaultLevels];
     }
+    
     return YES;
 }
 
@@ -48,6 +51,7 @@
 - (void)applicationWillEnterForeground:(UIApplication*)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication*)application
