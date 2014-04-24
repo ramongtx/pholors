@@ -21,14 +21,13 @@
     [super viewDidLoad];
 
     [self.totalStarsLabel sizeToFit];
-
+    
     if (!self.level.isTimeAttack) {
         self.totalStarsLabel.hidden = YES;
         self.topStarsImage.hidden = YES;
         self.timerLabel.hidden = YES;
         self.timerLabel.textAlignment = NSTextAlignmentCenter;
         self.colorNameLabel.text = self.level.colorName;
-        self.colorNameLabel.textColor = self.level.color;
     }
 
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];

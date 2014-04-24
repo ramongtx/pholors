@@ -43,6 +43,4 @@
 + (MLPNeuralNet*)nnetModel;
 + (int)classifyColor:(UIColor*)color againstColor:(UIColor*)targetColor;
 
-//+ (double)classifyColor:(UIColor*)color againstColor:(UIColor*)targetColor;
-
 @end
