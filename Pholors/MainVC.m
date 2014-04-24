@@ -31,71 +31,25 @@
     self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
 
     NSString* text = @"I'm playing pholors, its amazing! #pholors";
-    NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=824331341&mt=8"];
+    NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/app/id824331341"];
     UIImage* image = [UIImage imageNamed:@"pholors"];
 
-    /*
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-
-        SLComposeViewController* tweetSheet = [SLComposeViewController
-            composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:text];
-
-        [tweetSheet addImage:image];
-        [tweetSheet addURL:url];
-
-        tweetSheet.completionHandler = ^(SLComposeViewControllerResult result)
-        {
-            if (result == SLComposeViewControllerResultDone) {
-                [RBGame increaseLevelPackCount];
-                [RBSharedFunctions playSound:@"whistle"
-                               withExtension:@"mp3"];
-            }
-            NSLog(@"here");
-        };
-
-        [self presentViewController:tweetSheet
-                           animated:YES
-                         completion:nil];
-    }
-*/
-
-    UIActivityViewController* controller =
-        [[UIActivityViewController alloc]
-            initWithActivityItems:@[
-                                      text,
-                                      url,
-                                      image,
-                                  ]
-            applicationActivities:nil];
-
-    [controller setCompletionHandler:^(NSString *activityType, BOOL completed)
+    void (^completion)(NSString * activityType, BOOL completed) = ^(NSString * activityType, BOOL completed)
     {
         if (completed) {
             [RBGame increaseLevelPackCount];
             [RBSharedFunctions playSound:@"whistle"
                            withExtension:@"mp3"];
         }
-    }];
+    };
 
-    controller.excludedActivityTypes = @[
-        UIActivityTypePostToWeibo,
-        //UIActivityTypeMessage,
-        //UIActivityTypeMail,
-        UIActivityTypePrint,
-        UIActivityTypeCopyToPasteboard,
-        UIActivityTypeAssignToContact,
-        UIActivityTypeSaveToCameraRoll,
-        UIActivityTypeAddToReadingList,
-        //UIActivityTypePostToFlickr,
-        UIActivityTypePostToVimeo,
-        //UIActivityTypePostToTencentWeibo,
-        UIActivityTypeAirDrop
-    ];
-
-    [self presentViewController:controller
-                       animated:YES
-                     completion:nil];
+    [RBSharedFunctions shareItems:@[
+                                      text,
+                                      url,
+                                      image
+                                  ]
+                        forSender:self
+                   withCompletion:completion];
 }
 
 - (void)viewDidLoad

@@ -19,9 +19,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     [self.totalStarsLabel sizeToFit];
-
+    
     if (!self.level.isTimeAttack) {
         self.totalStarsLabel.hidden = YES;
         self.topStarsImage.hidden = YES;
@@ -30,36 +30,36 @@
         self.colorNameLabel.text = self.level.colorName;
         self.colorNameLabel.textColor = self.level.color;
     }
-
+    
     self.color.layer.borderColor = [[UIColor blackColor] CGColor];
     self.color.layer.borderWidth = 2.0;
     self.color.layer.cornerRadius = 25;
     self.color.layer.masksToBounds = YES;
-
+    
     self.totalStarsLabel.text = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"Pontuation:", @"Pontuation"), self.level.starsScored];
-
+    
     if (self.level.colorPlayed) {
         self.color.backgroundColor = self.level.colorPlayed;
         self.averageLabel.text = NSLocalizedString(@"Last Played", @"Last played color");
         [self updateStars:[self.level stars]];
     } else
         self.averageLabel.text = NSLocalizedString(@"Average Color", @"Average Color");
-
+    
     self.targetPreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.targetPreview.layer.borderWidth = 2.0;
     self.targetPreview.layer.cornerRadius = 25;
     self.targetPreview.layer.masksToBounds = YES;
-
+    
     self.imagePreview.layer.borderColor = [[UIColor blackColor] CGColor];
     self.imagePreview.layer.borderWidth = 1.5;
-
+    
     self.totalPoints = 0;
-
+    
     self.targetPreview.backgroundColor = self.level.color;
-
+    
     self.timerLabel.text = self.level.colorName;
     self.timerLabel.textColor = [UIColor blackColor];
-
+    
     if (self.level.isTimeAttack) {
         self.time = 80;
         self.timelock = 3;
@@ -111,19 +111,19 @@
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
     self.averageLabel.text = NSLocalizedString(@"Average Color", @"Average Color");
-
+    
     int stars = [self.level playImageOnLevel:image];
-
+    
     NSLog(@"starsHEre:%d", stars);
     self.color.backgroundColor = [RBImageProcessor getDominantColor:image]; //self.level.colorPlayed;
     [self updateStars:stars];
-
+    
     self.totalPoints += self.level.starsScored;
-
+    
     if (stars == 3)
         [RBSharedFunctions playSound:@"itsaspell"
                        withExtension:@"mp3"];
-
+    
     if (self.level.isTimeAttack)
         [RBSharedFunctions playSound:@"beam"
                        withExtension:@"mp3"];
@@ -151,12 +151,12 @@
 {
     self.time--;
     self.timelock--;
-
+    
     if (self.timelock <= 0)
         self.nextButton.enabled = YES;
     else
         self.nextButton.enabled = NO;
-
+    
     if (self.time == 7) {
         [RBSharedFunctions playSound:@"sample"
                        withExtension:@"mp3"];
@@ -167,7 +167,7 @@
         [self timerOver];
         self.time = 0;
     }
-
+    
     self.timerLabel.text = [NSString stringWithFormat:@"%@ %lds", NSLocalizedString(@"Time Left:", @"Time left"), (long)self.time];
 }
 
@@ -181,10 +181,11 @@
 
 - (IBAction)playButton:(id)sender
 {
-
+    
     if (!self.level.isTimeAttack) {
         [RBGame saveDefaultLevels];
         [self.navigationController popViewControllerAnimated:YES];
+        
     } else if ((self.timelock <= 0) || (self.imagePreview.image != nil)) {
         self.timelock = 3;
         self.nextButton.enabled = NO;
@@ -205,7 +206,7 @@
 
 - (IBAction)stopButton:(id)sender
 {
-
+    
     if (self.level.isTimeAttack)
         [self timerOver];
     else
@@ -218,7 +219,7 @@
     if ([[segue identifier] isEqualToString:@"gameOver"]) {
         // Get reference to the destination view controller
         EndGameVC* vc = [segue destinationViewController];
-
+        
         // Pass any objects to the view controller here, like...
         vc.points = self.totalPoints;
         vc.highscore = self.highscore;

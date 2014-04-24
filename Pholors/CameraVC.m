@@ -23,44 +23,60 @@
         NSLog(@"No camera");
 }
 
-- (void) launchBrowser
+- (void)launchBrowser
 {
-    if (!galleryDelegate) NSLog(@"galleryDelegate not yet set!");
-    
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    if (!galleryDelegate)
+        NSLog(@"galleryDelegate not yet set!");
+
+    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    
+
     // no camera
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
     else
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+    picker.showsCameraControls = YES;
     
     
-    [self presentViewController:picker animated:YES completion:NULL];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 400)];
+    view.backgroundColor = [UIColor redColor];
+    //picker.cameraOverlayView = view;
+    
+    picker.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    picker.navigationController.toolbar.barStyle = UIBarStyleBlackOpaque;
+    picker.navigationBar.tintColor = [UIColor redColor];
+
 
     
+    
+    [self presentViewController:picker
+                       animated:YES
+                     completion:NULL];
 }
 
 #pragma mark - Image Picker Controller delegate methods
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-    
-    [self.galleryDelegate didFinishLoadingImage:chosenImage original:originalImage];
-    
+- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info
+{
+    UIImage* originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage* chosenImage = info[UIImagePickerControllerEditedImage];
+
+    [picker dismissViewControllerAnimated:YES
+                               completion:NULL];
+
+    [self.galleryDelegate didFinishLoadingImage:chosenImage
+                                       original:originalImage];
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-    
+- (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker
+{
+
+    [picker dismissViewControllerAnimated:YES
+                               completion:NULL];
 }
 
 @end

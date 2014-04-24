@@ -25,7 +25,7 @@
 @property(weak, nonatomic) IBOutlet UIImageView* targetPreview;
 @property(weak, nonatomic) IBOutlet UIImageView* stars;
 
-@property (weak, nonatomic) IBOutlet UILabel *colorNameLabel;
+@property(weak, nonatomic) IBOutlet UILabel* colorNameLabel;
 @property(weak, nonatomic) IBOutlet UILabel* timerLabel;
 @property(weak, nonatomic) IBOutlet UILabel* averageLabel;
 

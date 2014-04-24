@@ -11,6 +11,8 @@
 
 @interface RBSharedFunctions : NSObject
 
-+(void) playSound:(NSString*)soundName withExtension:(NSString*) extension;
++ (void)playSound:(NSString*)soundName withExtension:(NSString*)extension;
 
++ (void)shareItems:(NSArray*)items forSender:(UIViewController*)vc
+    withCompletion:(void (^)(NSString* activityType, BOOL completed))completion;
 @end

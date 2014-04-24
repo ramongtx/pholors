@@ -14,61 +14,63 @@
 static long int timeRecord;
 static long int levelPackCount = 1;
 
--(id) init
+- (id)init
 {
-    if(self = [super init]){
+    if (self = [super init]) {
         self.levels = defaultLevels;
-        self.totalPoints = 0 ;
+        self.totalPoints = 0;
     }
     return self;
 }
 
--(void) createLevel
+- (void)createLevel
 {
-    RBLevel * newLevel = [[RBLevel alloc] init];
+    RBLevel* newLevel = [[RBLevel alloc] init];
     [self.levels addObject:newLevel];
-    
+
     // maybe remove this
     [self saveLevels];
-    
 }
 
-- (void) createLevelSet
+- (void)createLevelSet
 {
-    for (int i=0; i<10; i++) [self createLevel];
+    for (int i = 0; i < 10; i++)
+        [self createLevel];
 }
 
--(void) saveLevels
+- (void)saveLevels
 {
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:self.levels];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"mylevels"];
+    [[NSUserDefaults standardUserDefaults] setObject:data
+                                              forKey:@"mylevels"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     defaultLevels = self.levels;
 }
 
--(void) loadLevels
+- (void)loadLevels
 {
-    NSData * data = [[NSUserDefaults standardUserDefaults] objectForKey:@"mylevels"];
-    NSArray *levels = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSData* data = [[NSUserDefaults standardUserDefaults] objectForKey:@"mylevels"];
+    NSArray* levels = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     self.levels = [NSMutableArray arrayWithArray:levels];
     defaultLevels = self.levels;
 }
 
-+(void) loadDefaultLevels
++ (void)loadDefaultLevels
 {
     defaultLevels = [[NSMutableArray alloc] init];
-    NSData * data = [[NSUserDefaults standardUserDefaults] objectForKey:@"levels"];
+    NSData* data = [[NSUserDefaults standardUserDefaults] objectForKey:@"levels"];
     defaultLevels = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 
-+(void) saveDefaultLevels
++ (void)saveDefaultLevels
 {
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:defaultLevels];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"levels"];
+    [[NSUserDefaults standardUserDefaults] setObject:data
+                                              forKey:@"levels"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+(void) createDefaultSet
++ (void)createDefaultSet
 {
     //    NSDictionary* colors = @{@"Air Force Blue": @"#5d8aa8",
     //                             @"Apple green": @"#8db600",
@@ -96,95 +98,96 @@ static long int levelPackCount = 1;
     //                             @"Mango Tango": @"#ff8243"
     //                             };
     NSArray* colors = [UIColor getColorsData];
-    
-    if( defaultLevels == NULL){
-    defaultLevels = [[NSMutableArray alloc] init];
+
+    if (defaultLevels == NULL) {
+        defaultLevels = [[NSMutableArray alloc] init];
     }
-    
-    for(int i=0; i<[colors count]; i++){
-        
-        if(i % 50 < levelPackCount){
+
+    for (int i = 0; i < [colors count]; i++) {
+
+        if (i % 50 < levelPackCount) {
             NSDictionary* color = [colors objectAtIndex:i];
-            
-            
-            RBLevel * newLevel = [[RBLevel alloc] initWithName:[color objectForKey:@"label"]
-                                                           red:[[color objectForKey:@"r"] integerValue]
-                                                         green:[[color objectForKey:@"g"] integerValue]
-                                                          blue:[[color objectForKey:@"b"] integerValue]];
-            if(![RBGame isColorOnGame:newLevel.colorName])   [defaultLevels addObject:newLevel];
+
+            RBLevel* newLevel = [[RBLevel alloc] initWithName:[color objectForKey:@"label"]
+                                                          red:[[color objectForKey:@"r"] integerValue]
+                                                        green:[[color objectForKey:@"g"] integerValue]
+                                                         blue:[[color objectForKey:@"b"] integerValue]];
+            if (![RBGame isColorOnGame:newLevel.colorName])
+                [defaultLevels addObject:newLevel];
         }
     }
-    
+
     [self saveDefaultLevels];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"levelset"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES
+                                            forKey:@"levelset"];
 }
 
-
-+(BOOL) isColorOnGame:(NSString*) color
++ (BOOL)isColorOnGame:(NSString*)color
 {
-    for(RBLevel* level in defaultLevels){
-        if([level.colorName isEqualToString:color]) return YES;
+    for (RBLevel* level in defaultLevels) {
+        if ([level.colorName isEqualToString:color])
+            return YES;
     }
-    
+
     return NO;
 }
 
-+(NSArray*) getDefaultLevels
++ (NSArray*)getDefaultLevels
 {
     return defaultLevels;
 }
 
-+(long) allStars
++ (long)allStars
 {
     long i = 0;
-    for (RBLevel *l in defaultLevels)
-    {
-        i+= [l stars];
+    for (RBLevel* l in defaultLevels) {
+        i += [l stars];
     }
     return i;
 }
 
-+(long) maxStars
++ (long)maxStars
 {
-    return 3*[defaultLevels count];
+    return 3 * [defaultLevels count];
 }
 
-+(BOOL)updateRecord:(int)newRecord
++ (BOOL)updateRecord:(int)newRecord
 {
     if (newRecord > timeRecord) {
-        [[NSUserDefaults standardUserDefaults] setInteger:newRecord forKey:@"timeRecord"];
+        [[NSUserDefaults standardUserDefaults] setInteger:newRecord
+                                                   forKey:@"timeRecord"];
         timeRecord = newRecord;
         return YES;
     }
     return NO;
 }
 
-+(void) loadRecords
++ (void)loadRecords
 {
     timeRecord = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeRecord"];
 }
 
-+(long int) getRecord
++ (long int)getRecord
 {
     return timeRecord;
 }
 
-+(void)clearRecord
++ (void)clearRecord
 {
     timeRecord = 0;
     [RBGame updateRecord:0];
     defaultLevels = nil;
 }
 
-+(void) clearAll
++ (void)clearAll
 {
     [RBGame clearRecord];
     [RBGame createDefaultSet];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"levelset"];
-    
+    [[NSUserDefaults standardUserDefaults] setBool:YES
+                                            forKey:@"levelset"];
 }
 
-+(void) increaseLevelPackCount
++ (void)increaseLevelPackCount
 {
     levelPackCount = 2;
     //levelPackCount += 1;

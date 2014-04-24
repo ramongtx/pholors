@@ -9,7 +9,12 @@
 #import "LevelsVC.h"
 #import <iAd/iAd.h>
 
-@interface LevelsVC ()
+#import "BRFlabbyTableManager.h"
+#import "BRFlabbyTableViewCell.h"
+
+@interface LevelsVC () <BRFlabbyTableManagerDelegate>
+
+@property(strong, nonatomic) BRFlabbyTableManager* flabbyTableManager;
 
 @end
 
@@ -17,28 +22,45 @@
     NSArray* tableData;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [[[UIApplication sharedApplication] keyWindow] setBackgroundColor:[UIColor whiteColor]];
+    [self.tableView reloadData];
+    //uncomment for flabbyness
+    self.flabbyTableManager = [[BRFlabbyTableManager alloc] initWithTableView:self.tableView];
+    [self.flabbyTableManager setDelegate:self];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-
+    
     // propagandou!! $$$$$
     self.canDisplayBannerAds = YES;
-
+    
     [RBSharedFunctions playSound:@"comein"
                    withExtension:@"mp3"];
-
+    
     tableData = [RBGame getDefaultLevels];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    self.flabbyTableManager.delegate = nil;
+    self.flabbyTableManager.tableView = nil;
+    self.flabbyTableManager = nil;
+}
+
 #pragma mark - Table view data source
+
+- (UIColor*)flabbyTableManager:(BRFlabbyTableManager*)tableManager flabbyColorForIndexPath:(NSIndexPath*)indexPath
+{
+    
+    RBLevel* level = [tableData objectAtIndex:indexPath.row];
+    return level.color;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
@@ -52,28 +74,28 @@
     return [tableData count];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.tableView reloadData];
-}
-
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
+    
     static NSString* simpleTableIdentifier = @"LevelCell";
-
+    
     LevelTableCell* cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-
+    
     if (cell == nil) {
         cell = [[LevelTableCell alloc] initWithStyle:UITableViewCellStyleDefault
                                      reuseIdentifier:simpleTableIdentifier];
     }
-
+    
     RBLevel* level = [tableData objectAtIndex:indexPath.row];
-
+    
+    [cell setFlabby:YES];
+    [cell setLongPressAnimated:YES];
+    [cell setFlabbyColor:level.color];
+    
     cell.cellLabel.text = [NSString stringWithFormat:@"%@!", level.colorName];
-    cell.cellLabel.textColor = level.color;
+    cell.cellLabel.textColor = [UIColor blackColor];
     cell.level = level;
-
+    
     int stars = [level stars];
     if (stars == 0)
         cell.starImage.image = [UIImage imageNamed:@"0star.png"];
@@ -83,13 +105,12 @@
         cell.starImage.image = [UIImage imageNamed:@"2star.png"];
     else
         cell.starImage.image = [UIImage imageNamed:@"3star.png"];
-
+    
     cell.colorImage.layer.borderWidth = 2.0;
     cell.colorImage.layer.cornerRadius = 25;
     cell.colorImage.image = nil;
-
     cell.colorImage.backgroundColor = level.color;
-
+    
     return cell;
 }
 
