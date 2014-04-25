@@ -20,6 +20,7 @@
 @implementation LevelsCollectionVC {
     NSArray* tableData;
     RBLevel* selectedLevel;
+    AWCollectionViewDialLayout* dialLayout;
 }
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
@@ -35,28 +36,37 @@
 {
     [super viewDidLoad];
     
+    self.title = NSLocalizedString(@"Levels", @"LevelsVC title");
     [RBSharedFunctions playSound:@"comein"
                    withExtension:@"mp3"];
     
     tableData = [RBGame getDefaultLevels];
     
-    AWCollectionViewDialLayout* dialLayout = [[AWCollectionViewDialLayout alloc] initWithRadius:300.0
-                                                                              andAngularSpacing:18.0
-                                                                                    andCellSize:CGSizeMake(300, 100)
-                                                                                   andAlignment:WHEELALIGNMENTCENTER
-                                                                                  andItemHeight:100
-                                                                                     andXOffset:150];
+    dialLayout = [[AWCollectionViewDialLayout alloc] initWithRadius:300.0
+                                                  andAngularSpacing:18.0
+                                                        andCellSize:CGSizeMake(300, 100)
+                                                       andAlignment:WHEELALIGNMENTCENTER
+                                                      andItemHeight:100
+                                                         andXOffset:170];
     
     [self.collectionView setCollectionViewLayout:dialLayout];
     
     // Do any additional setup after loading the view.
 }
 
--(void) viewWillAppear:(BOOL)animated
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (UIDeviceOrientationIsLandscape(toInterfaceOrientation))
+        dialLayout.xOffset = 250;
+    else {
+        dialLayout.xOffset = 150;
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
 {
     [self.collectionView reloadData];
 }
-
 
 - (void)didReceiveMemoryWarning
 {

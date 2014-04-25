@@ -2,20 +2,30 @@
 //  RBCustomSegue.m
 //  Pholors
 //
-//  Created by Rafael Padilha on 23/10/13.
-//  Copyright (c) 2013 Rock Bottom. All rights reserved.
+//  Created by Felix Dumit on 4/25/14.
+//  Copyright (c) 2014 Rock Bottom. All rights reserved.
 //
 
 #import "RBCustomSegue.h"
-#import "ViewController.h"
-#import "GameOverViewController.h"
 
 @implementation RBCustomSegue
 
-- (void) perform {
-    UIViewController *src = (UIViewController *) self.sourceViewController;
+- (void)perform
+{
     
-    [src presentViewController:[self destinationViewController] animated:YES completion:nil];
+    UIViewController* sourceViewController = (UIViewController*)[self sourceViewController];
+    UIViewController* destinationController = (UIViewController*)[self destinationViewController];
+    
+    CATransition* transition = [CATransition animation];
+    transition.duration = .25;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+    //transition.subtype = kCATransitionFromLeft; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+    
+    [sourceViewController.navigationController.view.layer addAnimation:transition
+                                                                forKey:kCATransition];
+    
+    [sourceViewController.navigationController pushViewController:destinationController
+                                                         animated:NO];
 }
-
 @end

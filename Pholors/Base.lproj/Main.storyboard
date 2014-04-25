@@ -83,7 +83,7 @@
                     <navigationItem key="navigationItem" id="Bei-ZH-2s4"/>
                     <connections>
                         <outlet property="collectionView" destination="bHZ-8B-bHe" id="o0B-aQ-jE1"/>
-                        <segue destination="vXZ-lx-hvc" kind="push" identifier="loadLevel" id="enE-wi-vDz"/>
+                        <segue destination="vXZ-lx-hvc" kind="custom" identifier="loadLevel" customClass="RBCustomSegue" id="enE-wi-vDz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mly-Pw-Syj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -257,8 +257,8 @@
                     <connections>
                         <outlet property="starsLabel" destination="v93-w1-RX8" id="GBN-wb-BLg"/>
                         <outlet property="timeLabel" destination="SMs-OB-ce4" id="zvy-IW-heL"/>
-                        <segue destination="vXZ-lx-hvc" kind="push" identifier="timeAttack" customClass="RBCustomSegue" id="cnj-x1-vI3"/>
-                        <segue destination="VLa-0o-wKI" kind="push" identifier="challengeSegue" id="kwx-Qd-SzQ"/>
+                        <segue destination="vXZ-lx-hvc" kind="custom" identifier="timeAttack" customClass="RBCustomSegue" id="cnj-x1-vI3"/>
+                        <segue destination="VLa-0o-wKI" kind="custom" identifier="challengeSegue" customClass="RBCustomSegue" id="kwx-Qd-SzQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNh-iS-n7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -638,7 +638,7 @@
                         <outlet property="timerLabel" destination="lMt-YL-XJJ" id="tMi-1k-r5O"/>
                         <outlet property="topStarsImage" destination="iuS-on-QBg" id="5Dz-06-bba"/>
                         <outlet property="totalStarsLabel" destination="Lg5-59-iHP" id="K1G-Nd-qsb"/>
-                        <segue destination="uFT-aw-eDe" kind="push" identifier="gameOver" customClass="RBCustomSegue" id="wvJ-x1-wKa"/>
+                        <segue destination="uFT-aw-eDe" kind="custom" identifier="gameOver" customClass="RBCustomSegue" id="wvJ-x1-wKa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -791,6 +791,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="enE-wi-vDz"/>
+        <segue reference="cnj-x1-vI3"/>
     </inferredMetricsTieBreakers>
 </document>
