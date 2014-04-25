@@ -38,7 +38,7 @@
     
     else {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        picker.showsCameraControls = YES;
+        //picker.showsCameraControls = YES;
     }
     
     [self presentViewController:picker

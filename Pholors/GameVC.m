@@ -105,8 +105,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [self.timerController.timer invalidate];
+    
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)updateStars:(int)stars

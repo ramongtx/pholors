@@ -122,6 +122,8 @@
     cell.colorImage.image = nil;
     cell.colorImage.backgroundColor = level.color;
     
+//    cv.backgroundColor = level.color;
+    
     return cell;
 }
 
