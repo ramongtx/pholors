@@ -27,31 +27,19 @@
 {
     if (!galleryDelegate)
         NSLog(@"galleryDelegate not yet set!");
-
+    
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-
+    
     // no camera
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-
-    else
+    
+    else {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-
-    picker.showsCameraControls = YES;
-    
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 400)];
-    view.backgroundColor = [UIColor redColor];
-    //picker.cameraOverlayView = view;
-    
-    picker.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    picker.navigationController.toolbar.barStyle = UIBarStyleBlackOpaque;
-    picker.navigationBar.tintColor = [UIColor redColor];
-
-
-    
+        picker.showsCameraControls = YES;
+    }
     
     [self presentViewController:picker
                        animated:YES
@@ -64,17 +52,17 @@
 {
     UIImage* originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage* chosenImage = info[UIImagePickerControllerEditedImage];
-
+    
     [picker dismissViewControllerAnimated:YES
                                completion:NULL];
-
+    
     [self.galleryDelegate didFinishLoadingImage:chosenImage
                                        original:originalImage];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker
 {
-
+    
     [picker dismissViewControllerAnimated:YES
                                completion:NULL];
 }

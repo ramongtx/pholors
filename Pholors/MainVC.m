@@ -10,6 +10,7 @@
 #import "RBGame.h"
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
+#import <Appirater.h>
 
 @interface MainVC () <UIAlertViewDelegate>
 @end
@@ -29,11 +30,13 @@
 {
     self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
     self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
-
+    
+    //[Appirater rateApp];
+    
     NSString* text = @"I'm playing pholors, its amazing! #pholors";
     NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/app/id824331341"];
     UIImage* image = [UIImage imageNamed:@"pholors"];
-
+    
     void (^completion)(NSString * activityType, BOOL completed) = ^(NSString * activityType, BOOL completed)
     {
         if (completed) {
@@ -42,12 +45,12 @@
                            withExtension:@"mp3"];
         }
     };
-
+    
     [RBSharedFunctions shareItems:@[
-                                      text,
-                                      url,
-                                      image
-                                  ]
+                                    text,
+                                    url,
+                                    image
+                                    ]
                         forSender:self
                    withCompletion:completion];
 }
@@ -98,7 +101,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-
+    
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
     self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
@@ -117,7 +120,7 @@
     if ([[segue identifier] isEqualToString:@"timeAttack"]) {
         // Get reference to the destination view controller
         GameVC* vc = [segue destinationViewController];
-
+        
         // Set TimeAttack Mode
         vc.level = [[RBLevel alloc] init];
         vc.level.isTimeAttack = YES;
