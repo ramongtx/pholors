@@ -11,6 +11,7 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 #import <Appirater.h>
+#import <GameKit/GameKit.h>
 
 @interface MainVC () <UIAlertViewDelegate>
 @end
@@ -28,8 +29,6 @@
 }
 - (IBAction)clickPholors:(id)sender
 {
-    self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
-    self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
     
     //[Appirater rateApp];
     
@@ -37,14 +36,14 @@
     NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/app/id824331341"];
     UIImage* image = [UIImage imageNamed:@"pholors"];
     
-    void (^completion)(NSString * activityType, BOOL completed) = ^(NSString * activityType, BOOL completed)
-    {
-        if (completed) {
-            [RBGame increaseLevelPackCount];
-            [RBSharedFunctions playSound:@"whistle"
-                           withExtension:@"mp3"];
-        }
-    };
+    //    void (^completion)(NSString * activityType, BOOL completed) = ^(NSString * activityType, BOOL completed)
+    //    {
+    //        if (completed) {
+    //            [RBGame increaseLevelPackCount];
+    //            [RBSharedFunctions playSound:@"whistle"
+    //                           withExtension:@"mp3"];
+    //        }
+    //    };
     
     [RBSharedFunctions shareItems:@[
                                     text,
@@ -52,7 +51,17 @@
                                     image
                                     ]
                         forSender:self
-                   withCompletion:completion];
+                   withCompletion:^(NSString * activityType, BOOL completed)
+     {
+         if (completed) {
+             [RBGame increaseLevelPackCount];
+             [RBSharedFunctions playSound:@"whistle"
+                            withExtension:@"mp3"];
+             self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
+             self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
+         }
+     }
+     ];
 }
 
 - (void)viewDidLoad
@@ -60,6 +69,17 @@
     [super viewDidLoad];
     [RBSharedFunctions playSound:@"welcome"
                    withExtension:@"mp3"];
+    
+    NSString* title = @"Titile loco";
+    NSString* message = @"Mensagem loclona";
+    
+    //    [GKNotificationBanner showBannerWithTitle:title
+    //                                      message:message
+    //                            completionHandler:^{
+    //                                NSLog(@"here booy");
+    //                            }];
+    //
+    
     // Do any additional setup after loading the view.
 }
 
@@ -126,4 +146,5 @@
         vc.level.isTimeAttack = YES;
     }
 }
+
 @end

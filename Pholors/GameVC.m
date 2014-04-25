@@ -14,11 +14,14 @@
 
 @end
 
-@implementation GameVC
+@implementation GameVC {
+    UILabel* totalStarsBarLabel;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //
     
     [self.totalStarsLabel sizeToFit];
     
@@ -68,13 +71,36 @@
         self.timerLabel.text = [NSString stringWithFormat:@"%@ %lds", NSLocalizedString(@"Time Left:", @"Time left"), (long)self.time];
         self.timerLabel.textColor = [UIColor redColor];
         self.colorNameLabel.hidden = YES;
+        
+        UIImageView* imView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"singleStar"]];
+        
+        [imView setFrame:CGRectMake(0, 0, 50, 50)];
+        
+        totalStarsBarLabel = [[UILabel alloc] init];
+        totalStarsBarLabel.frame = CGRectMake(5, 15, 40, 20);
+        self.totalPoints = 0;
+        totalStarsBarLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [imView addSubview:totalStarsBarLabel];
+        
+        UIBarButtonItem* item3 = [[UIBarButtonItem alloc] initWithCustomView:imView];
+        
+        self.navigationItem.rightBarButtonItems = @[
+                                                    item3
+                                                    //item3
+                                                    ];
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
+    //[self.navigationController setNavigationBarHidden:YES];
+    if (self.level.isTimeAttack) {
+        self.title = @"Time Attack";
+    } else {
+        self.title = self.level.colorName;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -110,6 +136,8 @@
     self.imagePreview.contentMode = UIViewContentModeScaleAspectFit;
     self.imagePreview.clipsToBounds = YES;
     self.averageLabel.text = NSLocalizedString(@"Average Color", @"Average Color");
+    
+    self.totalPoints -= self.level.starsScored;
     
     int stars = [self.level playImageOnLevel:image];
     
@@ -168,6 +196,7 @@
     }
     
     self.timerLabel.text = [NSString stringWithFormat:@"%@ %lds", NSLocalizedString(@"Time Left:", @"Time left"), (long)self.time];
+    self.title = [NSString stringWithFormat:@"%@ %lds", NSLocalizedString(@"Time Left:", @"Time left"), (long)self.time];
 }
 
 - (void)timerOver
@@ -201,6 +230,8 @@
 {
     _totalPoints = totalPoints;
     self.totalStarsLabel.text = [NSString stringWithFormat:@"%@ %ld", NSLocalizedString(@"Total Stars:", @"Total Stars:"), (long)self.totalPoints];
+    
+    totalStarsBarLabel.text = [NSString stringWithFormat:@"%ld", (long)totalPoints];
 }
 
 - (IBAction)stopButton:(id)sender
@@ -210,6 +241,22 @@
         [self timerOver];
     else
         [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)shareButton:(id)sender
+{
+    
+    NSString* text = [NSString stringWithFormat:@"I'm playing #pholors level \"%@\" and I got %d stars", self.level.colorName, self.level.stars];
+    UIImage* image = [UIImage imageNamed:@"pholors"];
+    NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/app/id824331341"];
+    
+    [RBSharedFunctions shareItems:@[
+                                    text,
+                                    url,
+                                    image
+                                    ]
+                        forSender:self
+                   withCompletion:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender

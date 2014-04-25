@@ -105,7 +105,7 @@ static long int levelPackCount = 1;
 
     for (int i = 0; i < [colors count]; i++) {
 
-        if (i % 50 < levelPackCount) {
+        if (i % 40 < levelPackCount) {
             NSDictionary* color = [colors objectAtIndex:i];
 
             RBLevel* newLevel = [[RBLevel alloc] initWithName:[color objectForKey:@"label"]

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="a1Y-2d-4bV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Levels CollectionVC-->
@@ -485,11 +484,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8W7-Qw-1fO">
-                                <rect key="frame" x="-2" y="103" width="330" height="370"/>
+                                <rect key="frame" x="-2" y="65" width="324" height="408"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="8W7-Qw-1fO" secondAttribute="height" multiplier="320:359" id="9mO-Bt-WMl"/>
-                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="la8-ko-4G1">
                                 <rect key="frame" x="-284" y="-160" width="888" height="888"/>
@@ -515,6 +511,12 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Bfs-A7-uqL"/>
+                                    <barButtonItem systemItem="action" id="FAE-7Q-sfc">
+                                        <connections>
+                                            <action selector="shareButton:" destination="vXZ-lx-hvc" id="2Mz-Lh-Thy"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="AVs-06-UPP"/>
                                     <barButtonItem systemItem="play" id="pzP-dB-Vvl">
                                         <connections>
                                             <action selector="playButton:" destination="vXZ-lx-hvc" id="rrg-nV-wBe"/>
@@ -523,7 +525,7 @@
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdc-rt-aE3" userLabel="View_BottomLabels">
-                                <rect key="frame" x="0.0" y="427" width="320" height="89"/>
+                                <rect key="frame" x="0.0" y="430" width="320" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61T-u3-cMb">
@@ -557,7 +559,7 @@
                                     <constraint firstAttribute="height" constant="89" id="pEp-VS-X1L"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UF-xb-Khj" userLabel="View_TopLabels">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UF-xb-Khj" userLabel="View_TopLabels">
                                 <rect key="frame" x="5" y="32" width="320" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -611,18 +613,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nNs-AW-cj4" firstAttribute="width" secondItem="IiK-k2-qMt" secondAttribute="width" id="0tz-jg-p6x"/>
+                            <constraint firstItem="8W7-Qw-1fO" firstAttribute="leading" secondItem="IiK-k2-qMt" secondAttribute="leading" constant="-2" id="3QS-1H-FMk"/>
                             <constraint firstAttribute="centerX" secondItem="hdc-rt-aE3" secondAttribute="centerX" id="7rX-Gy-jV8"/>
                             <constraint firstItem="WoP-Dl-LVt" firstAttribute="top" secondItem="8W7-Qw-1fO" secondAttribute="bottom" constant="95" id="CK5-PX-ZLz"/>
                             <constraint firstItem="9UF-xb-Khj" firstAttribute="width" secondItem="IiK-k2-qMt" secondAttribute="width" id="GLo-oc-Ccw"/>
                             <constraint firstItem="9UF-xb-Khj" firstAttribute="top" secondItem="HuK-yO-BL4" secondAttribute="bottom" constant="12" id="H20-4J-HY0"/>
                             <constraint firstAttribute="centerX" secondItem="nNs-AW-cj4" secondAttribute="centerX" id="N4i-Tq-HQP"/>
                             <constraint firstAttribute="centerX" secondItem="9UF-xb-Khj" secondAttribute="centerX" constant="-5.5" id="Nns-rv-dRI"/>
-                            <constraint firstAttribute="centerX" secondItem="8W7-Qw-1fO" secondAttribute="centerX" constant="-3" id="STf-MC-gEV"/>
+                            <constraint firstAttribute="centerX" secondItem="8W7-Qw-1fO" secondAttribute="centerX" id="STf-MC-gEV"/>
                             <constraint firstItem="WoP-Dl-LVt" firstAttribute="top" secondItem="nNs-AW-cj4" secondAttribute="bottom" constant="1" id="U9f-Hm-ao7"/>
                             <constraint firstAttribute="centerY" secondItem="la8-ko-4G1" secondAttribute="centerY" id="X1y-kh-uvp"/>
                             <constraint firstAttribute="centerX" secondItem="la8-ko-4G1" secondAttribute="centerX" id="m3J-9l-hoM"/>
-                            <constraint firstItem="8W7-Qw-1fO" firstAttribute="top" secondItem="HuK-yO-BL4" secondAttribute="bottom" constant="83" id="mzZ-70-9M4"/>
-                            <constraint firstItem="hdc-rt-aE3" firstAttribute="top" secondItem="8W7-Qw-1fO" secondAttribute="bottom" constant="-46" id="yVu-Ot-gpp"/>
+                            <constraint firstItem="8W7-Qw-1fO" firstAttribute="top" secondItem="HuK-yO-BL4" secondAttribute="bottom" constant="45" id="mzZ-70-9M4"/>
+                            <constraint firstItem="hdc-rt-aE3" firstAttribute="top" secondItem="8W7-Qw-1fO" secondAttribute="bottom" constant="-43" id="yVu-Ot-gpp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SUj-ad-7HO"/>
