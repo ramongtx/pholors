@@ -13,10 +13,69 @@
 #import <Appirater.h>
 #import <GameKit/GameKit.h>
 
-@interface MainVC () <UIAlertViewDelegate>
+@interface MainVC () <UIAlertViewDelegate, GKGameCenterControllerDelegate>
+
+@property BOOL gameCenterEnabled;
+@property NSString* leaderboardIdentifier;
+
 @end
 
 @implementation MainVC
+
+- (void)authenticateLocalPlayer
+{
+    GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];
+    
+    localPlayer.authenticateHandler = ^(UIViewController * viewController, NSError * error)
+    {
+        if (viewController != nil) {
+            [self presentViewController:viewController
+                               animated:YES
+                             completion:nil];
+        } else {
+            if ([GKLocalPlayer localPlayer].authenticated) {
+                _gameCenterEnabled = YES;
+                
+                // Get the default leaderboard identifier.
+                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error)
+                 {
+                     
+                     if (error != nil) {
+                         NSLog(@"%@", [error localizedDescription]);
+                     } else {
+                         _leaderboardIdentifier = leaderboardIdentifier;
+                     }
+                 }];
+            } else {
+                _gameCenterEnabled = NO;
+            }
+        }
+    };
+}
+
+- (void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard
+{
+    GKGameCenterViewController* gcViewController = [[GKGameCenterViewController alloc] init];
+    
+    gcViewController.gameCenterDelegate = self;
+    
+    if (shouldShowLeaderboard) {
+        gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+        gcViewController.leaderboardIdentifier = _leaderboardIdentifier;
+    } else {
+        gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
+    }
+    
+    [self presentViewController:gcViewController
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController*)gameCenterViewController
+{
+    [gameCenterViewController dismissViewControllerAnimated:YES
+                                                 completion:nil];
+}
 
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
@@ -45,6 +104,8 @@
     //        }
     //    };
     
+    [self showLeaderboardAndAchievements:YES];
+    
     [RBSharedFunctions shareItems:@[
                                     text,
                                     url,
@@ -69,6 +130,8 @@
     [super viewDidLoad];
     [RBSharedFunctions playSound:@"welcome"
                    withExtension:@"mp3"];
+    
+    [self authenticateLocalPlayer];
     
     NSString* title = @"Titile loco";
     NSString* message = @"Mensagem loclona";

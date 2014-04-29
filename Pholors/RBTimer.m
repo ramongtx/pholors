@@ -8,11 +8,39 @@
 
 #import "RBTimer.h"
 
-@implementation RBTimer
-- (RBTimer*)initWithTimer:(int)time andDelegate:(id<RBTimerProtocol>)delegate{
+@implementation RBTimer {
+    int myTime;
+    bool isStopped;
+}
+- (RBTimer*)initWithTimer:(int)time andDelegate:(id<RBTimerProtocol>)delegate
+{
+    myTime = time;
     self.timerDelegate = delegate;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:time target:self.timerDelegate selector:@selector(onTick) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:myTime
+                                                  target:self.timerDelegate
+                                                selector:@selector(onTick)
+                                                userInfo:nil
+                                                 repeats:YES];
+    
+    isStopped = NO;
     return self;
+}
+
+- (void)start
+{
+    if (isStopped) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:myTime
+                                                      target:self.timerDelegate
+                                                    selector:@selector(onTick)
+                                                    userInfo:nil
+                                                     repeats:YES];
+    }
+}
+
+- (void)stop
+{
+    [self.timer invalidate];
+    isStopped = YES;
 }
 
 @end
