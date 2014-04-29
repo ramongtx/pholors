@@ -27,9 +27,9 @@
 {
     [self.tableView reloadData];
     //uncomment for flabbyness
-    self.flabbyTableManager = nil;
-    self.flabbyTableManager = [[BRFlabbyTableManager alloc] initWithTableView:self.tableView];
-    [self.flabbyTableManager setDelegate:self];
+    //self.flabbyTableManager = nil;
+    //self.flabbyTableManager = [[BRFlabbyTableManager alloc] initWithTableView:self.tableView];
+    //[self.flabbyTableManager setDelegate:self];
 }
 
 - (void)viewDidLoad
@@ -104,9 +104,9 @@
     
     RBLevel* level = [tableData objectAtIndex:indexPath.row];
     
-    [cell setFlabby:YES];
-    [cell setLongPressAnimated:YES];
-    [cell setFlabbyColor:level.color];
+    //[cell setFlabby:YES];
+    //[cell setLongPressAnimated:YES];
+    //[cell setFlabbyColor:level.color];
     
     cell.cellLabel.text = [NSString stringWithFormat:@"%@!", level.colorName];
 
@@ -114,7 +114,7 @@
 
    
     //If we want to change the background color of the cells... we gotta sort by color first
-    cell.backgroundColor = [level.color colorWithAlphaComponent:0.05];
+    //cell.backgroundColor = [level.color colorWithAlphaComponent:0.05];
     
     cell.level = level;
     
