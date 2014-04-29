@@ -70,8 +70,8 @@
     [RBSharedFunctions playSound:@"welcome"
                    withExtension:@"mp3"];
     
-    NSString* title = @"Titile loco";
-    NSString* message = @"Mensagem loclona";
+    //NSString* title = @"Titile loco";
+   // NSString* message = @"Mensagem loclona";
     
     //    [GKNotificationBanner showBannerWithTitle:title
     //                                      message:message
