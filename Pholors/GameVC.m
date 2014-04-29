@@ -7,6 +7,7 @@
 //
 
 #import "GameVC.h"
+#import <GameKit/GameKit.h>
 
 @interface GameVC ()
 
@@ -87,9 +88,11 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
+    [super viewDidAppear:animated];
+    
+    [self.timerController start];
     //[self.navigationController setNavigationBarHidden:YES];
     if (!self.level.isTimeAttack) {
         self.title = self.level.colorName;
@@ -98,7 +101,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.timerController.timer invalidate];
+    [self.timerController stop];
     
     [super viewWillDisappear:animated];
 }
@@ -145,9 +148,25 @@
         [RBSharedFunctions playSound:@"itsaspell"
                        withExtension:@"mp3"];
     
-    if (self.level.isTimeAttack)
+    if (self.level.isTimeAttack) {
         [RBSharedFunctions playSound:@"beam"
                        withExtension:@"mp3"];
+    } else {
+        [self reportChallengeScore];
+    }
+}
+
+- (void)reportChallengeScore
+{
+    GKScore* score = [[GKScore alloc] initWithLeaderboardIdentifier:@"Total_Challenge_Stars"];
+    score.value = [RBGame allStars];
+    
+    [GKScore reportScores:@[score] withCompletionHandler:^(NSError *error)
+     {
+         if (error != nil) {
+             NSLog(@"%@", [error localizedDescription]);
+         }
+     }];
 }
 
 - (int)calculatePoints
