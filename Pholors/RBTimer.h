@@ -10,11 +10,16 @@
 
 @protocol RBTimerProtocol <NSObject>
 @required
--(void) onTick;
+- (void)onTick;
 @end
 
 @interface RBTimer : NSObject
-@property (strong,nonatomic) id <RBTimerProtocol> timerDelegate;
-@property (strong,nonatomic) NSTimer* timer;
+@property(strong, nonatomic) id<RBTimerProtocol> timerDelegate;
+@property(strong, nonatomic) NSTimer* timer;
 - (RBTimer*)initWithTimer:(int)time andDelegate:(id<RBTimerProtocol>)delegate;
+
+- (void)start;
+
+- (void)stop;
+
 @end
