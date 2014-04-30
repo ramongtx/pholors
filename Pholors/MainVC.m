@@ -16,7 +16,6 @@
 @interface MainVC () <UIAlertViewDelegate, GKGameCenterControllerDelegate>
 
 @property BOOL gameCenterEnabled;
-@property NSString* leaderboardIdentifier;
 
 @end
 
@@ -36,16 +35,16 @@
             if ([GKLocalPlayer localPlayer].authenticated) {
                 _gameCenterEnabled = YES;
                 
-                // Get the default leaderboard identifier.
-                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error)
-                 {
-                     
-                     if (error != nil) {
-                         NSLog(@"%@", [error localizedDescription]);
-                     } else {
-                         _leaderboardIdentifier = leaderboardIdentifier;
-                     }
-                 }];
+                //                // Get the default leaderboard identifier.
+                //                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error)
+                //                 {
+                //
+                //                     if (error != nil) {
+                //                         NSLog(@"%@", [error localizedDescription]);
+                //                     } else {
+                //                         _leaderboardIdentifier = leaderboardIdentifier;
+                //                     }
+                //                 }];
             } else {
                 _gameCenterEnabled = NO;
             }
@@ -61,7 +60,7 @@
     
     if (shouldShowLeaderboard) {
         gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
-        gcViewController.leaderboardIdentifier = _leaderboardIdentifier;
+        //gcViewController.leaderboardIdentifier = @"TIME_ATTACK_BEST";
     } else {
         gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
     }
@@ -90,21 +89,19 @@
 {
     
     //[Appirater rateApp];
+    [self sharePholors];
+}
+- (void)clickGameCenter:(id)sender
+{
+    [self showLeaderboardAndAchievements:YES];
+}
+
+- (void)sharePholors
+{
     
     NSString* text = @"I'm playing pholors, its amazing! #pholors";
     NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/app/id824331341"];
     UIImage* image = [UIImage imageNamed:@"pholors"];
-    
-    //    void (^completion)(NSString * activityType, BOOL completed) = ^(NSString * activityType, BOOL completed)
-    //    {
-    //        if (completed) {
-    //            [RBGame increaseLevelPackCount];
-    //            [RBSharedFunctions playSound:@"whistle"
-    //                           withExtension:@"mp3"];
-    //        }
-    //    };
-    
-    [self showLeaderboardAndAchievements:YES];
     
     [RBSharedFunctions shareItems:@[
                                     text,
@@ -165,16 +162,50 @@
 {
     if (buttonIndex == 1) {
         [RBGame clearAll];
+        
+        [self resetAchievements];
+        
         //Call it to update
         [self viewWillAppear:NO];
     }
 }
 
+- (void)resetAchievements
+{
+    [GKAchievement resetAchievementsWithCompletionHandler:^(NSError *error)
+     {
+         if (error != nil) {
+             NSLog(@"%@", [error localizedDescription]);
+         }
+     }];
+    
+    
+    
+}
+
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
+    //    [self.navigationController setNavigationBarHidden:YES];
+    
+    self.navigationItem.title = @"";
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Leaderboards"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(clickGameCenter:)];
+    
+    self.navigationItem.rightBarButtonItem = /*[[UIBarButtonItem alloc] initWithTitle:@"Share"
+                                              style:UIBarButtonItemStylePlain
+                                              target:self
+                                              action:@selector(sharePholors)];*/
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                  target:self
+                                                  action:@selector(sharePholors)];
+    
     self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
     self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
 }

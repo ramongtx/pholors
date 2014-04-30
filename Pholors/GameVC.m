@@ -21,7 +21,6 @@
 {
     [super viewDidLoad];
     
-    
     if (!self.level.isTimeAttack) {
         self.timerLabel.hidden = YES;
         self.timerLabel.textAlignment = NSTextAlignmentCenter;
@@ -32,7 +31,7 @@
     self.color.layer.borderWidth = 2.0;
     self.color.layer.cornerRadius = 25;
     self.color.layer.masksToBounds = YES;
-        
+    
     if (self.level.colorPlayed) {
         self.color.backgroundColor = self.level.colorPlayed;
         self.averageLabel.text = NSLocalizedString(@"Last Played", @"Last played color");
@@ -76,16 +75,14 @@
         
         [imView addSubview:totalStarsBarLabel];
         
-        if(self.level.isTimeAttack){
-        UIBarButtonItem* shareBarButton = [[UIBarButtonItem alloc] initWithCustomView:imView];
-        self.navigationItem.rightBarButtonItems = @[
-                                                    shareBarButton
-                                                    //item3
-                                                    ];
+        if (self.level.isTimeAttack) {
+            UIBarButtonItem* shareBarButton = [[UIBarButtonItem alloc] initWithCustomView:imView];
+            self.navigationItem.rightBarButtonItems = @[
+                                                        shareBarButton
+                                                        //item3
+                                                        ];
         }
     }
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -167,6 +164,8 @@
              NSLog(@"%@", [error localizedDescription]);
          }
      }];
+    
+    [RBGame updateAchievements];
 }
 
 - (int)calculatePoints
@@ -241,7 +240,7 @@
 
 - (void)setTotalPoints:(int)totalPoints
 {
-    _totalPoints = totalPoints;    
+    _totalPoints = totalPoints;
     totalStarsBarLabel.text = [NSString stringWithFormat:@"%ld", (long)totalPoints];
 }
 

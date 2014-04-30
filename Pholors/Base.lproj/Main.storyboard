@@ -28,7 +28,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LevelCell" id="90Z-v0-pgJ" customClass="LevelCollectionCell">
-                                        <rect key="frame" x="13" y="0.0" width="295" height="103"/>
+                                        <rect key="frame" x="13" y="64" width="295" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="295" height="103"/>
@@ -39,7 +39,7 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHM-pp-xFb">
-                                                    <rect key="frame" x="25" y="58" width="65" height="25"/>
+                                                    <rect key="frame" x="25" y="52" width="65" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wc3-Tw-XFF">
@@ -93,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="1008" y="-170"/>
         </scene>
-        <!--MainVC-->
+        <!--MainVC - Pholors-->
         <scene sceneID="uo7-uv-4Ay">
             <objects>
                 <viewController id="hBq-oU-81a" customClass="MainVC" sceneMemberID="viewController">
@@ -249,8 +249,7 @@
                             <constraint firstAttribute="centerX" secondItem="DNE-CB-ipv" secondAttribute="centerX" id="GoF-iQ-aXh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="XF5-B3-Riu"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Pholors" id="XF5-B3-Riu"/>
                     <connections>
                         <outlet property="starsLabel" destination="v93-w1-RX8" id="GBN-wb-BLg"/>
                         <outlet property="timeLabel" destination="SMs-OB-ce4" id="zvy-IW-heL"/>

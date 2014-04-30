@@ -30,6 +30,10 @@
         self.AngularSpacing = spacing; //8.0f;
         self.xOffset = xOff;
         self.wheelType = alignment;
+        
+        self.onScreenAngles = [[NSMutableDictionary alloc] init];
+        self.layoutDelegate = nil;
+        
         [self setup];
     }
     return self;
@@ -101,7 +105,10 @@
     float scaleFactor;
     float deltaX;
     CGAffineTransform translationT;
-    CGAffineTransform rotationT = CGAffineTransformMakeRotation(self.AngularSpacing * newIndex * M_PI / 180);
+    
+    float angle = self.AngularSpacing * newIndex * M_PI / 180;
+    CGAffineTransform rotationT = CGAffineTransformMakeRotation(angle);
+    
     //if(indexPath.item == 3){
     //    NSLog(@"angle 3 :%f", self.AngularSpacing* newIndex);
     //}
@@ -122,6 +129,10 @@
     CGAffineTransform scaleT = CGAffineTransformMakeScale(scaleFactor, scaleFactor);
     theAttributes.alpha = scaleFactor;
     
+    if (scaleFactor > 0.5) {
+        //NSLog(@"SCALE GRANDE: %d", indexPath.row);
+    }
+    
     /*
      if( fabs(self.AngularSpacing* newIndex) > 90 ){
      theAttributes.hidden = YES;
@@ -130,10 +141,33 @@
      }
      */
     
+    [self updateAngle:indexPath.row
+                angle:fabs(angle * 180 / M_PI)];
+    
     theAttributes.transform = CGAffineTransformConcat(scaleT, CGAffineTransformConcat(translationT, rotationT));
     theAttributes.zIndex = indexPath.item;
     
     return (theAttributes);
 }
 
+- (void)updateAngle:(int)row angle:(float)angle
+{
+    
+    if (angle < 30.0) {
+        [self.onScreenAngles setObject:[NSNumber numberWithFloat:angle]
+                                forKey:[NSNumber numberWithInteger:row]];
+        
+        // can only be 4 items in screen at one time
+        [self.onScreenAngles removeObjectForKey:[NSNumber numberWithInteger:row - 4]];
+        [self.onScreenAngles removeObjectForKey:[NSNumber numberWithInteger:row + 4]];
+        
+    } else {
+        [self.onScreenAngles removeObjectForKey:[NSNumber numberWithInteger:row]];
+    }
+    if (self.layoutDelegate) {
+        [self.layoutDelegate updateOnScreenList:self];
+    }
+}
+
+// - (void)
 @end

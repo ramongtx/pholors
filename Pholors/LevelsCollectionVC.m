@@ -12,8 +12,9 @@
 #import "RBGame.h"
 #import "GameVC.h"
 #import "AWCollectionViewDialLayout.h"
+#import "UIColor-MJGAdditions.h"
 
-@interface LevelsCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface LevelsCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource, AWCollectionLayoutProtocol>
 
 @end
 
@@ -41,7 +42,42 @@
     [RBSharedFunctions playSound:@"comein"
                    withExtension:@"mp3"];
     
-    tableData = [RBGame getDefaultLevels];
+    NSArray* levelsArray = [RBGame getDefaultLevels];
+    
+    tableData = [levelsArray sortedArrayUsingComparator:
+                 ^NSComparisonResult(id obj1, id obj2)
+                 {
+                     
+                     RBLevel* l1 = (RBLevel*)obj1;
+                     RBLevel* l2 = (RBLevel*)obj2;
+                     
+                     float hue, saturation, brightness, alpha;
+                     [l1.color getHue:&hue
+                           saturation:&saturation
+                           brightness:&brightness
+                                alpha:&alpha];
+                     float hue2, saturation2, brightness2, alpha2;
+                     [l2.color getHue:&hue2
+                           saturation:&saturation2
+                           brightness:&brightness2
+                                alpha:&alpha2];
+                     if (hue - hue2 < -0.1)
+                         return NSOrderedAscending;
+                     else if (hue - hue2 > 0.1)
+                         return NSOrderedDescending;
+                     
+                     if (saturation - saturation2 < -0.1)
+                         return NSOrderedAscending;
+                     else if (saturation - saturation2 > 0.1)
+                         return NSOrderedDescending;
+                     
+                     if (brightness < brightness2)
+                         return NSOrderedAscending;
+                     else if (brightness > brightness2)
+                         return NSOrderedDescending;
+                     
+                     return NSOrderedSame;
+                 }];
     
     dialLayout = [[AWCollectionViewDialLayout alloc] initWithRadius:300.0
                                                   andAngularSpacing:18.0
@@ -49,6 +85,8 @@
                                                        andAlignment:WHEELALIGNMENTCENTER
                                                       andItemHeight:100
                                                          andXOffset:170];
+    
+    dialLayout.layoutDelegate = self;
     
     [self.collectionView setCollectionViewLayout:dialLayout];
     
@@ -66,10 +104,9 @@
     
     UIBarButtonItem* starImage = [[UIBarButtonItem alloc] initWithCustomView:imView];
     self.navigationItem.rightBarButtonItems = @[
-                                                    starImage
-                                                    //item3
-                                                    ];
-    
+                                                starImage
+                                                //item3
+                                                ];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -84,7 +121,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.collectionView reloadData];
-    totalStarsBarLabel.text = [NSString stringWithFormat:@"%ld",[RBGame allStars]];
+    totalStarsBarLabel.text = [NSString stringWithFormat:@"%ld", [RBGame allStars]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,19 +147,14 @@
     LevelCollectionCell* cell = [cv dequeueReusableCellWithReuseIdentifier:simpleTableIdentifier
                                                               forIndexPath:indexPath];
     
-    //    if (cell == nil) {
-    //        cell = [[LevelCollectionCell alloc] init
-    //                                     reuseIdentifier:simpleTableIdentifier];
-    //    }
-    
     RBLevel* level = [tableData objectAtIndex:indexPath.row];
     
     cell.cellLabel.text = [NSString stringWithFormat:@"%@!", level.colorName];
     
-    cell.cellLabel.textColor = [UIColor blackColor];
+    cell.cellLabel.textColor = [level.color blackOrWhiteContrastingColor];
     
     //If we want to change the background color of the cells... we gotta sort by color first
-    cell.backgroundColor = [level.color colorWithAlphaComponent:0.05];
+    //cell.backgroundColor = [level.color colorWithAlphaComponent:0.05];
     
     cell.level = level;
     
@@ -136,12 +168,12 @@
     else
         cell.starImage.image = [UIImage imageNamed:@"3star.png"];
     
-    cell.colorImage.layer.borderWidth = 2.0;
-    cell.colorImage.layer.cornerRadius = 25;
+    //cell.colorImage.layer.borderWidth = 2.0;
+    cell.colorImage.layer.cornerRadius = 15;
     cell.colorImage.image = nil;
     cell.colorImage.backgroundColor = level.color;
     
-//    cv.backgroundColor = level.color;
+    //  cv.backgroundColor = level.color;
     
     return cell;
 }
@@ -162,6 +194,42 @@
         GameVC* vc = [segue destinationViewController];
         vc.level = selectedLevel;
     }
+}
+
+#pragma mark - Dial layout delegate
+- (void)updateOnScreenList:(id)layoutCollection
+{
+    AWCollectionViewDialLayout* layout = (AWCollectionViewDialLayout*)layoutCollection;
+    //NSLog(@"%@", layout.onScreenAngles);
+    
+    if (layout.onScreenAngles.count == 0)
+        return;
+    
+    float r = 0, g = 0, b = 0;
+    
+    float factSum = 0;
+    
+    for (NSNumber* row in layout.onScreenAngles) {
+        float angle = [layout.onScreenAngles[row] floatValue];
+        RBLevel* level = [tableData objectAtIndex:[row integerValue]];
+        
+        float factor = 1 - angle / 30.0;
+        
+        const CGFloat* colors = CGColorGetComponents(level.color.CGColor);
+        
+        factor = factor * factor * factor * factor;
+        
+        r += factor * colors[0];
+        g += factor * colors[1];
+        b += factor * colors[2];
+        
+        factSum += factor;
+    }
+    
+    self.collectionView.backgroundColor = [UIColor colorWithRed:r / factSum
+                                                          green:g / factSum
+                                                           blue:b / factSum
+                                                          alpha:1];
 }
 
 #pragma mark - UICollectionViewDelegate methods

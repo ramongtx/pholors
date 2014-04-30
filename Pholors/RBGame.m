@@ -8,11 +8,12 @@
 
 #import "RBGame.h"
 #import "UIColor+Named.h"
+#import <GameKit/GameKit.h>
 
 @implementation RBGame
 
 static long int timeRecord;
-static long int levelPackCount = 1;
+static long int levelPackCount = 2;
 
 - (id)init
 {
@@ -27,7 +28,7 @@ static long int levelPackCount = 1;
 {
     RBLevel* newLevel = [[RBLevel alloc] init];
     [self.levels addObject:newLevel];
-
+    
     // maybe remove this
     [self saveLevels];
 }
@@ -98,16 +99,16 @@ static long int levelPackCount = 1;
     //                             @"Mango Tango": @"#ff8243"
     //                             };
     NSArray* colors = [UIColor getColorsData];
-
+    
     if (defaultLevels == NULL) {
         defaultLevels = [[NSMutableArray alloc] init];
     }
-
+    
     for (int i = 0; i < [colors count]; i++) {
-
+        
         if (i % 40 < levelPackCount) {
             NSDictionary* color = [colors objectAtIndex:i];
-
+            
             RBLevel* newLevel = [[RBLevel alloc] initWithName:[color objectForKey:@"label"]
                                                           red:[[color objectForKey:@"r"] integerValue]
                                                         green:[[color objectForKey:@"g"] integerValue]
@@ -116,7 +117,7 @@ static long int levelPackCount = 1;
                 [defaultLevels addObject:newLevel];
         }
     }
-
+    
     [self saveDefaultLevels];
     [[NSUserDefaults standardUserDefaults] setBool:YES
                                             forKey:@"levelset"];
@@ -128,7 +129,7 @@ static long int levelPackCount = 1;
         if ([level.colorName isEqualToString:color])
             return YES;
     }
-
+    
     return NO;
 }
 
@@ -157,6 +158,17 @@ static long int levelPackCount = 1;
         [[NSUserDefaults standardUserDefaults] setInteger:newRecord
                                                    forKey:@"timeRecord"];
         timeRecord = newRecord;
+        
+        GKScore* score = [[GKScore alloc] initWithLeaderboardIdentifier:@"TIME_ATTACK_BEST"];
+        score.value = timeRecord;
+        
+        [GKScore reportScores:@[score] withCompletionHandler:^(NSError *error)
+         {
+             if (error != nil) {
+                 NSLog(@"%@", [error localizedDescription]);
+             }
+         }];
+        
         return YES;
     }
     return NO;
@@ -189,9 +201,34 @@ static long int levelPackCount = 1;
 
 + (void)increaseLevelPackCount
 {
-    levelPackCount = 2;
+    levelPackCount = 3;
     //levelPackCount += 1;
     [RBGame createDefaultSet];
+}
+
++ (void)updateAchievements
+{
+    NSString* achievementIdentifier;
+    float progressPercentage = 0.0;
+    
+    GKAchievement* scoreAchievement = nil;
+    
+    int currentStars = [RBGame allStars];
+    
+    if (currentStars <= 5) {
+        progressPercentage = currentStars * 100 / 5;
+        achievementIdentifier = @"5_Challenge_Stars";
+    }
+    
+    scoreAchievement = [[GKAchievement alloc] initWithIdentifier:achievementIdentifier];
+    scoreAchievement.percentComplete = progressPercentage;
+    
+    [GKAchievement reportAchievements:@[scoreAchievement] withCompletionHandler:^(NSError *error)
+     {
+         if (error != nil) {
+             NSLog(@"%@", [error localizedDescription]);
+         }
+     }];
 }
 
 @end
