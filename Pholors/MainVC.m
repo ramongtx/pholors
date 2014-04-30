@@ -132,18 +132,6 @@
                    withExtension:@"mp3"];
     
     [self authenticateLocalPlayer];
-    
-    NSString* title = @"Titile loco";
-    NSString* message = @"Mensagem loclona";
-    
-    //    [GKNotificationBanner showBannerWithTitle:title
-    //                                      message:message
-    //                            completionHandler:^{
-    //                                NSLog(@"here booy");
-    //                            }];
-    //
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

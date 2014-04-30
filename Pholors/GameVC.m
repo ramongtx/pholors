@@ -10,8 +10,6 @@
 #import <GameKit/GameKit.h>
 
 @interface GameVC ()
-@property(weak, nonatomic) IBOutlet UILabel* totalStarsLabel;
-@property(weak, nonatomic) IBOutlet UIImageView* topStarsImage;
 
 @end
 
@@ -24,11 +22,7 @@
     [super viewDidLoad];
     
     
-    [self.totalStarsLabel sizeToFit];
-    
     if (!self.level.isTimeAttack) {
-        self.totalStarsLabel.hidden = YES;
-        self.topStarsImage.hidden = YES;
         self.timerLabel.hidden = YES;
         self.timerLabel.textAlignment = NSTextAlignmentCenter;
         self.colorNameLabel.text = self.level.colorName;
@@ -38,9 +32,7 @@
     self.color.layer.borderWidth = 2.0;
     self.color.layer.cornerRadius = 25;
     self.color.layer.masksToBounds = YES;
-    
-    self.totalStarsLabel.text = [NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"Pontuation:", @"Pontuation"), self.level.starsScored];
-    
+        
     if (self.level.colorPlayed) {
         self.color.backgroundColor = self.level.colorPlayed;
         self.averageLabel.text = NSLocalizedString(@"Last Played", @"Last played color");
@@ -84,13 +76,16 @@
         
         [imView addSubview:totalStarsBarLabel];
         
-        UIBarButtonItem* item3 = [[UIBarButtonItem alloc] initWithCustomView:imView];
-        
+        if(self.level.isTimeAttack){
+        UIBarButtonItem* shareBarButton = [[UIBarButtonItem alloc] initWithCustomView:imView];
         self.navigationItem.rightBarButtonItems = @[
-                                                    item3
+                                                    shareBarButton
                                                     //item3
                                                     ];
+        }
     }
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -99,9 +94,7 @@
     
     [self.timerController start];
     //[self.navigationController setNavigationBarHidden:YES];
-    if (self.level.isTimeAttack) {
-        //self.title = @"Time Attack";
-    } else {
+    if (!self.level.isTimeAttack) {
         self.title = self.level.colorName;
     }
 }
@@ -248,9 +241,7 @@
 
 - (void)setTotalPoints:(int)totalPoints
 {
-    _totalPoints = totalPoints;
-    self.totalStarsLabel.text = [NSString stringWithFormat:@"%@ %ld", NSLocalizedString(@"Total Stars:", @"Total Stars:"), (long)self.totalPoints];
-    
+    _totalPoints = totalPoints;    
     totalStarsBarLabel.text = [NSString stringWithFormat:@"%ld", (long)totalPoints];
 }
 

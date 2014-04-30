@@ -21,6 +21,7 @@
     NSArray* tableData;
     RBLevel* selectedLevel;
     AWCollectionViewDialLayout* dialLayout;
+    UILabel* totalStarsBarLabel;
 }
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
@@ -52,6 +53,23 @@
     [self.collectionView setCollectionViewLayout:dialLayout];
     
     // Do any additional setup after loading the view.
+    UIImageView* imView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"singleStar"]];
+    
+    [imView setFrame:CGRectMake(0, 0, 50, 50)];
+    
+    totalStarsBarLabel = [[UILabel alloc] init];
+    totalStarsBarLabel.frame = CGRectMake(5, 15, 40, 20);
+    
+    totalStarsBarLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [imView addSubview:totalStarsBarLabel];
+    
+    UIBarButtonItem* starImage = [[UIBarButtonItem alloc] initWithCustomView:imView];
+    self.navigationItem.rightBarButtonItems = @[
+                                                    starImage
+                                                    //item3
+                                                    ];
+    
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -66,6 +84,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.collectionView reloadData];
+    totalStarsBarLabel.text = [NSString stringWithFormat:@"%ld",[RBGame allStars]];
 }
 
 - (void)didReceiveMemoryWarning
