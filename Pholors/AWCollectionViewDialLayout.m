@@ -150,7 +150,7 @@
     return (theAttributes);
 }
 
-- (void)updateAngle:(int)row angle:(float)angle
+- (void)updateAngle:(NSInteger)row angle:(CGFloat)angle
 {
     
     if (angle < 30.0) {

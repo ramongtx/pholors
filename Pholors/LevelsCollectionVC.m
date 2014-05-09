@@ -51,12 +51,12 @@
                      RBLevel* l1 = (RBLevel*)obj1;
                      RBLevel* l2 = (RBLevel*)obj2;
                      
-                     float hue, saturation, brightness, alpha;
+                     CGFloat hue, saturation, brightness, alpha;
                      [l1.color getHue:&hue
                            saturation:&saturation
                            brightness:&brightness
                                 alpha:&alpha];
-                     float hue2, saturation2, brightness2, alpha2;
+                     CGFloat hue2, saturation2, brightness2, alpha2;
                      [l2.color getHue:&hue2
                            saturation:&saturation2
                            brightness:&brightness2

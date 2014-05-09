@@ -238,7 +238,7 @@
     }
 }
 
-- (void)setTotalPoints:(int)totalPoints
+- (void)setTotalPoints:(NSInteger)totalPoints
 {
     _totalPoints = totalPoints;
     totalStarsBarLabel.text = [NSString stringWithFormat:@"%ld", (long)totalPoints];
