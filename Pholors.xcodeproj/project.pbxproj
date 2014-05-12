@@ -15,6 +15,7 @@
 		3DB9D18A18F7056B00CE65EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DB9D18C18F7056B00CE65EC /* Localizable.strings */; };
 		3DC3D33F1818355B00096DA2 /* EndGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3D33E1818355B00096DA2 /* EndGameVC.m */; };
 		CB43F60814AF46C0B0C9211E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CB383E550F4B1A8AF3D239 /* libPods.a */; };
+		D54B2CCB191D39660017CAB2 /* UIColor-MJGAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D54B2CCA191D39660017CAB2 /* UIColor-MJGAdditions.m */; };
 		D591366D18B3D42200CEE732 /* UIColor+Named.m in Sources */ = {isa = PBXBuildFile; fileRef = D591366C18B3D42200CEE732 /* UIColor+Named.m */; };
 		D591367018B3D44300CEE732 /* Colors.json in Resources */ = {isa = PBXBuildFile; fileRef = D591366F18B3D44300CEE732 /* Colors.json */; };
 		D592052218183B11004F58BD /* LevelsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D592052118183B11004F58BD /* LevelsVC.m */; };
@@ -95,6 +96,8 @@
 		3DC3D33D1818355B00096DA2 /* EndGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameVC.h; sourceTree = "<group>"; };
 		3DC3D33E1818355B00096DA2 /* EndGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameVC.m; sourceTree = "<group>"; };
 		A5F8C9D378C04F00915ED6D5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D54B2CC9191D39660017CAB2 /* UIColor-MJGAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-MJGAdditions.h"; sourceTree = "<group>"; };
+		D54B2CCA191D39660017CAB2 /* UIColor-MJGAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-MJGAdditions.m"; sourceTree = "<group>"; };
 		D591366B18B3D42200CEE732 /* UIColor+Named.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Named.h"; sourceTree = "<group>"; };
 		D591366C18B3D42200CEE732 /* UIColor+Named.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Named.m"; sourceTree = "<group>"; };
 		D591366F18B3D44300CEE732 /* Colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Colors.json; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 		D591366E18B3D42F00CEE732 /* Color */ = {
 			isa = PBXGroup;
 			children = (
+				D54B2CC9191D39660017CAB2 /* UIColor-MJGAdditions.h */,
+				D54B2CCA191D39660017CAB2 /* UIColor-MJGAdditions.m */,
 				D591366F18B3D44300CEE732 /* Colors.json */,
 				D591366B18B3D42200CEE732 /* UIColor+Named.h */,
 				D591366C18B3D42200CEE732 /* UIColor+Named.m */,
@@ -560,6 +565,7 @@
 				F6E663931816F9AF0094EC26 /* RBImageProcessor.m in Sources */,
 				D5D8E920190AA072005138DE /* RBCustomSegue.m in Sources */,
 				F6E6634D1816F8740094EC26 /* AppDelegate.m in Sources */,
+				D54B2CCB191D39660017CAB2 /* UIColor-MJGAdditions.m in Sources */,
 				D597BEB31817F72800F3881E /* RBGame.m in Sources */,
 				F6E663491816F8740094EC26 /* main.m in Sources */,
 				D5D8E911190A8BF7005138DE /* LevelsCollectionVC.m in Sources */,
@@ -723,6 +729,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1.1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pholors/Pholors-Prefix.pch";
 				INFOPLIST_FILE = "Pholors/Pholors-Info.plist";

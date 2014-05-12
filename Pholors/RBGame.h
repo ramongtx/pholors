@@ -12,7 +12,7 @@
 @interface RBGame : NSObject
 
 @property(strong, nonatomic) NSMutableArray* levels;
-@property(nonatomic) int totalPoints;
+@property(nonatomic) NSInteger totalPoints;
 @property(strong, nonatomic) NSUserDefaults* prefs;
 
 - (void)createLevel;
@@ -24,12 +24,12 @@
 + (void)saveDefaultLevels;
 + (void)createDefaultSet;
 + (NSArray*)getDefaultLevels;
-+ (long)allStars;
-+ (long)maxStars;
++ (NSInteger)allStars;
++ (NSInteger)maxStars;
 
-+ (BOOL)updateRecord:(int)newRecord;
++ (BOOL)updateRecord:(NSInteger)newRecord;
 + (void)loadRecords;
-+ (long int)getRecord;
++ (NSInteger)getRecord;
 + (void)clearRecord;
 
 + (void)clearAll;

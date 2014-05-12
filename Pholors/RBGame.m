@@ -138,21 +138,21 @@ static long int levelPackCount = 2;
     return defaultLevels;
 }
 
-+ (long)allStars
++ (NSInteger)allStars
 {
-    long i = 0;
+    NSInteger i = 0;
     for (RBLevel* l in defaultLevels) {
         i += [l stars];
     }
     return i;
 }
 
-+ (long)maxStars
++ (NSInteger)maxStars
 {
     return 3 * [defaultLevels count];
 }
 
-+ (BOOL)updateRecord:(int)newRecord
++ (BOOL)updateRecord:(NSInteger)newRecord
 {
     if (newRecord > timeRecord) {
         [[NSUserDefaults standardUserDefaults] setInteger:newRecord
@@ -179,7 +179,7 @@ static long int levelPackCount = 2;
     timeRecord = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeRecord"];
 }
 
-+ (long int)getRecord
++ (NSInteger)getRecord
 {
     return timeRecord;
 }
@@ -213,7 +213,7 @@ static long int levelPackCount = 2;
     
     GKAchievement* scoreAchievement = nil;
     
-    int currentStars = [RBGame allStars];
+    NSInteger currentStars = [RBGame allStars];
     
     if (currentStars <= 5) {
         progressPercentage = currentStars * 100 / 5;

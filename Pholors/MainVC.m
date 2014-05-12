@@ -116,7 +116,7 @@
              [RBSharedFunctions playSound:@"whistle"
                             withExtension:@"mp3"];
              self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
-             self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
+             self.timeLabel.text = [NSString stringWithFormat:@"%li", (long)[RBGame getRecord]];
          }
      }
      ];
@@ -178,12 +178,7 @@
              NSLog(@"%@", [error localizedDescription]);
          }
      }];
-    
-    
-    
 }
-
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -207,7 +202,7 @@
                                                   action:@selector(sharePholors)];
     
     self.starsLabel.text = [NSString stringWithFormat:@"%li/%li", [RBGame allStars], [RBGame maxStars]];
-    self.timeLabel.text = [NSString stringWithFormat:@"%li", [RBGame getRecord]];
+    self.timeLabel.text = [NSString stringWithFormat:@"%li", (long)[RBGame getRecord]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
